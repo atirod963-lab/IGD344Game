@@ -587,6 +587,7 @@ GameObject:
   - component: {fileID: 968690677}
   - component: {fileID: 968690681}
   - component: {fileID: 968690682}
+  - component: {fileID: 968690683}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -744,6 +745,18 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!114 &968690683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968690676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee729d9bb7375d42907168bc9353bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1079689590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,6 +1354,8 @@ GameObject:
   - component: {fileID: 2134195552}
   - component: {fileID: 2134195551}
   - component: {fileID: 2134195553}
+  - component: {fileID: 2134195554}
+  - component: {fileID: 2134195555}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -1424,7 +1439,7 @@ MonoBehaviour:
     ScreenPosition: {x: 0, y: 0}
     DeadZone:
       Enabled: 1
-      Size: {x: 0.8, y: 0.8}
+      Size: {x: 0, y: 0}
     HardLimits:
       Enabled: 0
       Size: {x: 0.8, y: 0.8}
@@ -1437,6 +1452,38 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
+--- !u!114 &2134195554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134195549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoundingShape2D: {fileID: 0}
+  Damping: 0.5
+  SlowingDistance: 5
+  OversizeWindow:
+    Enabled: 0
+    MaxWindowSize: 0
+    Padding: 0
+  m_LegacyMaxWindowSize: -2
+--- !u!114 &2134195555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2134195549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee729d9bb7375d42907168bc9353bb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
