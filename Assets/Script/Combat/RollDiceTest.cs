@@ -2,40 +2,78 @@ using UnityEngine;
 
 public class RollDiceTest : MonoBehaviour
 {
-    public DataLuckPlayer playerStats; // ลาก Object ที่มี DataLuckPlayer มาใส่
+    public DataLuckPlayer playerStats; // ลาก Object ที่มีสคริปต์ DataLuckPlayer มาใส่
+    public int numberOfDice = 4;
 
-    public void RollDice()
+    void Start()
     {
-        int totalScore = 0;
-        int numberOfDice = 4;
-        int luckValue = playerStats.baseLuck;
+        // 1. ทอย 1 ครั้งตอนกดเริ่มเกม
+        Debug.Log("--- [Start Game] เริ่มทอยครั้งแรก ---");
+        RollAllDice();
+    }
 
-        Debug.Log($"--- เริ่มการทอยลูกเต๋า (Luck: {luckValue}) ---");
+    // 2. ฟังก์ชันตรวจจับการเดินเข้าพื้นที่ (Trigger)
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("--- [Area Entered] เดินเข้าพื้นที่! เริ่มทอยใหม่ ---");
+            RollAllDice();
+        }
+    }
+
+    // ฟังก์ชันหลักในการทอยลูกเต๋า 4 ลูก
+    public void RollAllDice()
+    {
+        if (playerStats == null)
+        {
+            Debug.LogError("กรุณาลาก DataLuckPlayer มาใส่ในช่อง Player Stats ก่อนครับ!");
+            return;
+        }
+
+        int total = 0;
+        int luck = playerStats.baseLuck; // ค่าโชค 0 - 100
+
+        Debug.Log($"<color=cyan>กำลังทอยด้วยค่า Luck: {luck}</color>");
 
         for (int i = 0; i < numberOfDice; i++)
         {
-            int result = RollSingleDice(luckValue);
-            totalScore += result;
-            Debug.Log($"ลูกที่ {i + 1}: ออกแต้ม {result}");
+            int finalResult = GetWeightedRoll(luck);
+            total += finalResult;
+            Debug.Log($"ลูกเต๋าใบที่ {i + 1}: สุ่มได้แต้ม {finalResult}");
         }
 
-        Debug.Log($"คะแนนรวมทั้งหมด: {totalScore}");
+        Debug.Log($"<color=yellow>รวมคะแนนทั้งหมด: {total}</color>");
     }
 
-    // ฟังก์ชันทอยลูกเต๋า 1 ลูก โดยใช้ Luck ช่วย
-    int RollSingleDice(int luck)
+    // ฟังก์ชันคำนวณการสุ่มแบบถ่วงน้ำหนักตามค่าโชค
+    private int GetWeightedRoll(int luck)
     {
-        // ทอยครั้งที่ 1 (พื้นฐาน)
-        int roll1 = Random.Range(1, 21);
+        // สุ่มเลขดวง 0-100 เพื่อเลือกว่าจะตกกลุ่มไหน
+        float chanceRoll = Random.Range(0f, 100f);
 
-        // ถ้า Luck สูง เช่น Luck 15 อาจจะมีโอกาส 15% ที่จะทอยใหม่แล้วเลือกค่าที่มากกว่า
-        // หรือใช้วิธีง่ายๆ: ถ้าสุ่มได้เลขน้อยกว่า Luck ให้มีโอกาสทอยใหม่
-        if (Random.Range(0, 100) < luck)
+        // --- คำนวณขอบเขตโอกาส ---
+        // ถ้า Luck 0: โอกาสได้แต้มสูง (16-20) คือ 15%
+        // ถ้า Luck 100: โอกาสได้แต้มสูง (16-20) คือ 15 + 50 = 65%
+        float highThreshold = 15f + (luck * 0.5f);
+
+        // โอกาสได้แต้มกลาง (6-15) จะอยู่ที่ประมาณ 60% และจะค่อยๆ โดนบีบถ้า Luck สูงมากๆ
+        float midThreshold = highThreshold + 60f;
+
+        if (chanceRoll < highThreshold)
         {
-            int roll2 = Random.Range(1, 21);
-            return Mathf.Max(roll1, roll2); // เลือกแต้มที่สูงที่สุดจากการทอยสองครั้ง
+            // กลุ่มแต้มสูง: สุ่มจริงในช่วง 16 ถึง 20
+            return Random.Range(16, 21);
         }
-
-        return roll1;
+        else if (chanceRoll < midThreshold)
+        {
+            // กลุ่มแต้มกลาง: สุ่มจริงในช่วง 6 ถึง 15
+            return Random.Range(6, 16);
+        }
+        else
+        {
+            // กลุ่มแต้มต่ำ: สุ่มจริงในช่วง 1 ถึง 5
+            return Random.Range(1, 6);
+        }
     }
 }
