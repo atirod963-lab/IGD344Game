@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using Unity.Cinemachine;
 
 public class Player : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class Player : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             rb = GetComponent<Rigidbody2D>();
-
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
@@ -27,16 +27,22 @@ public class Player : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // ย้ายตำแหน่งเกิด
         if (NextSpawnPosition != Vector3.zero)
         {
-            // บังคับ z = 0 สำหรับ 2D
             Vector3 spawnPos = NextSpawnPosition;
             spawnPos.z = 0f;
+            rb.position = spawnPos;
+        }
 
-            if (rb != null)
-                rb.position = spawnPos;   // แนะนำสำหรับ Rigidbody2D
-            else
-                transform.position = spawnPos;
+        // ✅ Cinemachine 3
+        CinemachineCamera cam =
+            FindAnyObjectByType<CinemachineCamera>();
+
+        if (cam != null)
+        {
+            cam.Follow = transform;
+            cam.LookAt = transform; // 2D ใส่หรือไม่ใส่ก็ได้
         }
     }
 }
