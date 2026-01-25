@@ -2,5 +2,5 @@ using UnityEngine;
 
 public class DataLuckPlayer : MonoBehaviour
 {
-    public int baseLuck { get; private set; } = 80;
+    public int baseLuck { get; private set; } = 15;
 }
