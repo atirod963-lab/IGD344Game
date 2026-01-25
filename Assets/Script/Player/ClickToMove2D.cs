@@ -3,43 +3,73 @@
 public class ClickToMove2D : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float holdThreshold = 0.2f;
 
     private Vector3 targetPosition;
-    private bool isMoving = false;
+    private bool isMoving;
+    private bool isHolding;
+    private float mouseHoldTime;
+
+    private Rigidbody2D rb;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
         HandleMouseInput();
+    }
+
+    void FixedUpdate()
+    {
         Move();
     }
 
     void HandleMouseInput()
     {
-        if (Input.GetMouseButtonDown(1)) // คลิกขวา
+        if (Input.GetMouseButtonDown(1))
         {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPos.z = 0f;
+            mouseHoldTime = 0f;
+            isHolding = false;
+        }
 
-            // ยิง Raycast เพื่อตรวจสอบว่าคลิกโดนอะไร
-            RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
+        if (Input.GetMouseButton(1))
+        {
+            mouseHoldTime += Time.deltaTime;
 
-            if (hit.collider == null)
+            if (mouseHoldTime >= holdThreshold)
             {
-                // คลิกนอกแมพ → หยุดเดิน
-                isMoving = false;
-                return;
+                isHolding = true;
+                SetTargetToMouse();
             }
+        }
 
-            if (hit.collider.CompareTag("Ground"))
-            {
-                targetPosition = mouseWorldPos;
-                isMoving = true;
-            }
-            else
-            {
-                // คลิกโดนอย่างอื่นที่ไม่ใช่แมพ → หยุด
-                isMoving = false;
-            }
+        if (Input.GetMouseButtonUp(1))
+        {
+            if (!isHolding)
+                SetTargetToMouse();
+
+            isHolding = false;
+        }
+    }
+
+    void SetTargetToMouse()
+    {
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0f;
+
+        RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
+
+        if (hit.collider != null && hit.collider.CompareTag("Ground"))
+        {
+            targetPosition = mouseWorldPos;
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
         }
     }
 
@@ -47,30 +77,23 @@ public class ClickToMove2D : MonoBehaviour
     {
         if (!isMoving) return;
 
-        Vector3 nextPos = Vector3.MoveTowards(
-            transform.position,
+        Vector2 nextPos = Vector2.MoveTowards(
+            rb.position,
             targetPosition,
-            moveSpeed * Time.deltaTime
+            moveSpeed * Time.fixedDeltaTime
         );
 
-        // เช็คสิ่งกีดขวางระหว่างทาง
-        RaycastHit2D hit = Physics2D.Raycast(
-            transform.position,
-            (nextPos - transform.position),
-            Vector2.Distance(transform.position, nextPos)
-        );
+        rb.MovePosition(nextPos);
 
-        if (hit.collider != null && hit.collider.CompareTag("Obstacle"))
+        if (!isHolding && Vector2.Distance(rb.position, targetPosition) < 0.05f)
         {
-            // ชนสิ่งกีดขวาง → หยุด
             isMoving = false;
-            return;
         }
+    }
 
-        transform.position = nextPos;
-
-        // ถึงจุดหมายแล้ว
-        if (Vector3.Distance(transform.position, targetPosition) < 0.05f)
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Obstacle"))
         {
             isMoving = false;
         }
