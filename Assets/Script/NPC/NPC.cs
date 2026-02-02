@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class NPC : MonoBehaviour
 
         if (!other.CompareTag("Player")) return;
 
-        hasTalked = true;
+        
         DialogueManager.Instance.StartDialogue(dialogue);
     }
 }
