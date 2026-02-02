@@ -3,12 +3,12 @@ using UnityEngine;
 public class RollDiceTest : MonoBehaviour
 {
     [Header("Settings")]
-    public DataLuckPlayer playerStats; // สถิติของผู้เล่น
+    public DataLuckPlayer playerStats;
     public int numberOfDice = 4;
 
     [Header("Enemy Stats")]
     public int enemyHP = 30;
-    public int enemyLuck = 5; // โชคของศัตรู
+    public int enemyLuck = 5;
 
     void Start()
     {
@@ -19,13 +19,15 @@ public class RollDiceTest : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // ถ้าชนแล้วเลือดศัตรูยังมีอยู่ ให้เข้าสู่การ Battle
             if (enemyHP > 0)
             {
                 Battle();
             }
             else
             {
-                Debug.Log("ศัตรูตัวนี้ตายแล้ว!");
+                // ถ้าเลือดหมดอยู่แล้ว (ซึ่งปกติจะถูกทำลายไปแล้ว) ให้ทำลายทิ้ง
+                Die();
             }
         }
     }
@@ -34,15 +36,11 @@ public class RollDiceTest : MonoBehaviour
     {
         if (playerStats == null) return;
 
-        // 1. ผู้เล่นทอย (ใช้ค่า Luck จากสคริปต์)
         int playerTotal = RollDices(playerStats.baseLuck, "ผู้เล่น");
-
-        // 2. ศัตรูทอย (ใช้ค่า Luck ที่ตั้งไว้ 5)
         int enemyTotal = RollDices(enemyLuck, "ศัตรู");
 
         Debug.Log($"<color=cyan>แต้มสรุป -> ผู้เล่น: {playerTotal} VS ศัตรู: {enemyTotal}</color>");
 
-        // 3. เปรียบเทียบผล
         if (playerTotal >= enemyTotal)
         {
             enemyHP -= 5;
@@ -54,13 +52,20 @@ public class RollDiceTest : MonoBehaviour
             Debug.Log($"<color=orange>แพ้! ตีเข้าแค่ 3 หน่วย (เลือดศัตรูเหลือ: {enemyHP})</color>");
         }
 
+        // เช็คตรงนี้: ถ้าเลือดหมดหลังจบ Battle ให้เรียกฟังก์ชันตายทันที
         if (enemyHP <= 0)
         {
-            Debug.Log("<color=red><b>ศัตรูพ่ายแพ้!</b></color>");
+            Die();
         }
     }
 
-    // ฟังก์ชันช่วยทอยลูกเต๋าตามจำนวนและค่าโชค
+    // แยกฟังก์ชันการตายออกมาเพื่อให้เรียกใช้ง่ายและดูสะอาด
+    private void Die()
+    {
+        Debug.Log("<color=red><b>ศัตรูพ่ายแพ้และถูกทำลาย!</b></color>");
+        Destroy(gameObject); // แก้จาก Destroy.gameObject; เป็นแบบนี้ครับ
+    }
+
     private int RollDices(int luck, string ownerName)
     {
         int total = 0;
@@ -71,7 +76,6 @@ public class RollDiceTest : MonoBehaviour
         return total;
     }
 
-    // ระบบสุ่มแบบถ่วงน้ำหนัก (เหมือนเดิม)
     private int GetWeightedRoll(int luck)
     {
         float chanceRoll = Random.Range(0f, 100f);
