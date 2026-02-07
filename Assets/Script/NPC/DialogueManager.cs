@@ -44,10 +44,17 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void AcceptQuest()
-    {
-        currentDialogue?.OnChoiceSelected(0);
-        EndDialogue();
-    }
+{
+     // ดึงค่าจากตัวพักข้อมูลชั่วคราวมาใส่ใน QuestManager
+    QuestData newData = new QuestData {
+        questName = TempQuestHolder.Name,
+        goalType = TempQuestHolder.Type,
+        requiredAmount = TempQuestHolder.Amount
+    };
+    
+    QuestManager.Instance.AddQuest(newData);
+    EndDialogue();
+}
 
     public void SubmitQuest()
     {

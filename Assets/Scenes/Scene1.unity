@@ -411,6 +411,9 @@ MonoBehaviour:
   questLogText: {fileID: 1680845114}
   currentQuestName: 
   currentStatus: 0
+  currentGoalType: 0
+  currentAmount: 0
+  targetAmount: 0
 --- !u!4 &216282904
 Transform:
   m_ObjectHideFlags: 0
@@ -579,7 +582,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
-  m_sharedMaterial: {fileID: 538332963666591603, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
+  m_sharedMaterial: {fileID: -3378061922053640669, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1615,7 +1618,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f9b984e74bdcb499a0b57b976571c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: d8247a6c1c4ced94fa10ecf3b57217e4, type: 2}
+  dialogue: {fileID: 11400000, guid: 903673384f4fc254c8f6ada0dd371ca7, type: 2}
+  isQuestGiver: 1
 --- !u!58 &1139983072
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1739,7 +1743,7 @@ MonoBehaviour:
   m_text: "\u0E2A\u0E48\u0E07\u0E40\u0E04\u0E27\u0E2A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
-  m_sharedMaterial: {fileID: 538332963666591603, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
+  m_sharedMaterial: {fileID: -3378061922053640669, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2165,7 +2169,7 @@ MonoBehaviour:
   m_text: "\u0E22\u0E01\u0E40\u0E25\u0E34\u0E01"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
-  m_sharedMaterial: {fileID: 538332963666591603, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
+  m_sharedMaterial: {fileID: -3378061922053640669, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2591,7 +2595,7 @@ MonoBehaviour:
   m_text: "\u0E23\u0E31\u0E1A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
-  m_sharedMaterial: {fileID: 538332963666591603, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
+  m_sharedMaterial: {fileID: -3378061922053640669, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2727,7 +2731,7 @@ MonoBehaviour:
   m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
-  m_sharedMaterial: {fileID: 538332963666591603, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
+  m_sharedMaterial: {fileID: -3378061922053640669, guid: 0d0c373d959539247b54aad36ea1528f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14bfad677066f848b57abf0ff73767b, type: 3}
+  m_Name: New Dialogue
+  m_EditorClassIdentifier: 
+  npcID: 
+  dialogueText: "\u0E0A\u0E48\u0E27\u0E22\u0E40\u0E01\u0E47\u0E1A\u0E2A\u0E21\u0E38\u0E19\u0E44\u0E1E\u0E23\u0E2B\u0E19\u0E48\u0E2D\u0E22"
+  questName: "\u0E2A\u0E21\u0E38\u0E19\u0E44\u0E1E\u0E23"
+  goalType: 1
+  requiredAmount: 5
