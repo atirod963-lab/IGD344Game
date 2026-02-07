@@ -1,4 +1,4 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 using System.Collections;
 
 public class CoinSyncBattleController : MonoBehaviour
@@ -9,73 +9,47 @@ public class CoinSyncBattleController : MonoBehaviour
 
     void Start() => myStats = GetComponent<BaseUnit>();
 
-    private void OnTriggerEnter2D(Collider2D other)
+    // üî• ‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡πÄ‡∏õ‡πá‡∏ô public ‡πÄ‡∏û‡∏∑‡πà‡∏≠‡πÉ‡∏´‡πâ BattleManager ‡πÄ‡∏£‡∏µ‡∏¢‡∏Å‡πÉ‡∏ä‡πâ‡πÑ‡∏î‡πâ
+    public IEnumerator CoinBattleRoutine(BaseUnit target)
     {
-        // ∂È“‰¡Ë¡’µ—«µπ À√◊Õ §√‘ªµÏª‘¥Õ¬ŸË À√◊Õ‚≈°À¬ÿ¥‡«≈“Õ¬ŸË·≈È« ‰¡ËµÈÕß∑”ß“π
-        if (myStats == null || !enabled || Time.timeScale == 0) return;
-
-        if (other.CompareTag(targetTag))
-        {
-            BaseUnit targetStats = other.GetComponent<BaseUnit>();
-            if (targetStats != null && targetStats.hp > 0)
-                StartCoroutine(CoinBattleRoutine(targetStats));
-        }
-    }
-
-    IEnumerator CoinBattleRoutine(BaseUnit target)
-    {
-        // --- ‡√‘Ë¡À¬ÿ¥‡«≈“ ---
         Time.timeScale = 0;
-        Debug.Log($"<color=yellow>=== [PAUSED] ‡√‘Ë¡°“√‡¥‘¡æ—π‚¥¬ {myStats.unitName} ===</color>");
+        Debug.Log($"<color=yellow>=== [PAUSED] ‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏Å‡∏≤‡∏£‡πÄ‡∏î‡∏¥‡∏°‡∏û‡∏±‡∏ô‡πÇ‡∏î‡∏¢ {myStats.unitName} ===</color>");
 
         int playerChosenNumber = -1;
         currentInputString = "";
 
-        // «π≈Ÿª√—∫§Ë“
         while (playerChosenNumber == -1)
         {
-            // [À—«„®À≈—°] ‡™Á§«Ë“µ—«ºŸÈ„ Ë §√‘ªµÏ (myStats) À√◊Õ‡ªÈ“À¡“¬ (target) µ“¬À√◊Õ¬—ß
             if (myStats == null || myStats.hp <= 0 || target == null || target.hp <= 0)
             {
-                Debug.LogWarning("ºŸÈ‡≈ËπÀ√◊Õ¡Õπ ‡µÕ√Ïµ“¬√–À«Ë“ß√Õæ‘¡æÏ‡≈¢! §◊π§Ë“‡«≈“ª°µ‘");
+                Debug.LogWarning("‡∏à‡∏ö‡∏Å‡∏≤‡∏£‡∏ï‡πà‡∏≠‡∏™‡∏π‡πâ‡∏Å‡∏•‡∏≤‡∏á‡∏Ñ‡∏±‡∏ô");
                 break;
             }
 
-            // √—∫§Ë“µ—«‡≈¢
             for (int i = 0; i <= 9; i++)
             {
                 if (Input.GetKeyDown(KeyCode.Alpha0 + i) || Input.GetKeyDown(KeyCode.Keypad0 + i))
-                {
                     currentInputString += i.ToString();
-                    Debug.Log($"<color=white>µ—«‡≈¢: {currentInputString}</color>");
-                }
             }
 
             if (Input.GetKeyDown(KeyCode.Backspace) && currentInputString.Length > 0)
-            {
                 currentInputString = currentInputString.Substring(0, currentInputString.Length - 1);
-            }
 
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-            {
                 if (int.TryParse(currentInputString, out int result) && result > 0)
                     playerChosenNumber = result;
-            }
+
             yield return null;
         }
 
-        // --- §◊π§Ë“‡«≈“‡ ¡Õ‡¡◊ËÕ®∫≈Ÿª ---
         Time.timeScale = 1;
 
-        // ‡™Á§Õ’°§√—Èß«Ë“µÈÕß∑”µËÕ‰À¡ (∂È“À≈ÿ¥≈Ÿª¡“‡æ√“–¡’§πµ“¬ ‰¡ËµÈÕß√—πµËÕ)
         if (myStats == null || target == null || playerChosenNumber == -1) yield break;
 
-        // --- °√–∫«π°“√∑Õ¬‡À√’¬≠ ---
         int enemyChosenNumber = DecideEnemyNumber(playerChosenNumber);
         int actualTries = 0;
         bool isSynchronized = false;
 
-        // ¥÷ß§Ë“ Luck
         int pLuck = gameObject.CompareTag("Player") ? myStats.luck : target.luck;
         int eLuck = gameObject.CompareTag("Enemy") ? myStats.luck : target.luck;
 
@@ -86,52 +60,71 @@ public class CoinSyncBattleController : MonoBehaviour
             if (actualTries > 500) break;
         }
 
-        Debug.Log($"<color=white>º≈∑Õ¬: {actualTries} (P: {playerChosenNumber} | E: {enemyChosenNumber})</color>");
+        Debug.Log($"‡∏ú‡∏•‡∏ó‡∏≠‡∏¢: {actualTries}");
         DetermineWinner(actualTries, playerChosenNumber, enemyChosenNumber, target);
     }
 
+    // ‡∏Å‡πä‡∏≠‡∏õ‡∏õ‡∏µ‡πâ‡∏ü‡∏±‡∏á‡∏Å‡πå‡∏ä‡∏±‡∏ô‡∏ô‡∏µ‡πâ‡πÑ‡∏õ‡∏ó‡∏±‡∏ö DetermineWinner ‡∏ï‡∏±‡∏ß‡πÄ‡∏î‡∏¥‡∏°‡∏Ñ‡∏£‡∏±‡∏ö
     private void DetermineWinner(int actual, int pNum, int eNum, BaseUnit target)
     {
         if (myStats == null || target == null) return;
 
-        int pDiff = Mathf.Abs(actual - pNum);
-        int eDiff = Mathf.Abs(actual - eNum);
+        int pDiff = Mathf.Abs(actual - pNum); // ‡∏Ñ‡∏ß‡∏≤‡∏°‡∏´‡πà‡∏≤‡∏á‡∏Ç‡∏≠‡∏á‡πÄ‡∏à‡πâ‡∏≤‡∏Ç‡∏≠‡∏á (‡πÄ‡∏£‡∏≤)
+        int eDiff = Mathf.Abs(actual - eNum); // ‡∏Ñ‡∏ß‡∏≤‡∏°‡∏´‡πà‡∏≤‡∏á‡∏Ç‡∏≠‡∏á‡πÄ‡∏õ‡πâ‡∏≤‡∏´‡∏°‡∏≤‡∏¢ (‡∏®‡∏±‡∏ï‡∏£‡∏π)
 
+        Debug.Log($"<color=white>--- ü™ô [Coin Fate Battle] ‡∏ú‡∏•‡∏≠‡∏≠‡∏Å‡∏ó‡∏µ‡πà: {actual} ---</color>");
+        Debug.Log($"‡∏ó‡∏≤‡∏¢‡∏ú‡∏•: {myStats.unitName} ‡∏ó‡∏≤‡∏¢ {pNum} (‡∏´‡πà‡∏≤‡∏á {pDiff}) vs {target.unitName} ‡∏ó‡∏≤‡∏¢ {eNum} (‡∏´‡πà‡∏≤‡∏á {eDiff})");
+
+        bool iAmPlayer = gameObject.CompareTag("Player");
+
+        // ‡∏ñ‡πâ‡∏≤‡∏Ñ‡πà‡∏≤‡∏Ñ‡∏ß‡∏≤‡∏°‡∏´‡πà‡∏≤‡∏á‡πÄ‡∏£‡∏≤ ‡∏ô‡πâ‡∏≠‡∏¢‡∏Å‡∏ß‡πà‡∏≤‡∏´‡∏£‡∏∑‡∏≠‡πÄ‡∏ó‡πà‡∏≤‡∏Å‡∏±‡∏ö ‡πÄ‡∏Ç‡∏≤ (‡πÄ‡∏£‡∏≤‡πÅ‡∏°‡πà‡∏ô‡∏Å‡∏ß‡πà‡∏≤ = ‡πÄ‡∏£‡∏≤‡∏ä‡∏ô‡∏∞)
         if (pDiff <= eDiff)
         {
-            if (gameObject.CompareTag("Player")) target.TakeDamage(myStats.atk, false);
-            else target.TakeDamage(myStats.atk, true);
+            Debug.Log($"<color=green>üëë [WINNER] {myStats.unitName} ‡∏ä‡∏ô‡∏∞‡∏Å‡∏≤‡∏£‡πÄ‡∏î‡∏¥‡∏°‡∏û‡∏±‡∏ô!</color>");
+
+            if (iAmPlayer)
+            {
+                // ‡πÄ‡∏£‡∏≤‡πÄ‡∏õ‡πá‡∏ô‡∏Ñ‡∏ô‡∏ï‡∏µ -> ‡∏°‡∏≠‡∏ô‡∏Å‡∏±‡∏ô‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ
+                target.TakeDamage(myStats.atk, false);
+            }
+            else
+            {
+                // ‡∏°‡∏≠‡∏ô‡πÄ‡∏õ‡πá‡∏ô‡∏Ñ‡∏ô‡∏ï‡∏µ -> ‡πÄ‡∏£‡∏≤‡∏Å‡∏±‡∏ô‡πÑ‡∏î‡πâ (‡πÄ‡∏û‡∏£‡∏≤‡∏∞‡πÄ‡∏£‡∏≤‡∏ä‡∏ô‡∏∞‡πÄ‡∏î‡∏¥‡∏°‡∏û‡∏±‡∏ô)
+                target.TakeDamage(myStats.atk, true);
+            }
         }
         else
         {
-            if (gameObject.CompareTag("Player")) target.TakeDamage(myStats.atk, true);
-            else target.TakeDamage(myStats.atk, false);
+            Debug.Log($"<color=red>üíÄ [LOSER] {myStats.unitName} ‡πÅ‡∏û‡πâ‡∏Å‡∏≤‡∏£‡πÄ‡∏î‡∏¥‡∏°‡∏û‡∏±‡∏ô!</color>");
+
+            if (iAmPlayer)
+            {
+                // ‡πÄ‡∏£‡∏≤‡πÄ‡∏õ‡πá‡∏ô‡∏Ñ‡∏ô‡∏ï‡∏µ -> ‡∏°‡∏≠‡∏ô‡∏Å‡∏±‡∏ô‡πÑ‡∏î‡πâ
+                target.TakeDamage(myStats.atk, true);
+            }
+            else
+            {
+                // ‡∏°‡∏≠‡∏ô‡πÄ‡∏õ‡πá‡∏ô‡∏Ñ‡∏ô‡∏ï‡∏µ -> ‡πÄ‡∏£‡∏≤‡∏Å‡∏±‡∏ô‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ (‡πÇ‡∏î‡∏ô‡πÄ‡∏ï‡πá‡∏°)
+                target.TakeDamage(myStats.atk, false);
+            }
         }
     }
 
     private int DecideEnemyNumber(int playerNum)
     {
         int offset = Random.Range(0, 2) == 0 ? -1 : 1;
-        int result = playerNum + offset;
-        return (result < 1) ? playerNum + 2 : result;
+        int res = playerNum + offset;
+        return res < 1 ? playerNum + 2 : res;
     }
 
     private bool TossFourCoinsManaged(int currentTry, int pNum, int pLuck, int eNum, int eLuck)
     {
         float baseChance = 12.5f;
-        float luckDiff = pLuck - eLuck;
-
-        float pInfluence = (currentTry == pNum) ? (pLuck * 10f) : 0;
-        float eInfluence = (currentTry == eNum) ? (eLuck * 10f) : 0;
-
-        if (currentTry == eNum && luckDiff > 10) eInfluence = 0;
-        if (currentTry == pNum && luckDiff < -10) pInfluence = 0;
-
-        return Random.Range(0f, 100f) < (baseChance + pInfluence + eInfluence);
+        float pInf = (currentTry == pNum) ? (pLuck * 10f) : 0;
+        float eInf = (currentTry == eNum) ? (eLuck * 10f) : 0;
+        return Random.Range(0f, 100f) < (baseChance + pInf + eInf);
     }
 
-    // ---  Ë«π‡ √‘¡ªÈÕß°—π‡«≈“§È“ß ---
-    // ∂È“ §√‘ªµÏπ’È‚¥π≈∫ À√◊Õ Object π’È‚¥π∑”≈“¬°–∑—πÀ—π
     private void OnDisable() { if (Time.timeScale == 0) Time.timeScale = 1; }
     private void OnDestroy() { if (Time.timeScale == 0) Time.timeScale = 1; }
 }

@@ -19,6 +19,8 @@ public class ClickToMove2D : MonoBehaviour
 
     void Update()
     {
+        // เพิ่ม: ถ้ากำลังสู้ (เกมหยุด หรือ BattleManager สั่งปิด) ไม่ต้องรับ Input
+        // แต่ถ้าใช้วิธีปิด Script ใน EnemyTrigger แล้ว บรรทัดนี้ไม่ต้องมีก็ได้
         HandleMouseInput();
     }
 
@@ -60,14 +62,25 @@ public class ClickToMove2D : MonoBehaviour
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0f;
 
-        RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos, Vector2.zero);
+        // 🔥 แก้ตรงนี้: เปลี่ยนจาก Raycast ธรรมดา เป็น RaycastAll (เจาะทะลุทุกอย่าง)
+        RaycastHit2D[] hits = Physics2D.RaycastAll(mouseWorldPos, Vector2.zero);
 
-        if (hit.collider != null && hit.collider.CompareTag("Ground"))
+        bool foundGround = false;
+
+        // วนลูปดูว่า ในบรรดาสิ่งที่คลิกโดน มีอันไหนเป็น "Ground" ไหม?
+        foreach (RaycastHit2D hit in hits)
         {
-            targetPosition = mouseWorldPos;
-            isMoving = true;
+            if (hit.collider != null && hit.collider.CompareTag("Ground"))
+            {
+                targetPosition = mouseWorldPos;
+                isMoving = true;
+                foundGround = true;
+                break; // เจอพื้นแล้ว หยุดหา
+            }
         }
-        else
+
+        // ถ้าคลิกไม่โดนพื้นเลย (เช่น คลิกออกนอกแมพ) ถึงค่อยหยุด
+        if (!foundGround)
         {
             isMoving = false;
         }
@@ -96,6 +109,19 @@ public class ClickToMove2D : MonoBehaviour
         if (collision.collider.CompareTag("Obstacle"))
         {
             isMoving = false;
+        }
+    }
+
+    // 🔥 ฟังก์ชันสำหรับให้ EnemyTrigger เรียกใช้ (Unity 6)
+    public void StopMovementImmediately()
+    {
+        isMoving = false;
+        isHolding = false;
+        targetPosition = rb.position;
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero; // Unity 6 ใช้ linearVelocity ถูกต้องแล้วครับ
         }
     }
 }

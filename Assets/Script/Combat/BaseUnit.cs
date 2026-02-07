@@ -7,6 +7,7 @@ public abstract class BaseUnit : MonoBehaviour
     public float atk;
     public float def;
     public int luck;
+    public float spd;
 
     // ระบบรับดาเมจแบบคำนวณค่า Def
     public virtual void TakeDamage(float rawDamage, bool isDefending)
