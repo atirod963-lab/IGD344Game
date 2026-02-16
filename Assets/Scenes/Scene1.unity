@@ -228,9 +228,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialoguePanel: {fileID: 1111787489}
   dialogueText: {fileID: 457811259}
+  npcNameText: {fileID: 0}
   acceptButton: {fileID: 2014899924}
   submitButton: {fileID: 1104730697}
   cancelButton: {fileID: 200955334}
+  typingSpeed: 0.03
 --- !u!4 &188989965
 Transform:
   m_ObjectHideFlags: 0
@@ -522,6 +524,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetScene: 
   spawnPoint: {fileID: 0}
+  transitionDuration: 1
+  enterImage: {fileID: 0}
+  exitImage: {fileID: 0}
 --- !u!1 &457811257
 GameObject:
   m_ObjectHideFlags: 0

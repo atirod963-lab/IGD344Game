@@ -2,6 +2,8 @@
 
 public class NPC : MonoBehaviour
 {
+   
+    
     public NPCDialogue dialogue;
     public bool isQuestGiver = true; // เลือกได้ว่าเป็น NPC เควสหรือคุยธรรมดา
 

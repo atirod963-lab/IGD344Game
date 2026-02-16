@@ -1,9 +1,9 @@
-using UnityEngine;
+﻿using UnityEngine;
 
  [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue/NPC Dialogue")]
      public class NPCDialogue : ScriptableObject
 {
-    public string npcID;
+    public string npcID;  
 
     [TextArea(3, 5)]
     public string dialogueText;
