@@ -64,47 +64,74 @@ public class CoinSyncBattleController : MonoBehaviour
         DetermineWinner(actualTries, playerChosenNumber, enemyChosenNumber, target);
     }
 
-    // ก๊อปปี้ฟังก์ชันนี้ไปทับ DetermineWinner ตัวเดิมครับ
     private void DetermineWinner(int actual, int pNum, int eNum, BaseUnit target)
     {
         if (myStats == null || target == null) return;
 
-        int pDiff = Mathf.Abs(actual - pNum); // ความห่างของเจ้าของ (เรา)
-        int eDiff = Mathf.Abs(actual - eNum); // ความห่างของเป้าหมาย (ศัตรู)
+        int pDiff = Mathf.Abs(actual - pNum);
+        int eDiff = Mathf.Abs(actual - eNum);
 
         Debug.Log($"<color=white>--- 🪙 [Coin Fate Battle] ผลออกที่: {actual} ---</color>");
         Debug.Log($"ทายผล: {myStats.unitName} ทาย {pNum} (ห่าง {pDiff}) vs {target.unitName} ทาย {eNum} (ห่าง {eDiff})");
 
         bool iAmPlayer = gameObject.CompareTag("Player");
 
-        // ถ้าค่าความห่างเรา น้อยกว่าหรือเท่ากับ เขา (เราแม่นกว่า = เราชนะ)
+        // --- กรณี: ทายถูกแม่นกว่า (ชนะ) ---
         if (pDiff <= eDiff)
         {
             Debug.Log($"<color=green>👑 [WINNER] {myStats.unitName} ชนะการเดิมพัน!</color>");
 
             if (iAmPlayer)
             {
-                // เราเป็นคนตี -> มอนกันไม่ได้
-                target.TakeDamage(myStats.atk, false);
+                // 1. ยึด Fate Coin
+                FateCoinData enemyCoin = target.currentFate;
+                FateInventory myInventory = GetComponent<FateInventory>();
+
+                if (myInventory != null && enemyCoin != null)
+                {
+                    myInventory.AddCoin(enemyCoin);
+                    Debug.Log($"💰 <color=yellow>FATE EXTRACTED!</color> ยึดเหรียญ {enemyCoin.coinName} สำเร็จ!");
+                }
+
+                // 2. ตัดสินชีวิต (ตามคอนเซปต์ Fate: รับทุกอย่าง = ฆ่า)
+                bool chooseToKill = true; // (อนาคตผูกกับ UI ปุ่มกด)
+
+                if (chooseToKill)
+                {
+                    Debug.Log("💀 ผู้เล่นเลือก: สังหาร (Fate Execution)");
+
+                    // 🔥 แก้ไขจุดที่ 1: ส่ง false ไปที่ช่อง isDefending เสมอ
+                    // เพื่อบอกว่า "ห้ามป้องกัน" (Ignore Defense / True Damage)
+                    // ต่อให้ศัตรูกด Defend มา ก็จะโดน 99999 เต็มๆ
+                    target.TakeDamage(99999f, false);
+                }
+                else
+                {
+                    Debug.Log("✋ ผู้เล่นเลือก: ปล่อยไป (ไม่ทำดาเมจ)");
+                    // ไม่เรียก TakeDamage เลย ศัตรูจะไม่โดนดาเมจใดๆ
+                }
             }
             else
             {
-                // มอนเป็นคนตี -> เรากันได้ (เพราะเราชนะเดิมพัน)
-                target.TakeDamage(myStats.atk, true);
+                // ถ้าศัตรูชนะเรา: AI ตัดสินใจฆ่าเรา
+                // เราโดนเต็มๆ (กันไม่ได้เหมือนกัน)
+                target.TakeDamage(myStats.atk, false);
             }
         }
+        // --- กรณี: ทายผิด (แพ้) ---
         else
         {
             Debug.Log($"<color=red>💀 [LOSER] {myStats.unitName} แพ้การเดิมพัน!</color>");
 
             if (iAmPlayer)
             {
-                // เราเป็นคนตี -> มอนกันได้
-                target.TakeDamage(myStats.atk, true);
+                // 🔥 แก้ไขจุดที่ 2: ถ้าเราแพ้ "เรา" ต้องโดนดาเมจครับ (ไม่ใช่ target)
+                // และเราโดนสวนกลับ (Counter) ถือว่าเราไม่ได้ Defend
+                myStats.TakeDamage(target.atk, false);
             }
             else
             {
-                // มอนเป็นคนตี -> เรากันไม่ได้ (โดนเต็ม)
+                // ศัตรูแพ้ -> ศัตรูโดนเราสวน
                 target.TakeDamage(myStats.atk, false);
             }
         }

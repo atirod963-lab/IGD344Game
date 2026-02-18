@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1aca461ee2f5544fbeb52af317229cf, type: 3}
   m_Name: Thief Fate Coin
   m_EditorClassIdentifier: 
-  coinName: 
+  coinName: Thief Fate Coin
   hp:
     isFate: 0
     sealLevel: 10
