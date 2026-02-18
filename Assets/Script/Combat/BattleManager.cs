@@ -79,7 +79,13 @@ public class BattleManager : MonoBehaviour
         else if (playerWon)
         {
             Debug.Log("🏆 ชนะแล้ว!");
-            if (enemy != null) Destroy(enemy.gameObject);
+            // 🔥 แก้ตรงนี้: ดึง EXP จากมอนสเตอร์ตัวนั้นๆ
+            if (enemy != null && enemy.baseStats != null)
+            {
+                int expReward = enemy.baseStats.expDrop;
+                player.GainExp(expReward);
+                Destroy(enemy.gameObject);
+            }
         }
         else
         {

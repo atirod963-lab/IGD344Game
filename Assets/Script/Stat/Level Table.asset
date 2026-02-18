@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d453581654627cd4cbaf63582d59561b, type: 3}
+  m_Name: Level Table
+  m_EditorClassIdentifier: 
+  maxLevel: 25
+  expRequirements: 0a0000000b0000000c0000000d0000000f000000110000001300000015000000170000001a0000001d0000002000000023000000260000002a0000002d0000003000000033000000360000003c0000003c0000003c0000003c0000003c0000003c000000
