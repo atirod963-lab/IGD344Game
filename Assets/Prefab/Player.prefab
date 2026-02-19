@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 8979788162600393438}
   - component: {fileID: 8309511174227043415}
   - component: {fileID: 3173284690634875368}
+  - component: {fileID: 3116128351068252112}
+  - component: {fileID: 6250456000796496901}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -205,11 +207,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitName: 
+  baseStats: {fileID: 0}
+  currentFate: {fileID: 0}
+  levelTable: {fileID: 0}
+  currentLevel: 1
+  currentExp: 0
+  maxHp: 0
   hp: 30
   atk: 10
   def: 5
+  spd: 0
   luck: 15
-  currentExp: 0
+  targetLevelCheat: 10
+  testLvCheatNow: 0
 --- !u!114 &3173284690634875368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,4 +233,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfDice: 4
-  targetTag: Enemy
+--- !u!114 &3116128351068252112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579437471363495179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e16fe5f8bc0d2349ad0047822c42ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 2
+--- !u!114 &6250456000796496901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8579437471363495179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8cbcd3d8165e64c9f21ee3596b6a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

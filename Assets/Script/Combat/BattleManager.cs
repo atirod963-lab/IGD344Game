@@ -31,6 +31,7 @@ public class BattleManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
