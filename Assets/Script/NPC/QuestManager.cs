@@ -20,7 +20,6 @@ public class QuestManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     public bool HasActiveQuest()

@@ -597,7 +597,26 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UIShitr_0: -3509142522129507436
+      UIShitr_1: -2719866583611040686
+      UIShitr_10: 7472162540080629995
+      UIShitr_11: 2381852803176302221
+      UIShitr_12: 1382458179165284216
+      UIShitr_13: -3572587935532616832
+      UIShitr_14: -4231323415690986690
+      UIShitr_15: 227257866645770747
+      UIShitr_16: 6584218566924734714
+      UIShitr_17: -3931046091579295467
+      UIShitr_18: 440857683989576855
+      UIShitr_2: 8779370927561627699
+      UIShitr_3: -5428906510478269028
+      UIShitr_4: 1433045894793906678
+      UIShitr_5: 2816919326443781930
+      UIShitr_6: -6842990595839141394
+      UIShitr_7: -8723960137909448652
+      UIShitr_8: 9045347839488845741
+      UIShitr_9: -7126092327002158467
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
