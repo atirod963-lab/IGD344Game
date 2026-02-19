@@ -17,8 +17,7 @@ public class SceneTransitionManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            // ⭐ สำคัญ
-            DontDestroyOnLoad(transitionImage.canvas.gameObject);
+          
         }
         else
         {
