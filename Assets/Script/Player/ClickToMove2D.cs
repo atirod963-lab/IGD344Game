@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Rendering.LookDev;
+using UnityEngine;
 
 public class ClickToMove2D : MonoBehaviour
 {
@@ -12,9 +13,15 @@ public class ClickToMove2D : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    private Animator animator; // เพิ่มตัวแปร Animator
+    private Vector2 moveinput; // ตัวแปรสำหรับเก็บทิศทางการเคลื่อนที่ (ถ้าต้องการใช้ในอนาคต)
+
+
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>(); // ดึง Animator มาใช้
     }
 
     void Update()
@@ -88,15 +95,26 @@ public class ClickToMove2D : MonoBehaviour
 
     void Move()
     {
-        if (!isMoving) return;
+        if (!isMoving)
+        {
+            animator.SetBool("IsWalking", false);
+            return;
+        }
 
+        Vector2 currentPos = rb.position;
         Vector2 nextPos = Vector2.MoveTowards(
-            rb.position,
+            currentPos,
             targetPosition,
             moveSpeed * Time.fixedDeltaTime
         );
 
+        moveinput = (targetPosition - (Vector3)currentPos).normalized;
+
         rb.MovePosition(nextPos);
+
+        animator.SetBool("IsWalking", true);
+        animator.SetFloat("InputX",  moveinput.x);
+        animator.SetFloat("InputY", moveinput.y);
 
         if (!isHolding && Vector2.Distance(rb.position, targetPosition) < 0.05f)
         {
