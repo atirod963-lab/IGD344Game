@@ -14,6 +14,9 @@ public class BattleManager : MonoBehaviour
     public BaseUnit player;
     public BaseUnit enemy;
 
+    [Header("Minigame")]
+    public DiceMinigameController diceMinigame; // ตัวแปรสำหรับเรียกใช้มินิเกม
+
     [Header("UI Panels (Parents)")]
     public GameObject battleUIParent;
 
@@ -70,8 +73,9 @@ public class BattleManager : MonoBehaviour
         if (battleUIParent) battleUIParent.SetActive(false);
         state = BattleState.IDLE;
 
-        ClickToMove2D playerMove = player.GetComponent<ClickToMove2D>();
-        if (playerMove != null) playerMove.enabled = true;
+        // ไม่แน่ใจว่าคุณใช้สคริปต์ชื่อ ClickToMove2D บน Player ใช่ไหม ถ้าใช่ให้เปิดบรรทัดล่าง
+        // ClickToMove2D playerMove = player.GetComponent<ClickToMove2D>();
+        // if (playerMove != null) playerMove.enabled = true;
 
         if (isFleeing)
         {
@@ -80,7 +84,6 @@ public class BattleManager : MonoBehaviour
         else if (playerWon)
         {
             Debug.Log("🏆 ชนะแล้ว!");
-            // 🔥 แก้ตรงนี้: ดึง EXP จากมอนสเตอร์ตัวนั้นๆ
             if (enemy != null && enemy.baseStats != null)
             {
                 int expReward = enemy.baseStats.expDrop;
@@ -162,18 +165,8 @@ public class BattleManager : MonoBehaviour
     public void OnSelect_RunYes()
     {
         runConfirmPanel.SetActive(false);
-
-        // เช็คว่ากดหนีในเทิร์นใคร?
-        if (state == BattleState.PLAYER_TURN)
-        {
-            // ถ้าเทิร์นเรา -> คำนวณหนีเลย
-            ExecuteRunLogic_PlayerTurn();
-        }
-        else if (state == BattleState.ENEMY_TURN)
-        {
-            // ถ้าเทิร์นศัตรู -> ต้องโดนตีก่อน แล้วค่อยหนี
-            StartCoroutine(EnemyTurnRunSequence());
-        }
+        if (state == BattleState.PLAYER_TURN) ExecuteRunLogic_PlayerTurn();
+        else if (state == BattleState.ENEMY_TURN) StartCoroutine(EnemyTurnRunSequence());
     }
 
     public void OnItemUsed()
@@ -181,18 +174,13 @@ public class BattleManager : MonoBehaviour
         Debug.Log("ใช้ไอเทมแล้ว!");
         itemSubPanel.SetActive(false);
         if (state == BattleState.PLAYER_TURN) StartCoroutine(TransitionToEnemyTurn());
-        else if (state == BattleState.ENEMY_TURN)
-        {
-            // ถ้าใช้ไอเทมในเทิร์นศัตรู ก็ต้องโดนตีก่อนเหมือนกัน (ใช้ Logic เดียวกับตอนไม่กัน)
-            StartCoroutine(EnemyAttackResolution(false));
-        }
+        else if (state == BattleState.ENEMY_TURN) StartCoroutine(EnemyAttackResolution(false));
     }
 
     // ================================================================
     // ⚙️ LOGIC
     // ================================================================
 
-    // --- 1. หนีในเทิร์นผู้เล่น (หนีได้เลย ถ้าพลาดเสียเทิร์น) ---
     private void ExecuteRunLogic_PlayerTurn()
     {
         state = BattleState.BUSY;
@@ -211,28 +199,20 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    // --- 2. 🔥 หนีในเทิร์นศัตรู (โดนตีก่อน -> ค่อยคำนวณหนี) ---
     IEnumerator EnemyTurnRunSequence()
     {
         state = BattleState.BUSY;
-
         Debug.Log("😱 เลือกหนีในเทิร์นศัตรู -> ต้องรับดาเมจก่อน!");
 
-        // STEP 1: โดนศัตรูโจมตี (เหมือนไม่ป้องกัน)
         yield return new WaitForSeconds(0.5f);
         Debug.Log("💔 ไม่ป้องกัน (เพื่อจะหนี)!");
         player.TakeDamage(enemy.atk, false);
 
-        // STEP 2: เช็คว่าตายไหม?
-        if (CheckWinCondition()) yield break; // ถ้าตายก็จบเลย ไม่ได้หนี
-
+        if (CheckWinCondition()) yield break;
         yield return new WaitForSeconds(1f);
 
-        // STEP 3: ถ้าไม่ตาย ค่อยคำนวณหนี
         float myPower = player.luck + player.spd;
         float enemyPower = enemy.luck + enemy.spd;
-
-        Debug.Log($"🩸 เจ็บตัวแล้ว... พยายามหนีต่อ ({myPower} vs {enemyPower})");
 
         if (myPower > enemyPower)
         {
@@ -242,18 +222,17 @@ public class BattleManager : MonoBehaviour
         else
         {
             Debug.Log("🚫 หนีไม่พ้น! (เจ็บฟรี)");
-            // หนีพลาด + โดนตีไปแล้ว -> กลับมาเป็นตาเรา
             StartPlayerTurn();
         }
     }
 
-    // ... (Logic โจมตีอื่นๆ คงเดิม) ...
-
+    // ================================================================
+    // ⚔️ วงจรการโจมตี (Player Turn)
+    // ================================================================
     IEnumerator PlayerAttackRoutine(bool isFateBetting)
     {
         state = BattleState.BUSY;
-        if (enemy == null) yield break;
-        if (CheckWinCondition()) yield break;
+        if (enemy == null || CheckWinCondition()) yield break;
 
         if (isFateBetting)
         {
@@ -263,10 +242,38 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("⚔️ โจมตีปกติ!");
-            _4DiceBattleController diceGame = player.GetComponent<_4DiceBattleController>();
-            if (diceGame != null) diceGame.ExecuteAttack(enemy);
-            else Debug.LogError("ไม่พบสคริปต์ _4DiceBattleController");
+            Debug.Log("⚔️ โจมตีปกติ (เรียกมินิเกม 2 รอบ)");
+
+            // 1. ดึงสคริปต์ 4Dice มาทอยเต๋าเตรียมไว้
+            _4DiceBattleController pDiceCtrl = player.GetComponent<_4DiceBattleController>();
+            _4DiceBattleController eDiceCtrl = enemy.GetComponent<_4DiceBattleController>();
+
+            if (pDiceCtrl != null && eDiceCtrl != null)
+            {
+                int[] playerRolls = pDiceCtrl.GetDiceRollsArray();
+                int[] enemyRolls = eDiceCtrl.GetDiceRollsArray();
+
+                bool minigameFinished = false;
+
+                // 2. ส่ง Array ตัวเลขให้ UI แสดงมินิเกม
+                diceMinigame.StartDoubleMinigame(playerRolls, enemyRolls, () =>
+                {
+                    minigameFinished = true;
+                });
+
+                // 3. รอมินิเกมโชว์หน้าสรุปจนเสร็จ
+                yield return new WaitUntil(() => minigameFinished);
+
+                // 4. เอาผลรวม ส่งกลับไปให้ 4Dice ทำการตัดสินดาเมจตามคอนเซ็ปต์คุณ
+                int pScore = 0; foreach (int i in playerRolls) pScore += i;
+                int eScore = 0; foreach (int i in enemyRolls) eScore += i;
+
+                pDiceCtrl.ExecuteAttackWithPreRolls(enemy, pScore, eScore, false);
+            }
+            else
+            {
+                Debug.LogError("หา 4DiceBattleController ไม่เจอที่ตัว Player หรือ Enemy!");
+            }
         }
 
         if (CheckWinCondition()) yield break;
@@ -274,6 +281,9 @@ public class BattleManager : MonoBehaviour
         StartEnemyTurn();
     }
 
+    // ================================================================
+    // 🛡️ วงจรการป้องกัน (Enemy Turn)
+    // ================================================================
     IEnumerator EnemyAttackResolution(bool isPlayerGuarding)
     {
         state = BattleState.BUSY;
@@ -284,14 +294,37 @@ public class BattleManager : MonoBehaviour
 
         if (isPlayerGuarding)
         {
-            Debug.Log("🛡️ คุณป้องกัน!");
-            _4DiceBattleController enemyDice = enemy.GetComponent<_4DiceBattleController>();
-            if (enemyDice != null) enemyDice.ExecuteAttack(player, true);
-            else player.TakeDamage(enemy.atk, true);
+            Debug.Log("🛡️ คุณป้องกัน! (ประชันลูกเต๋าลดดาเมจ)");
+
+            _4DiceBattleController pDiceCtrl = player.GetComponent<_4DiceBattleController>();
+            _4DiceBattleController eDiceCtrl = enemy.GetComponent<_4DiceBattleController>();
+
+            if (pDiceCtrl != null && eDiceCtrl != null)
+            {
+                // โชว์มินิเกม (ให้ผู้เล่นทอยก่อน แล้วศัตรูทอยตาม เหมือนเดิม)
+                int[] playerRolls = pDiceCtrl.GetDiceRollsArray();
+                int[] enemyRolls = eDiceCtrl.GetDiceRollsArray();
+
+                bool minigameFinished = false;
+
+                diceMinigame.StartDoubleMinigame(playerRolls, enemyRolls, () =>
+                {
+                    minigameFinished = true;
+                });
+
+                yield return new WaitUntil(() => minigameFinished);
+
+                int pScore = 0; foreach (int i in playerRolls) pScore += i;
+                int eScore = 0; foreach (int i in enemyRolls) eScore += i;
+
+                // 🔴 รอบนี้ ศัตรูเป็นคนโจมตี! (ส่ง forcedGuard เป็น true เพราะเรากดยืนยันการป้องกัน)
+                eDiceCtrl.ExecuteAttackWithPreRolls(player, eScore, pScore, true);
+            }
         }
         else
         {
-            Debug.Log("💔 ไม่ป้องกัน!");
+            Debug.Log("💔 ไม่ป้องกัน โดนเต็มๆ!");
+            // ถัาไม่กัน ศัตรูตีสดๆ เลย ไม่ต้องโชว์มินิเกม
             player.TakeDamage(enemy.atk, false);
         }
 
