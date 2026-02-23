@@ -13,9 +13,17 @@ public class TeleportManager : MonoBehaviour
 
     void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+
     }
 
     public void Teleport(string sceneName, string warpID)
