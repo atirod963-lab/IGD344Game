@@ -19,25 +19,31 @@ public class PlayerInteract : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            Vector2 mousePos =
-                Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-            Collider2D hit = Physics2D.OverlapPoint(mousePos);
-            if (hit == null) return;
+            // เปลี่ยนมาใช้ OverlapPointAll เพื่อกวาดหาทุก Collider ตรงที่เมาส์คลิก
+            Collider2D[] hits = Physics2D.OverlapPointAll(mousePos);
 
-            // 🔹 ต้องเป็น NPC (หรือวัตถุที่ interact ได้)
-            IInteract interact = hit.GetComponent<IInteract>();
-            if (interact == null) return;
+            foreach (Collider2D hit in hits)
+            {
+                IInteract interact = hit.GetComponent<IInteract>();
 
-            // 🔹 เช็คระยะ
-            float distance =
-                Vector2.Distance(transform.position, hit.transform.position);
+                // ถ้าเจอ Object ที่มีระบบ Interact
+                if (interact != null)
+                {
+                    float distance = Vector2.Distance(transform.position, hit.transform.position);
 
-            if (distance > interactDistance) return;
+                    // ถ้าระยะถึง ก็เก็บเลย แล้วหยุดการค้นหา
+                    if (distance <= interactDistance)
+                    {
+                        interact.Interact();
+                        return;
+                    }
+                }
+            }
 
-            // ✅ เรียก interact
-            interact.Interact();
         }
+
     }
 
     private void OnDrawGizmosSelected()

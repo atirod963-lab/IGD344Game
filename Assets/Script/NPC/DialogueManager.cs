@@ -153,4 +153,6 @@ public class DialogueManager : MonoBehaviour
     {
         return isDialogueActive;
     }
+
+    
 }
