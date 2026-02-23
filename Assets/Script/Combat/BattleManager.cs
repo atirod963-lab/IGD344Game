@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement; // 🔥 1. เพิ่มบรรทัดนี้เข้ามา
 
 public class BattleManager : MonoBehaviour
 {
@@ -44,12 +45,75 @@ public class BattleManager : MonoBehaviour
     }
 
     // ================================================================
+    // 🧹 RESET SYSTEM (จัดการล้างค่าตอนโหลดเซฟ / เปลี่ยนด่าน)
+    // ================================================================
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        StopAllCoroutines(); // 1. หยุดวงจรเก่าทั้งหมดก่อน
+        StartCoroutine(RecoverPlayerAfterLoad()); // 2. เริ่มวงจรค้นหาผู้เล่นแบบหน่วงเวลา
+    }
+
+    // 🔥 โค้ดใหม่: หน่วงเวลาให้เกมโหลดตัวละครเสร็จก่อนค่อยเปิดสคริปต์เดิน
+    IEnumerator RecoverPlayerAfterLoad()
+    {
+        // 🌟 จุดสำคัญ: รอ 0.1 วินาที ให้ระบบ Save/Load สปอว์นตัวละครลงฉากให้เสร็จสมบูรณ์ 100%
+        yield return new WaitForSeconds(0.1f);
+
+        // 1. ล้างค่าระบบต่อสู้
+        state = BattleState.IDLE;
+        enemy = null;
+
+        if (battleUIParent) battleUIParent.SetActive(false);
+        CloseAllPanels();
+
+        // 2. บังคับหา Player ใหม่เสมอ
+        GameObject pObj = GameObject.FindWithTag("Player");
+        if (pObj != null)
+        {
+            player = pObj.GetComponent<BaseUnit>();
+
+            ClickToMove2D playerMove = pObj.GetComponent<ClickToMove2D>();
+            if (playerMove != null)
+            {
+                playerMove.enabled = true; // สั่งเปิดสคริปต์เดิน
+                playerMove.StopMovementImmediately(); // สั่งล้างสถานะการเดินเก่าที่อาจจะค้างอยู่
+            }
+
+            Debug.Log("🔄 [BattleManager] โหลดฉากเสร็จสมบูรณ์ -> เจอตัว Player และเปิดระบบเดินแล้ว!");
+        }
+        else
+        {
+            // ถ้าขึ้น Error นี้แปลว่าคุณลืมตั้ง Tag คำว่า Player ให้กับตัวละครครับ
+            Debug.LogError("❌ [BattleManager] หาตัวละครไม่เจอ! (เช็คว่าตัวละครมี Tag 'Player' ไหม?)");
+        }
+    }
+
+    // ================================================================
     // ⚔️ BATTLE FLOW
     // ================================================================
 
     public void StartBattle(BaseUnit enemyUnit)
     {
         if (state != BattleState.IDLE) return;
+
+        // 🔥 ดักบั๊กชนซ้ำ: ถ้าผู้เล่นตายแล้ว (HP หมด) ห้ามดึงเข้าฉากสู้เด็ดขาด!
+        if (player != null && player.hp <= 0)
+        {
+            Debug.LogWarning("ผู้เล่นตายแล้ว ศัตรูไม่สามารถเริ่มการต่อสู้ซ้ำได้!");
+            return;
+        }
+
         enemy = enemyUnit;
         if (battleUIParent) battleUIParent.SetActive(true);
         state = BattleState.START;
@@ -73,9 +137,12 @@ public class BattleManager : MonoBehaviour
         if (battleUIParent) battleUIParent.SetActive(false);
         state = BattleState.IDLE;
 
-        // ไม่แน่ใจว่าคุณใช้สคริปต์ชื่อ ClickToMove2D บน Player ใช่ไหม ถ้าใช่ให้เปิดบรรทัดล่าง
-        // ClickToMove2D playerMove = player.GetComponent<ClickToMove2D>();
-        // if (playerMove != null) playerMove.enabled = true;
+        // 🔥 จุดที่แก้ไข: สั่งเปิดสคริปต์เดินให้กลับมาทำงานอีกครั้ง
+        ClickToMove2D playerMove = player.GetComponent<ClickToMove2D>();
+        if (playerMove != null)
+        {
+            playerMove.enabled = true;
+        }
 
         if (isFleeing)
         {
@@ -84,6 +151,7 @@ public class BattleManager : MonoBehaviour
         else if (playerWon)
         {
             Debug.Log("🏆 ชนะแล้ว!");
+            // แจก EXP และลบศัตรูทิ้ง
             if (enemy != null && enemy.baseStats != null)
             {
                 int expReward = enemy.baseStats.expDrop;
@@ -95,6 +163,7 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log("💀 แพ้แล้ว...");
         }
+        enemy = null;
     }
 
     // ================================================================
@@ -358,4 +427,5 @@ public class BattleManager : MonoBehaviour
 
         return false;
     }
+    
 }

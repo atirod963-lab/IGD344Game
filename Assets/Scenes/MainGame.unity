@@ -628,6 +628,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7842523096642394138, guid: dabf8a12852c16142b7714c3c296fc2e, type: 3}
+      propertyPath: mainCanvas
+      value: 
+      objectReference: {fileID: 1732504591}
+    - target: {fileID: 7842523096642394138, guid: dabf8a12852c16142b7714c3c296fc2e, type: 3}
+      propertyPath: contentPanel
+      value: 
+      objectReference: {fileID: 1593909880}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28409,6 +28417,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnSelect_NormalAttack
       objectReference: {fileID: 0}
+    - target: {fileID: 1819384030359692953, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1878731004750109483, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -28590,9 +28602,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+--- !u!224 &1593909880 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1859872575181624945, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+  m_PrefabInstance: {fileID: 1584192468}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1732504588 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2098340751801561694, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+  m_PrefabInstance: {fileID: 1584192468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!223 &1732504591 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 316998636203028228, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
   m_PrefabInstance: {fileID: 1584192468}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1789944610
