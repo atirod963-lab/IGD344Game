@@ -28427,7 +28427,7 @@ PrefabInstance:
       objectReference: {fileID: 327606471}
     - target: {fileID: 1878731004750109483, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClick_PlayerRunConfirm
+      value: OnClick_EnemyRunConfirm
       objectReference: {fileID: 0}
     - target: {fileID: 2098340751801561694, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_Name
