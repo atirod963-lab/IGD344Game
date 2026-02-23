@@ -120,8 +120,20 @@ public class BaseUnit : MonoBehaviour
         if (hp <= 0) { hp = 0; Die(); }
     }
 
-    protected virtual void Die() { Debug.Log($"{unitName} Died"); }
+    protected virtual void Die()
+    {
+        Debug.Log($"{unitName} Died");
 
+        // ถ้าคนที่ตายคือ Player ให้โหลดเซฟกลับมา
+        if (gameObject.CompareTag("Player"))
+        {
+            SaveSystem.Instance.LoadGame();
+        }
+        else
+        {
+            Destroy(gameObject); // ถ้าศัตรูตายก็ลบทิ้งปกติ
+        }
+    }
     // --- ฟังก์ชันสูตรโกง ---
     public void DebugSetLevel()
     {
