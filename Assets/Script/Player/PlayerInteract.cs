@@ -39,4 +39,10 @@ public class PlayerInteract : MonoBehaviour
             interact.Interact();
         }
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, interactDistance);
+    }
 }
