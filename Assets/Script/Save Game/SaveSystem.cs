@@ -9,19 +9,17 @@ public class SaveSystem : MonoBehaviour
 
     void Awake()
     {
-        // ทำให้มี SaveSystem แค่ตัวเดียว และไม่โดนทำลายตอนย้ายฉาก
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
+            Destroy(gameObject); // ถ้ามีตัวเก่าอยู่แล้ว ให้ลบทิ้ง
+            return;
         }
 
         // กำหนดที่อยู่ไฟล์เซฟในเครื่องคอม/มือถือ
         saveFilePath = Application.persistentDataPath + "/gamesave.json";
+       
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     // 🔴 เรียกใช้เมื่อเดินไปแตะจุดเซฟ

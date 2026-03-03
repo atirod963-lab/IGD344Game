@@ -14138,11 +14138,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1218057136567330906, guid: dcb4e0de97102f3488a542c801bed41a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000047683716
+      value: -6.09
       objectReference: {fileID: 0}
     - target: {fileID: 1218057136567330906, guid: dcb4e0de97102f3488a542c801bed41a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: -2.24
       objectReference: {fileID: 0}
     - target: {fileID: 1218057136567330906, guid: dcb4e0de97102f3488a542c801bed41a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14176,6 +14176,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3280243031924511299, guid: dcb4e0de97102f3488a542c801bed41a, type: 3}
+      propertyPath: Target.TrackingTarget
+      value: 
+      objectReference: {fileID: 1089966614}
     - target: {fileID: 6876411902180566414, guid: dcb4e0de97102f3488a542c801bed41a, type: 3}
       propertyPath: m_Name
       value: CinemachineCamera
@@ -14501,7 +14505,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 426312716}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 837393545}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -27235,7 +27239,8 @@ Transform:
   m_LocalPosition: {x: 960, y: 540, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 593047620}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &857521996
@@ -27438,11 +27443,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3817871084768244751, guid: d9925dcf52c4e8540b2b4ebe45c54108, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00000047683716
+      value: -6.09
       objectReference: {fileID: 0}
     - target: {fileID: 3817871084768244751, guid: d9925dcf52c4e8540b2b4ebe45c54108, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: -2.24
       objectReference: {fileID: 0}
     - target: {fileID: 3817871084768244751, guid: d9925dcf52c4e8540b2b4ebe45c54108, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27654,6 +27659,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &1089966614 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2521560701517837594, guid: dabf8a12852c16142b7714c3c296fc2e, type: 3}
+  m_PrefabInstance: {fileID: 102517808}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1144527070
 GameObject:
   m_ObjectHideFlags: 0
@@ -30145,7 +30155,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 593047620}
   - {fileID: 837393545}
   - {fileID: 7909428430178017313}
   - {fileID: 530637669}

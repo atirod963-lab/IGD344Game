@@ -5,40 +5,26 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     private bool isPaused;
-    public static PauseMenu Instance;
 
-    void Awake()
+    void Start()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-
+        // เริ่มเกม = ไม่ Pause
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        isPaused = false;
     }
 
-        void Update()
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                if (isPaused)
-                    Resume();
-                else
-                    Pause();
-            }
+            if (isPaused)
+                Resume();
+            else
+                Pause();
         }
-        void Start()
-        {
-            // 🔹 ตอนเริ่มเกม
-            pauseMenuUI.SetActive(false);
-            Time.timeScale = 1f;
-            isPaused = false;
-        }
+    }
+
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
@@ -62,6 +48,5 @@ public class PauseMenu : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
-        Debug.Log("Exit Game");
     }
 }

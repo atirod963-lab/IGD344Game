@@ -7,13 +7,17 @@ public class TeleportUI : MonoBehaviour
 
     public TeleportButton[] buttons;
 
-    private void Awake()
+    void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // ถ้ามีตัวเก่าอยู่แล้ว ให้ลบทิ้ง
+            return;
+        }
 
         Instance = this;
-      
+        DontDestroyOnLoad(gameObject);
     }
-
     private void Start()
     {
         gameObject.SetActive(false);

@@ -33,8 +33,13 @@ public class BattleManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance == null) instance = this;
-        else Destroy(gameObject);
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject); // ถ้ามีตัวเก่าอยู่แล้ว ให้ลบทิ้ง
+            return;
+        }
+
+        instance = this;
         DontDestroyOnLoad(gameObject);
     }
 
