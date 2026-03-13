@@ -1,43 +1,31 @@
 fileFormatVersion: 2
-guid: 876ad9cfac62e754687c931bd0156ab8
+guid: 7fe8d36ac5551cf4da208552b4e7a3ab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6629531029891648246
-    second: Numbers_0
+      213: -3885278797278204714
+    second: Bushe1_0
   - first:
-      213: -4217592887472625829
-    second: Numbers_1
+      213: 8467942844960169732
+    second: Bushe1_1
   - first:
-      213: -4412911677491635961
-    second: Numbers_2
+      213: -4988311467233121452
+    second: Bushe1_2
   - first:
-      213: -6395529614303463221
-    second: Numbers_3
+      213: -2076943503388869069
+    second: Bushe1_3
   - first:
-      213: -4417143251372694878
-    second: Numbers_4
+      213: 2847678715978982054
+    second: Bushe1_4
   - first:
-      213: 728446850243192315
-    second: Numbers_5
+      213: -7511650321784113099
+    second: Bushe1_5
   - first:
-      213: 5108088467900000851
-    second: Numbers_6
+      213: 5249359379302588804
+    second: Bushe1_6
   - first:
-      213: -519400735672398794
-    second: Numbers_7
-  - first:
-      213: -1344653293438560547
-    second: Numbers_8
-  - first:
-      213: 849386610096671516
-    second: Numbers_9
-  - first:
-      213: -1439962401544170818
-    second: Numbers_10
-  - first:
-      213: -7250221663623815539
-    second: Numbers_11
+      213: -38965159418246943
+    second: Bushe1_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -70,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -108,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -146,13 +134,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Numbers_0
+      name: Bushe1_0
       rect:
         serializedVersion: 2
-        x: 47
-        y: 842
-        width: 217
-        height: 203
+        x: 30
+        y: 48
+        width: 69
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +149,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a05f0ef27ac2ff3a0800000000000000
-      internalID: -6629531029891648246
+      spriteID: 6dc20ead487b41ac0800000000000000
+      internalID: -3885278797278204714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_1
+      name: Bushe1_1
       rect:
         serializedVersion: 2
-        x: 409
-        y: 842
-        width: 216
-        height: 203
+        x: 158
+        y: 48
+        width: 69
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b57eaf65d991875c0800000000000000
-      internalID: -4217592887472625829
+      spriteID: 40f5924072d248570800000000000000
+      internalID: 8467942844960169732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_2
+      name: Bushe1_2
       rect:
         serializedVersion: 2
-        x: 771
-        y: 842
-        width: 216
-        height: 203
+        x: 286
+        y: 48
+        width: 69
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 70910fdb53032c2c0800000000000000
-      internalID: -4412911677491635961
+      spriteID: 45bef865625f5cab0800000000000000
+      internalID: -4988311467233121452
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_3
+      name: Bushe1_3
       rect:
         serializedVersion: 2
-        x: 47
-        y: 578
-        width: 217
-        height: 202
+        x: 414
+        y: 48
+        width: 69
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bc873f463b38e37a0800000000000000
-      internalID: -6395529614303463221
+      spriteID: 33e73f543e63d23e0800000000000000
+      internalID: -2076943503388869069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_4
+      name: Bushe1_4
       rect:
         serializedVersion: 2
-        x: 409
-        y: 578
-        width: 216
-        height: 202
+        x: 542
+        y: 48
+        width: 69
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -249,20 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2a2aaebad9723b2c0800000000000000
-      internalID: -4417143251372694878
+      spriteID: 6a22e5c54bcf48720800000000000000
+      internalID: 2847678715978982054
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_5
+      name: Bushe1_5
       rect:
         serializedVersion: 2
-        x: 776
-        y: 578
-        width: 216
-        height: 202
+        x: 670
+        y: 48
+        width: 69
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -271,20 +259,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bf56f720d86fb1a00800000000000000
-      internalID: 728446850243192315
+      spriteID: 538fb1da4d141c790800000000000000
+      internalID: -7511650321784113099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_6
+      name: Bushe1_6
       rect:
         serializedVersion: 2
-        x: 47
-        y: 325
-        width: 217
-        height: 202
+        x: 798
+        y: 48
+        width: 69
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -293,20 +281,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 35ae272d56393e640800000000000000
-      internalID: 5108088467900000851
+      spriteID: 48122bd0b8879d840800000000000000
+      internalID: 5249359379302588804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Numbers_7
+      name: Bushe1_7
       rect:
         serializedVersion: 2
-        x: 411
-        y: 313
-        width: 217
-        height: 203
+        x: 926
+        y: 48
+        width: 69
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -315,96 +303,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 63c8b2668c7bac8f0800000000000000
-      internalID: -519400735672398794
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Numbers_8
-      rect:
-        serializedVersion: 2
-        x: 776
-        y: 318
-        width: 216
-        height: 202
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dd6198234f4d65de0800000000000000
-      internalID: -1344653293438560547
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Numbers_9
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 60
-        width: 217
-        height: 203
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c1b09c32f90a9cb00800000000000000
-      internalID: 849386610096671516
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Numbers_10
-      rect:
-        serializedVersion: 2
-        x: 409
-        y: 60
-        width: 216
-        height: 203
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: eb29a0633d9340ce0800000000000000
-      internalID: -1439962401544170818
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Numbers_11
-      rect:
-        serializedVersion: 2
-        x: 771
-        y: 60
-        width: 216
-        height: 203
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d8e5cdc6fc9026b90800000000000000
-      internalID: -7250221663623815539
+      spriteID: 1e8424ad461957ff0800000000000000
+      internalID: -38965159418246943
       vertices: []
       indices: 
       edges: []
@@ -423,18 +323,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Numbers_0: -6629531029891648246
-      Numbers_1: -4217592887472625829
-      Numbers_10: -1439962401544170818
-      Numbers_11: -7250221663623815539
-      Numbers_2: -4412911677491635961
-      Numbers_3: -6395529614303463221
-      Numbers_4: -4417143251372694878
-      Numbers_5: 728446850243192315
-      Numbers_6: 5108088467900000851
-      Numbers_7: -519400735672398794
-      Numbers_8: -1344653293438560547
-      Numbers_9: 849386610096671516
+      Bushe1_0: -3885278797278204714
+      Bushe1_1: 8467942844960169732
+      Bushe1_2: -4988311467233121452
+      Bushe1_3: -2076943503388869069
+      Bushe1_4: 2847678715978982054
+      Bushe1_5: -7511650321784113099
+      Bushe1_6: 5249359379302588804
+      Bushe1_7: -38965159418246943
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

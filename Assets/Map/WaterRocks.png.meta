@@ -1,58 +1,55 @@
 fileFormatVersion: 2
-guid: 43286403c06425541a3fb312ae5f21e0
+guid: 4d2b2acae44e18d449fe645c12e89349
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1163637571946071904
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_0
+      213: 356078730539176302
+    second: WaterRocks_0
   - first:
-      213: 4421562747257304308
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_1
+      213: 5171082153095846600
+    second: WaterRocks_1
   - first:
-      213: 6262814871362330411
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_2
+      213: -1347647622629526322
+    second: WaterRocks_2
   - first:
-      213: -3676400866349701148
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_3
+      213: -1892462144100737811
+    second: WaterRocks_3
   - first:
-      213: 4085586309152627508
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_4
+      213: 7681377610591165153
+    second: WaterRocks_4
   - first:
-      213: 6540306315131298416
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_5
+      213: 2747146152129349886
+    second: WaterRocks_5
   - first:
-      213: -6424183739547093514
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_6
+      213: -5739653438285940502
+    second: WaterRocks_6
   - first:
-      213: 4721294856827859191
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_7
+      213: -8662751173906506740
+    second: WaterRocks_7
   - first:
-      213: 7227766395295572587
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_8
+      213: 63061560359233476
+    second: WaterRocks_8
   - first:
-      213: 1252727567973364295
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_9
+      213: -8955292283595331461
+    second: WaterRocks_9
   - first:
-      213: 2629569310963137983
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_10
+      213: 7518284365924457601
+    second: WaterRocks_10
   - first:
-      213: -8242137472672594349
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_11
+      213: 2465224816570989352
+    second: WaterRocks_11
   - first:
-      213: 4723406914165327735
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_12
+      213: 7248446182866010571
+    second: WaterRocks_12
   - first:
-      213: 4329689240963756746
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_13
+      213: -8610040208922625800
+    second: WaterRocks_13
   - first:
-      213: -7026307895996103871
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_14
+      213: -5722629679446188034
+    second: WaterRocks_14
   - first:
-      213: 494742910584581939
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_15
-  - first:
-      213: -2876893097202636857
-    second: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_16
+      213: 2708684127786629863
+    second: WaterRocks_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -85,7 +82,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -123,7 +120,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -161,34 +158,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_0
+      name: WaterRocks_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1083
-        width: 420
-        height: 197
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 067c42bd432162010800000000000000
-      internalID: 1163637571946071904
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_1
-      rect:
-        serializedVersion: 2
-        x: 843
-        y: 1174
-        width: 182
+        x: 14
+        y: 15
+        width: 38
         height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -198,19 +173,129 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4f43f5664eb8c5d30800000000000000
-      internalID: 4421562747257304308
+      spriteID: e611cd508bb01f400800000000000000
+      internalID: 356078730539176302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_2
+      name: WaterRocks_1
       rect:
         serializedVersion: 2
-        x: 240
-        y: 1039
-        width: 183
+        x: 78
+        y: 14
+        width: 38
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cad3a712df53c740800000000000000
+      internalID: 5171082153095846600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterRocks_2
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 13
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec474ca90a13c4de0800000000000000
+      internalID: -1347647622629526322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterRocks_3
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 12
+        width: 41
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec5006e4bf9cb5e0800000000000000
+      internalID: -1892462144100737811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterRocks_4
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 12
+        width: 43
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eadce83d3cb99a60800000000000000
+      internalID: 7681377610591165153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterRocks_5
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 12
+        width: 45
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef840cfced2df1620800000000000000
+      internalID: 2747146152129349886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterRocks_6
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 10
+        width: 47
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -220,63 +305,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b2fd59591fcf9e650800000000000000
-      internalID: 6262814871362330411
+      spriteID: ae8fd1d9b97a850b0800000000000000
+      internalID: -5739653438285940502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_3
+      name: WaterRocks_7
       rect:
         serializedVersion: 2
-        x: 844
-        y: 974
-        width: 180
-        height: 177
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4e7a945f3eccafcc0800000000000000
-      internalID: -3676400866349701148
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_4
-      rect:
-        serializedVersion: 2
-        x: 243
-        y: 842
-        width: 178
-        height: 176
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 43bdd301a1be2b830800000000000000
-      internalID: 4085586309152627508
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_5
-      rect:
-        serializedVersion: 2
-        x: 842
-        y: 905
-        width: 184
+        x: 458
+        y: 8
+        width: 46
         height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -286,107 +327,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 07225ab01f5d3ca50800000000000000
-      internalID: 6540306315131298416
+      spriteID: c0c54bd54b9b7c780800000000000000
+      internalID: -8662751173906506740
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_6
+      name: WaterRocks_8
       rect:
         serializedVersion: 2
-        x: 240
-        y: 803
-        width: 183
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6f57478fce6b8d6a0800000000000000
-      internalID: -6424183739547093514
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_7
-      rect:
-        serializedVersion: 2
-        x: 844
-        y: 694
-        width: 179
-        height: 177
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7f07a1568a8658140800000000000000
-      internalID: 4721294856827859191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_8
-      rect:
-        serializedVersion: 2
-        x: 243
-        y: 601
-        width: 178
-        height: 177
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b62291ffd3f2e4460800000000000000
-      internalID: 7227766395295572587
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_9
-      rect:
-        serializedVersion: 2
-        x: 843
-        y: 628
-        width: 183
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7423469f515926110800000000000000
-      internalID: 1252727567973364295
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_10
-      rect:
-        serializedVersion: 2
-        x: 240
-        y: 554
-        width: 183
+        x: 520
+        y: 9
+        width: 49
         height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -396,20 +349,108 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fbdf9343b5b1e7420800000000000000
-      internalID: 2629569310963137983
+      spriteID: 4c7a130b72a00e000800000000000000
+      internalID: 63061560359233476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_11
+      name: WaterRocks_9
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 10
+        width: 51
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b78e0808d1968b380800000000000000
+      internalID: -8955292283595331461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterRocks_10
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 11
+        width: 52
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18cdc471ccf465860800000000000000
+      internalID: 7518284365924457601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterRocks_11
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 12
+        width: 52
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82bf03bc8ec363220800000000000000
+      internalID: 2465224816570989352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterRocks_12
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 12
+        width: 47
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc1c34f3667a79460800000000000000
+      internalID: 7248446182866010571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterRocks_13
       rect:
         serializedVersion: 2
         x: 844
-        y: 429
-        width: 180
-        height: 177
+        y: 11
+        width: 42
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -418,20 +459,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3560a6723ab0e9d80800000000000000
-      internalID: -8242137472672594349
+      spriteID: 8f836554c0ef28880800000000000000
+      internalID: -8610040208922625800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_12
+      name: WaterRocks_14
       rect:
         serializedVersion: 2
-        x: 242
-        y: 354
-        width: 180
-        height: 177
+        x: 911
+        y: 13
+        width: 37
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -440,20 +481,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 777c2701099ec8140800000000000000
-      internalID: 4723406914165327735
+      spriteID: eff908750a22590b0800000000000000
+      internalID: -5722629679446188034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_13
+      name: WaterRocks_15
       rect:
         serializedVersion: 2
-        x: 843
-        y: 380
-        width: 183
-        height: 33
+        x: 975
+        y: 14
+        width: 37
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -462,74 +503,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ac2b97bcc65261c30800000000000000
-      internalID: 4329689240963756746
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_14
-      rect:
-        serializedVersion: 2
-        x: 241
-        y: 296
-        width: 183
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14341a0123a8d7e90800000000000000
-      internalID: -7026307895996103871
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_15
-      rect:
-        serializedVersion: 2
-        x: 844
-        y: 168
-        width: 180
-        height: 177
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 33f69805e0eadd600800000000000000
-      internalID: 494742910584581939
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_16
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 422
-        height: 271
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7c7a67478f83318d0800000000000000
-      internalID: -2876893097202636857
+      spriteID: 7eaf57decdd279520800000000000000
+      internalID: 2708684127786629863
       vertices: []
       indices: 
       edges: []
@@ -548,23 +523,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_0: 1163637571946071904
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_1: 4421562747257304308
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_10: 2629569310963137983
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_11: -8242137472672594349
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_12: 4723406914165327735
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_13: 4329689240963756746
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_14: -7026307895996103871
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_15: 494742910584581939
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_16: -2876893097202636857
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_2: 6262814871362330411
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_3: -3676400866349701148
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_4: 4085586309152627508
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_5: 6540306315131298416
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_6: -6424183739547093514
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_7: 4721294856827859191
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_8: 7227766395295572587
-      Gemini_Generated_Image_nr5bnnnr5bnnnr5b-Photoroom_9: 1252727567973364295
+      WaterRocks_0: 356078730539176302
+      WaterRocks_1: 5171082153095846600
+      WaterRocks_10: 7518284365924457601
+      WaterRocks_11: 2465224816570989352
+      WaterRocks_12: 7248446182866010571
+      WaterRocks_13: -8610040208922625800
+      WaterRocks_14: -5722629679446188034
+      WaterRocks_15: 2708684127786629863
+      WaterRocks_2: -1347647622629526322
+      WaterRocks_3: -1892462144100737811
+      WaterRocks_4: 7681377610591165153
+      WaterRocks_5: 2747146152129349886
+      WaterRocks_6: -5739653438285940502
+      WaterRocks_7: -8662751173906506740
+      WaterRocks_8: 63061560359233476
+      WaterRocks_9: -8955292283595331461
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

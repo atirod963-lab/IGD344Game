@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6513262273318834339}
   - component: {fileID: 964838216345859963}
   - component: {fileID: 3111913560128453483}
-  - component: {fileID: 2343134094687549583}
   - component: {fileID: 4101487475573500789}
+  - component: {fileID: 7489655636487110267}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -30,8 +30,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.11, y: 0.1, z: 0}
-  m_LocalScale: {x: 1.5568, y: 1.5568, z: 1.5568}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5.6, y: 5.6, z: 5.6}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5122093792409043134}
   m_Father: {fileID: 0}
@@ -80,8 +80,8 @@ SpriteRenderer:
   m_SortingLayerID: 294312943
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0, g: 0.4462726, b: 1, a: 1}
+  m_Sprite: {fileID: 4341536477692731169, guid: 1c0d1d1aad6969343828dda0f5163785, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,8 +118,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!58 &2343134094687549583
-CircleCollider2D:
+--- !u!114 &4101487475573500789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4698895820291170305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f9b984e74bdcb499a0b57b976571c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 903673384f4fc254c8f6ada0dd371ca7, type: 2}
+  isQuestGiver: 1
+--- !u!60 &7489655636487110267
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -153,21 +167,24 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
---- !u!114 &4101487475573500789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4698895820291170305}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f9b984e74bdcb499a0b57b976571c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue: {fileID: 11400000, guid: 903673384f4fc254c8f6ada0dd371ca7, type: 2}
-  isQuestGiver: 1
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.17, y: 0.25}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.085, y: 0.125}
+      - {x: -0.085, y: -0.085}
+      - {x: -0.044999998, y: -0.114999995}
+      - {x: 0.085, y: -0.114999995}
+      - {x: 0.085, y: 0.114999995}
+      - {x: 0.074999996, y: 0.125}
+  m_UseDelaunayMesh: 0
 --- !u!1 &7179572690298374889
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5122093792409043134}
-  - component: {fileID: 9127159082865258541}
+  - component: {fileID: 4915779734523134271}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -195,13 +212,13 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.17473157, y: 0.25114307, z: 0.21505424}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6513262273318834339}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &9127159082865258541
-CircleCollider2D:
+--- !u!61 &4915779734523134271
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -235,4 +252,14 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
