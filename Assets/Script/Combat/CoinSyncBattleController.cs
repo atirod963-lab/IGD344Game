@@ -1,11 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using TMPro; // 🔥 Library สำหรับจัดการ TextMeshPro
 
 public class CoinSyncBattleController : MonoBehaviour
 {
     public string targetTag = "Enemy";
     private BaseUnit myStats;
+
+    [Header("UI Settings")]
+    public GameObject numberInputPanel; // ลาก Panel ที่รวมปุ่มกดตัวเลขมาใส่
+    public TextMeshProUGUI numberDisplayText; // ลาก Text ที่จะใช้โชว์ตัวเลขที่กดมาใส่
+
+    // 🔥 1. เพิ่มตัวแปรมารับ Text ที่จะใช้แสดงเลขของศัตรู
+    public TextMeshProUGUI enemyNumberDisplayText;
+
     private string currentInputString = "";
+    private int playerChosenNumber = -1;
 
     void Start() => myStats = GetComponent<BaseUnit>();
 
@@ -14,38 +24,44 @@ public class CoinSyncBattleController : MonoBehaviour
         Time.timeScale = 0;
         Debug.Log($"<color=yellow>=== [PAUSED] เริ่มการเดิมพันโดย {myStats.unitName} ===</color>");
 
-        int playerChosenNumber = -1;
+        // รีเซ็ตค่าก่อนเริ่ม
+        playerChosenNumber = -1;
         currentInputString = "";
+        UpdateDisplayText();
 
-        while (playerChosenNumber == -1)
+        // 🔥 รีเซ็ตข้อความของศัตรูตอนเปิดพาเนล
+        if (enemyNumberDisplayText != null)
         {
-            if (myStats == null || myStats.hp <= 0 || target == null || target.hp <= 0)
-            {
-                Debug.LogWarning("จบการต่อสู้กลางคัน");
-                break;
-            }
-
-            for (int i = 0; i <= 9; i++)
-            {
-                if (Input.GetKeyDown(KeyCode.Alpha0 + i) || Input.GetKeyDown(KeyCode.Keypad0 + i))
-                    currentInputString += i.ToString();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Backspace) && currentInputString.Length > 0)
-                currentInputString = currentInputString.Substring(0, currentInputString.Length - 1);
-
-            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-                if (int.TryParse(currentInputString, out int result) && result > 0)
-                    playerChosenNumber = result;
-
-            yield return null;
+            enemyNumberDisplayText.gameObject.SetActive(true);
+            enemyNumberDisplayText.text = "Enemy กำลังตัดสินใจ..."; // ให้ดูมีอะไรขยับระหว่างรอเราพิมพ์
         }
+
+        // เปิดหน้าต่าง UI ทายเลข
+        if (numberInputPanel != null) numberInputPanel.SetActive(true);
+
+        // โค้ดจะหยุดรออยู่ตรงนี้ จนกว่าตัวแปร playerChosenNumber จะถูกเปลี่ยนค่าโดยปุ่ม "ตกลง"
+        yield return new WaitUntil(() => playerChosenNumber != -1);
+
+        // 🔥 1. พอเรากดยืนยัน ให้คำนวณเลขของศัตรูทันที
+        int enemyChosenNumber = DecideEnemyNumber(playerChosenNumber);
+
+        // 🔥 2. อัปเดต Text ในพาเนลให้โชว์เลขของศัตรู
+        if (enemyNumberDisplayText != null)
+        {
+            enemyNumberDisplayText.text = "<color=red>Enemy เลือก: " + enemyChosenNumber.ToString() + "</color>";
+        }
+
+        // 🔥 3. หน่วงเวลา 2 วินาที เพื่อให้ผู้เล่นอ่านเลขศัตรูทัน (ใช้ Realtime เพราะ TimeScale = 0 อยู่)
+        yield return new WaitForSecondsRealtime(2f);
+
+        // 🔥 4. ปิดหน้าต่าง UI เมื่อดูเลขเสร็จ
+        if (numberInputPanel != null) numberInputPanel.SetActive(false);
 
         Time.timeScale = 1;
 
         if (myStats == null || target == null || playerChosenNumber == -1) yield break;
 
-        int enemyChosenNumber = DecideEnemyNumber(playerChosenNumber);
+        // เข้าสู่ระบบทอยเหรียญตามปกติ
         int actualTries = 0;
         bool isSynchronized = false;
 
@@ -63,6 +79,49 @@ public class CoinSyncBattleController : MonoBehaviour
         DetermineWinner(actualTries, playerChosenNumber, enemyChosenNumber, target);
     }
 
+    // ================================================================
+    // 🖲️ ฟังก์ชันสำหรับให้ UI Button เรียกใช้งาน
+    // ================================================================
+
+    public void OnClick_Number(int number)
+    {
+        currentInputString += number.ToString();
+        UpdateDisplayText();
+    }
+
+    public void OnClick_Delete()
+    {
+        if (currentInputString.Length > 0)
+        {
+            currentInputString = currentInputString.Substring(0, currentInputString.Length - 1);
+            UpdateDisplayText();
+        }
+    }
+
+    public void OnClick_Confirm()
+    {
+        if (int.TryParse(currentInputString, out int result) && result > 0)
+        {
+            playerChosenNumber = result;
+        }
+        else
+        {
+            Debug.LogWarning("กรุณาใส่ตัวเลขที่มากกว่า 0");
+        }
+    }
+
+    private void UpdateDisplayText()
+    {
+        if (numberDisplayText != null)
+        {
+            numberDisplayText.text = currentInputString == "" ? "ใส่ตัวเลข..." : currentInputString;
+        }
+    }
+
+    // ================================================================
+    // ⚙️ ลอจิกการต่อสู้ (เหมือนเดิม)
+    // ================================================================
+
     private void DetermineWinner(int actual, int pNum, int eNum, BaseUnit target)
     {
         if (myStats == null || target == null) return;
@@ -75,14 +134,12 @@ public class CoinSyncBattleController : MonoBehaviour
 
         bool iAmPlayer = gameObject.CompareTag("Player");
 
-        // --- กรณี: ทายถูกแม่นกว่า (ชนะ) ---
         if (pDiff <= eDiff)
         {
             Debug.Log($"<color=green>👑 [WINNER] {myStats.unitName} ชนะการเดิมพัน!</color>");
 
             if (iAmPlayer)
             {
-                // 1. ยึด Fate Coin
                 FateCoinData enemyCoin = target.currentFate;
                 FateInventory myInventory = GetComponent<FateInventory>();
 
@@ -92,48 +149,24 @@ public class CoinSyncBattleController : MonoBehaviour
                     Debug.Log($"💰 <color=yellow>FATE EXTRACTED!</color> ยึดเหรียญ {enemyCoin.coinName} สำเร็จ!");
                 }
 
-                // 2. ตัดสินชีวิต (ชนะ = ฆ่าตายแน่นอน ไม่สน Def)
-                bool chooseToKill = true; 
-
-                if (chooseToKill)
-                {
-                    Debug.Log("💀 ผู้เล่นเลือก: สังหาร (Fate Execution)");
-                    // ชนะ: เจาะเกราะ 100% (True Damage)
-                    target.TakeDamage(99999f, false);
-                }
-                else
-                {
-                    Debug.Log("✋ ผู้เล่นเลือก: ปล่อยไป (ไม่ทำดาเมจ)");
-                }
+                target.TakeDamage(99999f, false);
             }
             else
             {
-                // ศัตรูชนะเรา: เราตาย (True Damage)
                 target.TakeDamage(myStats.atk, false);
             }
         }
-        // --- กรณี: ทายผิด (แพ้เดิมพัน) ---
         else
         {
             Debug.Log($"<color=red>💀 [LOSER] {myStats.unitName} แพ้การเดิมพัน!</color>");
 
             if (iAmPlayer)
             {
-                // 🔥 แก้ไขตรงนี้ครับ: เปลี่ยน false -> true
-                // เพื่อบอกว่า "ให้ใช้ค่า Def มาคำนวณลดดาเมจด้วย"
-                // สูตรจะเป็น: Damage = target.atk - myStats.def
                 myStats.TakeDamage(target.atk, true);
             }
             else
             {
-                // ถ้าศัตรูเป็นคนท้าแล้วแพ้ -> ศัตรูโดนเราตี (และให้ศัตรูใช้ Def กันได้)
-                // หมายเหตุ: โค้ดเดิมเขียน target.TakeDamage(...) ซึ่ง target คือ Player 
-                // ถ้าศัตรู (myStats) แพ้ คนที่ต้องเจ็บคือ myStats ครับ
-                // แต่ถ้า logic คุณคือ Player ตีสวนกลับ ก็ต้องเขียนแบบนี้:
-                
-                // ให้ศัตรู (myStats) รับดาเมจจากเรา (target.atk) โดยให้กันได้ (true)
-                // (ผมแก้ Logic ตรงนี้ให้ด้วยเผื่อคุณจะใช้ Enemy เป็นคนท้าในอนาคต)
-                myStats.TakeDamage(target.atk, true); 
+                myStats.TakeDamage(target.atk, true);
             }
         }
     }
