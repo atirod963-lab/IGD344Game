@@ -5,12 +5,17 @@ using System.Collections;
 
 public class DialogueManager : MonoBehaviour
 {
-    public static DialogueManager Instance;
+    public static DialogueManager Instance; 
+   
 
     [Header("UI")]
     public GameObject dialoguePanel;
     public TextMeshProUGUI dialogueText;
     public TextMeshProUGUI npcNameText;
+    public Image npcPortraitImage;
+    public ClickToMove2D playerMovement;
+
+
 
     public Button acceptButton;
     public Button submitButton;
@@ -20,14 +25,19 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] float typingSpeed = 0.03f;
 
     NPCDialogue currentDialogue;
+
     bool isDialogueActive;
+    bool isTyping;
+
+    int currentLineIndex;
+
     Coroutine typingCoroutine;
 
     void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject); // ถ้ามีตัวเก่าอยู่แล้ว ให้ลบทิ้ง
+            Destroy(gameObject);
             return;
         }
 
@@ -46,26 +56,59 @@ public class DialogueManager : MonoBehaviour
         HideButtons();
     }
 
+    void Update()
+    {
+        if (!isDialogueActive) return;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (isTyping)
+            {
+                StopCoroutine(typingCoroutine);
+                dialogueText.text = currentDialogue.dialogueLines[currentLineIndex];
+                isTyping = false;
+                ShowButtons();
+            }
+            else
+            {
+                NextDialogue();
+            }
+        }
+    }
+
     public void StartDialogue(NPCDialogue dialogue)
     {
         if (isDialogueActive) return;
 
         isDialogueActive = true;
         currentDialogue = dialogue;
+        currentLineIndex = 0;
 
         dialoguePanel.SetActive(true);
-        
+        npcNameText.text = dialogue.npcName;
+        npcPortraitImage.sprite = dialogue.npcPortrait;
+       
+        if (playerMovement != null)//ทำให้playerหยุดเดินไม่ไปชนกับเควสซ้ำ
+            playerMovement.StopMovementImmediately();
+
         HideButtons();
         PauseGame();
 
+        ShowCurrentLine();
+    }
+
+    void ShowCurrentLine()
+    {
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
 
-        typingCoroutine = StartCoroutine(TypeText(dialogue.dialogueText));
+        typingCoroutine = StartCoroutine(TypeText(currentDialogue.dialogueLines[currentLineIndex]));
     }
 
     IEnumerator TypeText(string text)
     {
+        isTyping = true;
+
         dialogueText.text = "";
 
         foreach (char c in text)
@@ -74,8 +117,26 @@ public class DialogueManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(typingSpeed);
         }
 
-        // พิมพ์จบแล้ว → แสดงปุ่ม
-        ShowButtons();
+        isTyping = false;
+
+        if (currentLineIndex >= currentDialogue.dialogueLines.Length - 1)
+        {
+            ShowButtons();
+        }
+    }
+
+    public void NextDialogue()
+    {
+        currentLineIndex++;
+
+        if (currentLineIndex < currentDialogue.dialogueLines.Length)
+        {
+            ShowCurrentLine();
+        }
+        else
+        {
+            EndDialogue();
+        }
     }
 
     void HideButtons()
@@ -126,6 +187,7 @@ public class DialogueManager : MonoBehaviour
     public void ShowMessage(string message)
     {
         dialoguePanel.SetActive(true);
+
         HideButtons();
 
         if (typingCoroutine != null)
@@ -139,9 +201,8 @@ public class DialogueManager : MonoBehaviour
         isDialogueActive = false;
         currentDialogue = null;
 
-
-       
         dialoguePanel.SetActive(false);
+
         ResumeGame();
     }
 
@@ -159,6 +220,4 @@ public class DialogueManager : MonoBehaviour
     {
         return isDialogueActive;
     }
-
-    
 }
