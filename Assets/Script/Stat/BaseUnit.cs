@@ -29,7 +29,10 @@ public class BaseUnit : MonoBehaviour
     // --- 👇 ส่วน Cheat วาร์ปเลเวล (ติ๊กถูกเพื่อใช้งาน) 👇 ---
     [Header("Debug / Cheats")]
     [Range(1, 25)] public int targetLevelCheat = 10; // เป้าหมายที่จะวาร์ปไป
-    public bool testLvCheatNow = false;  // 🔥 ติ๊กถูกตรงนี้เพื่อวาร์ป!
+    public bool testLvCheatNow = false;  // 🔥 ติ๊กถูกตรงนี้เพื่อโกงเลเวล
+
+    [Header("Equipment")]
+    public WeaponData equippedWeapon; // ลาก WeaponData มาใส่ช่องนี้
 
     protected virtual void Start()
     {
