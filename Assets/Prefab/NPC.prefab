@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3111913560128453483}
   - component: {fileID: 4101487475573500789}
   - component: {fileID: 7489655636487110267}
+  - component: {fileID: -3899490182444019072}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -77,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 294312943
-  m_SortingLayer: 1
+  m_SortingLayerID: 1169720483
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 4341536477692731169, guid: 1c0d1d1aad6969343828dda0f5163785, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -185,6 +186,28 @@ PolygonCollider2D:
       - {x: 0.085, y: 0.114999995}
       - {x: 0.074999996, y: 0.125}
   m_UseDelaunayMesh: 0
+--- !u!95 &-3899490182444019072
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4698895820291170305}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd1d65eefaf2ae34487464b46ac86780, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7179572690298374889
 GameObject:
   m_ObjectHideFlags: 0

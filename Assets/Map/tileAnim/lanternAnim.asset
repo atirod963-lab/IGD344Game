@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: lanternAnim
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 1373107193861081566, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: -520168412047220932, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: 1373107193861081566, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: 7006046450245112258, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: 8252700305115793037, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: -2436370204524137647, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: -5740283660062451943, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: -3848945474338526295, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: 1143815248071642773, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: 6599382466345866763, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: 5692858657183210004, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: 3110337675951308146, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: -4736125901451839096, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: -4368808187806012320, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: 7247639548551958883, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: -5577803768228274769, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: 7871045305336971931, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: 5105380195154843522, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  - {fileID: -1762009406996283413, guid: 416ca943951a6504a9d306e4a3eac646, type: 3}
+  m_MinSpeed: 5
+  m_MaxSpeed: 5
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0
