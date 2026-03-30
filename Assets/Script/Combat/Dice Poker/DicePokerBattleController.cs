@@ -16,7 +16,6 @@ public class DicePokerBattleController : MonoBehaviour
     public Button[] activeDiceButtons = new Button[6];
     public Image[] activeDiceImages = new Image[6];
 
-    // 🔥 แยก UI ฝั่ง Player และ Enemy ออกจากกัน (ฝั่งละ 5 ลูก)
     public Image[] playerKeptDiceImages = new Image[5];
     public Image[] enemyKeptDiceImages = new Image[5];
 
@@ -27,13 +26,14 @@ public class DicePokerBattleController : MonoBehaviour
     private BaseUnit attackerUnit;
     private BaseUnit defenderUnit;
     private bool isPlayerAttacking;
-    private bool isCurrentTurnPlayer; // 🔥 เอาไว้เช็คว่าตอนนี้เทิร์นใคร
+    private bool isCurrentTurnPlayer;
+
+    private BaseUnit currentRollerUnit;
 
     private int currentRollCount = 0;
     private int[] currentActiveDiceValues = new int[6];
     private bool[] isDieSelectedToKeep = new bool[6];
 
-    // 🔥 แยกข้อมูลเต๋าที่เก็บไว้ของแต่ละฝั่ง
     private List<int> playerKeptDice = new List<int>();
     private List<int> enemyKeptDice = new List<int>();
     private int newlyKeptThisRoll = 0;
@@ -49,7 +49,6 @@ public class DicePokerBattleController : MonoBehaviour
         defenderUnit = defender;
         isPlayerAttacking = playerIsAttacker;
 
-        // ล้างข้อมูลเก่า
         playerKeptDice.Clear();
         enemyKeptDice.Clear();
 
@@ -61,18 +60,15 @@ public class DicePokerBattleController : MonoBehaviour
 
     private IEnumerator GameFlowRoutine()
     {
-        // 1. ฝ่ายโจมตีเล่นก่อน
         isCurrentTurnPlayer = isPlayerAttacking;
         yield return StartCoroutine(PlayTurn(attackerUnit, isPlayerAttacking));
 
-        // 2. ฝ่ายป้องกันเล่นต่อ
         isCurrentTurnPlayer = !isPlayerAttacking;
         yield return StartCoroutine(PlayTurn(defenderUnit, !isPlayerAttacking));
 
-        // 3. สรุปผลและคำนวณดาเมจ
         CalculateAndApplyDamage();
 
-        yield return new WaitForSecondsRealtime(3f); // โชว์ผลค้างไว้ 3 วิ
+        yield return new WaitForSecondsRealtime(3f);
         dicePokerPanel.SetActive(false);
         Time.timeScale = 1;
     }
@@ -82,6 +78,7 @@ public class DicePokerBattleController : MonoBehaviour
     // ==========================================
     private IEnumerator PlayTurn(BaseUnit unit, bool isPlayer)
     {
+        currentRollerUnit = unit;
         currentRollCount = 0;
         List<int> currentKeptList = isPlayer ? playerKeptDice : enemyKeptDice;
 
@@ -95,7 +92,7 @@ public class DicePokerBattleController : MonoBehaviour
             ResetActiveDiceSelection();
 
             int diceToRoll = (currentRollCount == 1) ? 6 : (6 - currentKeptList.Count);
-            RollActiveDice(diceToRoll);
+            RollActiveDice(diceToRoll, currentKeptList);
             UpdateUI();
 
             statusText.text = $"เทิร์น {unit.unitName} - ทอยครั้งที่ {currentRollCount}/3";
@@ -123,8 +120,8 @@ public class DicePokerBattleController : MonoBehaviour
             }
             else
             {
-                yield return new WaitForSecondsRealtime(1.5f);
-                EnemyAISelectDice(currentKeptList);
+                yield return new WaitForSecondsRealtime(1.0f);
+                yield return StartCoroutine(EnemyAISelectDiceRoutine(currentKeptList));
                 CommitSelectedDice(currentKeptList);
             }
         }
@@ -149,6 +146,8 @@ public class DicePokerBattleController : MonoBehaviour
         newlyKeptThisRoll += isDieSelectedToKeep[index] ? 1 : -1;
 
         activeDiceImages[index].color = isDieSelectedToKeep[index] ? Color.gray : Color.white;
+
+        if (SoundManager.Instance != null) SoundManager.Instance.PlaySFX("Dice_Select");
     }
 
     private bool playerConfirmedRoll = false;
@@ -177,15 +176,54 @@ public class DicePokerBattleController : MonoBehaviour
     }
 
     // ==========================================
-    // ⚙️ Core Logic
+    // ⚙️ Core Logic + 🍀 Per-Die Luck System
     // ==========================================
-    private void RollActiveDice(int count)
+    private void RollActiveDice(int count, List<int> currentKeptList)
     {
+        if (count > 0 && SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySFX("Dice_Roll");
+        }
+
+        // 🔥 ดึง TotalLuck ที่บวกโบนัสอาวุธมาใช้คำนวณ 
+        float hijackChance = Mathf.Clamp((currentRollerUnit.TotalLuck / 150f) * 40f, 0f, 40f);
+
         for (int i = 0; i < 6; i++)
         {
             if (i < count)
             {
-                currentActiveDiceValues[i] = Random.Range(1, 7);
+                int rolledValue = Random.Range(1, 7);
+
+                if (Random.Range(0f, 100f) <= hijackChance)
+                {
+                    if (currentKeptList.Count > 0)
+                    {
+                        bool isGoingForStraight = currentKeptList.Distinct().Count() == currentKeptList.Count && currentKeptList.Count >= 2;
+
+                        if (isGoingForStraight)
+                        {
+                            List<int> availableFaces = new List<int> { 1, 2, 3, 4, 5, 6 };
+                            availableFaces.RemoveAll(x => currentKeptList.Contains(x));
+                            if (availableFaces.Count > 0)
+                            {
+                                rolledValue = availableFaces[Random.Range(0, availableFaces.Count)];
+                                Debug.Log($"<color=#FFD700>✨ [โชคทำงาน {hijackChance:F1}%]</color> เต๋าลูกที่ {i + 1} โดนแทรกแซงให้เป็น {rolledValue} (ทำ Straight)");
+                            }
+                        }
+                        else
+                        {
+                            rolledValue = currentKeptList.GroupBy(val => val).OrderByDescending(g => g.Count()).First().Key;
+                            Debug.Log($"<color=#FFD700>✨ [โชคทำงาน {hijackChance:F1}%]</color> เต๋าลูกที่ {i + 1} โดนแทรกแซงให้เป็น {rolledValue} (ทำคอมโบ)");
+                        }
+                    }
+                    else if (i > 0)
+                    {
+                        rolledValue = currentActiveDiceValues[0];
+                        Debug.Log($"<color=#FFD700>✨ [โชคทำงาน {hijackChance:F1}%]</color> เต๋าลูกที่ {i + 1} โดนแทรกแซงให้เป็น {rolledValue} (ก๊อปปี้ลูกแรก)");
+                    }
+                }
+
+                currentActiveDiceValues[i] = rolledValue;
                 activeDiceButtons[i].gameObject.SetActive(true);
             }
             else
@@ -218,14 +256,12 @@ public class DicePokerBattleController : MonoBehaviour
 
     private void UpdateUI()
     {
-        // 1. อัปเดตกระดานหลัก
         for (int i = 0; i < 6; i++)
         {
             if (currentActiveDiceValues[i] > 0)
                 activeDiceImages[i].sprite = diceSprites[currentActiveDiceValues[i] - 1];
         }
 
-        // 2. อัปเดตฝั่ง Player 🔥
         for (int i = 0; i < 5; i++)
         {
             if (i < playerKeptDice.Count)
@@ -234,7 +270,6 @@ public class DicePokerBattleController : MonoBehaviour
                 playerKeptDiceImages[i].sprite = emptySlotSprite;
         }
 
-        // 3. อัปเดตฝั่ง Enemy 🔥
         for (int i = 0; i < 5; i++)
         {
             if (i < enemyKeptDice.Count)
@@ -244,7 +279,7 @@ public class DicePokerBattleController : MonoBehaviour
         }
     }
 
-    private void EnemyAISelectDice(List<int> currentKeptList)
+    private IEnumerator EnemyAISelectDiceRoutine(List<int> currentKeptList)
     {
         Dictionary<int, int> counts = new Dictionary<int, int>();
         foreach (int v in currentKeptList) { if (!counts.ContainsKey(v)) counts[v] = 0; counts[v]++; }
@@ -253,6 +288,7 @@ public class DicePokerBattleController : MonoBehaviour
         int targetFace = counts.OrderByDescending(kvp => kvp.Value).First().Key;
 
         int selectedThisRound = 0;
+
         for (int i = 0; i < 6; i++)
         {
             if (currentActiveDiceValues[i] > 0 && currentKeptList.Count + selectedThisRound < 5)
@@ -261,6 +297,12 @@ public class DicePokerBattleController : MonoBehaviour
                 {
                     isDieSelectedToKeep[i] = true;
                     selectedThisRound++;
+
+                    activeDiceImages[i].color = Color.gray;
+
+                    if (SoundManager.Instance != null) SoundManager.Instance.PlaySFX("Dice_Select");
+
+                    yield return new WaitForSecondsRealtime(0.3f);
                 }
             }
         }
@@ -273,6 +315,11 @@ public class DicePokerBattleController : MonoBehaviour
                 {
                     isDieSelectedToKeep[i] = true;
                     selectedThisRound++;
+
+                    activeDiceImages[i].color = Color.gray;
+                    if (SoundManager.Instance != null) SoundManager.Instance.PlaySFX("Dice_Select");
+
+                    yield return new WaitForSecondsRealtime(0.3f);
                 }
             }
         }
@@ -283,7 +330,6 @@ public class DicePokerBattleController : MonoBehaviour
     // ==========================================
     private void CalculateAndApplyDamage()
     {
-        // 🔥 เช็คว่าใครเป็นคนบุก เพื่อโยน List เต๋าไปให้ถูกฝั่ง
         List<int> atkDice = isPlayerAttacking ? playerKeptDice : enemyKeptDice;
         List<int> defDice = !isPlayerAttacking ? playerKeptDice : enemyKeptDice;
 
@@ -293,7 +339,8 @@ public class DicePokerBattleController : MonoBehaviour
         statusText.text = $"โจมตี: {atkRank} | ป้องกัน: {defRank}";
         Debug.Log($"Attacker Rank: {atkRank}, Defender Rank: {defRank}");
 
-        float baseAtk = attackerUnit.atk;
+        // 🔥 ดึง TotalAtk ที่บวกโบนัสอาวุธมาใช้
+        float baseAtk = attackerUnit.TotalAtk;
         float baseDef = defenderUnit.def;
 
         int finalDamage = 0;

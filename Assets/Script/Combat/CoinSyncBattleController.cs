@@ -49,7 +49,7 @@ public class CoinSyncBattleController : MonoBehaviour
         // 1. ============ ช่วงทายตัวเลข ============
         playerChosenNumber = -1;
         currentInputString = "";
-        UpdateNumberDisplayText(); // 🔥 เปลี่ยนเป็นชื่อนี้ครับ
+        UpdateNumberDisplayText();
 
         if (enemyNumberDisplayText != null)
         {
@@ -113,7 +113,7 @@ public class CoinSyncBattleController : MonoBehaviour
         if (coinTossPanel != null) coinTossPanel.SetActive(true);
     }
 
-    // 🔥 ให้ปุ่มเหรียญทั้ง 4 เรียกใช้ฟังก์ชันนี้ (และส่งค่า 0, 1, 2, 3 เข้ามาตามลำดับเหรียญ)
+    // ให้ปุ่มเหรียญทั้ง 4 เรียกใช้ฟังก์ชันนี้ (และส่งค่า 0, 1, 2, 3 เข้ามาตามลำดับเหรียญ)
     public void OnClick_Coin(int coinIndex)
     {
         if (isCoinLocked[coinIndex]) return; // ถ้าเหรียญล็อคแล้ว ให้กดไม่ได้
@@ -137,10 +137,11 @@ public class CoinSyncBattleController : MonoBehaviour
         {
             actualTries++; // เริ่มนับจำนวนครั้งการทอย
 
-            int pLuck = gameObject.CompareTag("Player") ? myStats.luck : currentTarget.luck;
-            int eLuck = gameObject.CompareTag("Enemy") ? myStats.luck : currentTarget.luck;
+            // 🔥 ดึงค่า TotalLuck ที่รวมโบนัสจากอาวุธแล้วมาใช้
+            int pLuck = gameObject.CompareTag("Player") ? myStats.TotalLuck : currentTarget.TotalLuck;
+            int eLuck = gameObject.CompareTag("Enemy") ? myStats.TotalLuck : currentTarget.TotalLuck;
 
-            // คราวนี้นำค่า Luck มาใช้กับการสุ่ม "โอกาสที่จะออกหน้าเดียวกับเหรียญแรก"
+            // นำค่า Luck มาใช้กับการสุ่ม "โอกาสที่จะออกหน้าเดียวกับเหรียญแรก"
             bool isMatch = TryMatchTargetFace(actualTries, playerChosenNumber, pLuck, enemyChosenNumber, eLuck);
 
             if (isMatch)
@@ -177,7 +178,7 @@ public class CoinSyncBattleController : MonoBehaviour
     }
 
     // ================================================================
-    // 🖲️ ฟังก์ชันของ UI คีย์บอร์ด (เหมือนเดิม)
+    // 🖲️ ฟังก์ชันของ UI คีย์บอร์ด
     // ================================================================
 
     public void OnClick_Number(int number)
@@ -213,7 +214,7 @@ public class CoinSyncBattleController : MonoBehaviour
     }
 
     // ================================================================
-    // ⚙️ ลอจิกหาผู้ชนะ (เหมือนเดิม)
+    // ⚙️ ลอจิกหาผู้ชนะ
     // ================================================================
 
     private void DetermineWinner(int actual, int pNum, int eNum, BaseUnit target)
@@ -238,12 +239,14 @@ public class CoinSyncBattleController : MonoBehaviour
                 }
                 target.TakeDamage(99999f, false);
             }
-            else target.TakeDamage(myStats.atk, false);
+            // 🔥 หากฝ่ายศัตรูชนะ ให้โจมตีด้วย TotalAtk (รวมโบนัสอาวุธ)
+            else target.TakeDamage(myStats.TotalAtk, false);
         }
         else
         {
             Debug.Log($"<color=red>💀 [LOSER] {myStats.unitName} แพ้การเดิมพัน!</color>");
-            myStats.TakeDamage(target.atk, true);
+            // 🔥 หากเราแพ้ ให้รับดาเมจจากเป้าหมายด้วย TotalAtk ของเป้าหมาย
+            myStats.TakeDamage(target.TotalAtk, true);
         }
     }
 

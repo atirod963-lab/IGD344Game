@@ -18,7 +18,6 @@ public class BattleManager : MonoBehaviour
     [Header("Minigame")]
     public DiceMinigameController diceMinigame;
 
-    // 🔥 เพิ่มช่องสำหรับใส่มินิเกม DicePoker
     public DicePokerBattleController dicePokerController;
 
     [Header("UI Panels (Parents)")]
@@ -51,10 +50,6 @@ public class BattleManager : MonoBehaviour
         state = BattleState.IDLE;
         if (battleUIParent) battleUIParent.SetActive(false);
     }
-
-    // ================================================================
-    // 🧹 RESET SYSTEM 
-    // ================================================================
 
     void OnEnable() { SceneManager.sceneLoaded += OnSceneLoaded; }
     void OnDisable() { SceneManager.sceneLoaded -= OnSceneLoaded; }
@@ -90,10 +85,6 @@ public class BattleManager : MonoBehaviour
         }
         else Debug.LogError("❌ [BattleManager] หาตัวละครไม่เจอ! (เช็คว่าตัวละครมี Tag 'Player' ไหม?)");
     }
-
-    // ================================================================
-    // ⚔️ BATTLE FLOW
-    // ================================================================
 
     public void StartBattle(BaseUnit enemyUnit)
     {
@@ -141,10 +132,6 @@ public class BattleManager : MonoBehaviour
 
         enemy = null;
     }
-
-    // ================================================================
-    // 🕹️ UI SYSTEM
-    // ================================================================
 
     void CloseAllPanels()
     {
@@ -213,8 +200,9 @@ public class BattleManager : MonoBehaviour
     private void ExecuteRunLogic_PlayerTurn()
     {
         state = BattleState.BUSY;
-        float myPower = player.luck + player.spd;
-        float enemyPower = enemy.luck + enemy.spd;
+        // 🔥 โอกาสหนี ดึง TotalLuck มาใช้
+        float myPower = player.TotalLuck + player.spd;
+        float enemyPower = enemy.TotalLuck + enemy.spd;
 
         if (myPower > enemyPower) { Debug.Log("💨 หนีสำเร็จ!"); EndBattle(true, true); }
         else { Debug.Log("🚫 หนีไม่พ้น! (เสียเทิร์น)"); StartCoroutine(TransitionToEnemyTurn()); }
@@ -224,13 +212,14 @@ public class BattleManager : MonoBehaviour
     {
         state = BattleState.BUSY;
         yield return new WaitForSeconds(0.5f);
-        player.TakeDamage(enemy.atk, false);
+        // 🔥 ดาเมจตอกกลับตอนหนีพลาด ดึง TotalAtk มาใช้
+        player.TakeDamage(enemy.TotalAtk, false);
 
         if (CheckWinCondition()) yield break;
         yield return new WaitForSeconds(1f);
 
-        float myPower = player.luck + player.spd;
-        float enemyPower = enemy.luck + enemy.spd;
+        float myPower = player.TotalLuck + player.spd;
+        float enemyPower = enemy.TotalLuck + enemy.spd;
 
         if (myPower > enemyPower) { Debug.Log("💨 หนีรอดจนได้!"); EndBattle(true, true); }
         else { Debug.Log("🚫 หนีไม่พ้น! (เจ็บฟรี)"); StartPlayerTurn(); }
@@ -252,20 +241,16 @@ public class BattleManager : MonoBehaviour
         }
         else
         {
-            // 🔥 ตรวจสอบอาวุธที่ใส่
             MinigameType weaponMinigame = MinigameType.Standard;
             if (player.equippedWeapon != null)
             {
                 weaponMinigame = player.equippedWeapon.attackMinigame;
             }
 
-            // 🔥 เลือกว่าจะเปิดมินิเกมไหนจากอาวุธ
             if (weaponMinigame == MinigameType.DicePoker && dicePokerController != null)
             {
                 Debug.Log("🎲 โจมตีด้วยอาวุธ Dice Poker!");
                 dicePokerController.StartDicePokerMinigame(player, enemy, true);
-
-                // โค้ดจะหยุดรอตรงนี้ จนกว่าหน้าต่างมินิเกม DicePoker จะหายไป
                 yield return new WaitWhile(() => dicePokerController.dicePokerPanel.activeSelf);
             }
             else if (weaponMinigame == MinigameType.CoinFate)
@@ -276,7 +261,6 @@ public class BattleManager : MonoBehaviour
             }
             else
             {
-                // ถ้าไม่มีอาวุธ หรืออาวุธเป็นแบบ Standard ก็จะใช้ 4Dice แบบเดิม
                 Debug.Log("⚔️ โจมตีปกติ (เรียกมินิเกม 2 รอบ - 4Dice)");
 
                 _4DiceBattleController pDiceCtrl = player.GetComponent<_4DiceBattleController>();
@@ -320,26 +304,20 @@ public class BattleManager : MonoBehaviour
         {
             Debug.Log("🛡️ คุณป้องกัน!");
 
-            // 🔥 ตรวจสอบอาวุธของศัตรู
             MinigameType enemyWeaponType = MinigameType.Standard;
             if (enemy.equippedWeapon != null)
             {
                 enemyWeaponType = enemy.equippedWeapon.attackMinigame;
             }
 
-            // 🔥 ถ้าศัตรูถืออาวุธ Dice Poker
             if (enemyWeaponType == MinigameType.DicePoker && dicePokerController != null)
             {
                 Debug.Log("🎲 ศัตรูโจมตีด้วย Dice Poker!");
-                // ให้ enemy เป็นคนโจมตี (attacker) และ false คือการบอกว่า Player ไม่ได้บุก
                 dicePokerController.StartDicePokerMinigame(enemy, player, false);
-
-                // โค้ดจะหยุดรอตรงนี้ จนกว่าหน้าต่างมินิเกม DicePoker จะหายไป
                 yield return new WaitWhile(() => dicePokerController.dicePokerPanel.activeSelf);
             }
             else
             {
-                // ถ้าเป็นศัตรูธรรมดาไม่มีอาวุธพิเศษ ก็ใช้มินิเกมป้องกันแบบเดิม (4Dice)
                 _4DiceBattleController pDiceCtrl = player.GetComponent<_4DiceBattleController>();
                 _4DiceBattleController eDiceCtrl = enemy.GetComponent<_4DiceBattleController>();
 
@@ -362,7 +340,8 @@ public class BattleManager : MonoBehaviour
         else
         {
             Debug.Log("💔 ไม่ป้องกัน โดนเต็มๆ!");
-            player.TakeDamage(enemy.atk, false);
+            // 🔥 โดนตีสดๆ ดึง TotalAtk มาใช้
+            player.TakeDamage(enemy.TotalAtk, false);
         }
 
         if (CheckWinCondition()) yield break;

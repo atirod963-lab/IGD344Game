@@ -7,26 +7,23 @@ public class ClickToMove2D : MonoBehaviour
 
     private Vector3 targetPosition;
     private bool isMoving;
+    private bool wasMoving; // 🔥 เพิ่มตัวแปรนี้มาเช็คว่า "เฟรมที่แล้วเดินอยู่หรือเปล่า"
     private bool isHolding;
     private float mouseHoldTime;
 
     private Rigidbody2D rb;
 
-    private Animator animator; // เพิ่มตัวแปร Animator
-    private Vector2 moveinput; // ตัวแปรสำหรับเก็บทิศทางการเคลื่อนที่ (ถ้าต้องการใช้ในอนาคต)
-
-
+    private Animator animator;
+    private Vector2 moveinput;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>(); // ดึง Animator มาใช้
+        animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        // เพิ่ม: ถ้ากำลังสู้ (เกมหยุด หรือ BattleManager สั่งปิด) ไม่ต้องรับ Input
-        // แต่ถ้าใช้วิธีปิด Script ใน EnemyTrigger แล้ว บรรทัดนี้ไม่ต้องมีก็ได้
         HandleMouseInput();
     }
 
@@ -68,12 +65,10 @@ public class ClickToMove2D : MonoBehaviour
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0f;
 
-        // 🔥 แก้ตรงนี้: เปลี่ยนจาก Raycast ธรรมดา เป็น RaycastAll (เจาะทะลุทุกอย่าง)
         RaycastHit2D[] hits = Physics2D.RaycastAll(mouseWorldPos, Vector2.zero);
 
         bool foundGround = false;
 
-        // วนลูปดูว่า ในบรรดาสิ่งที่คลิกโดน มีอันไหนเป็น "Ground" ไหม?
         foreach (RaycastHit2D hit in hits)
         {
             if (hit.collider != null && hit.collider.CompareTag("Ground"))
@@ -81,11 +76,10 @@ public class ClickToMove2D : MonoBehaviour
                 targetPosition = mouseWorldPos;
                 isMoving = true;
                 foundGround = true;
-                break; // เจอพื้นแล้ว หยุดหา
+                break;
             }
         }
 
-        // ถ้าคลิกไม่โดนพื้นเลย (เช่น คลิกออกนอกแมพ) ถึงค่อยหยุด
         if (!foundGround)
         {
             isMoving = false;
@@ -94,6 +88,21 @@ public class ClickToMove2D : MonoBehaviour
 
     void Move()
     {
+        // 🔥 ระบบเช็คสถานะเพื่อเล่นเสียง/หยุดเสียงเดิน
+        if (isMoving && !wasMoving)
+        {
+            // ถ้าเฟรมนี้เดิน แต่เฟรมที่แล้วไม่ได้เดิน (แปลว่า "เพิ่งเริ่มเดิน")
+            if (SoundManager.Instance != null) SoundManager.Instance.PlayLoopingSFX("Player_Walk");
+        }
+        else if (!isMoving && wasMoving)
+        {
+            // ถ้าเฟรมนี้หยุด แต่เฟรมที่แล้วเดิน (แปลว่า "เพิ่งหยุดเดิน")
+            if (SoundManager.Instance != null) SoundManager.Instance.StopLoopingSFX();
+        }
+
+        // อัปเดตสถานะของเฟรมนี้ไปเก็บไว้ใช้เช็คในเฟรมหน้า
+        wasMoving = isMoving;
+
         if (!isMoving)
         {
             animator.SetBool("IsWalking", false);
@@ -112,7 +121,7 @@ public class ClickToMove2D : MonoBehaviour
         rb.MovePosition(nextPos);
 
         animator.SetBool("IsWalking", true);
-        animator.SetFloat("InputX",  moveinput.x);
+        animator.SetFloat("InputX", moveinput.x);
         animator.SetFloat("InputY", moveinput.y);
 
         if (!isHolding && Vector2.Distance(rb.position, targetPosition) < 0.05f)
@@ -129,16 +138,18 @@ public class ClickToMove2D : MonoBehaviour
         }
     }
 
-    // 🔥 ฟังก์ชันสำหรับให้ EnemyTrigger เรียกใช้ (Unity 6)
     public void StopMovementImmediately()
     {
         isMoving = false;
         isHolding = false;
         targetPosition = rb.position;
 
+        // 🔥 สำคัญ: ต้องสั่งหยุดเสียงด้วยเผื่อตอนโดนบังคับให้หยุดเดิน (เช่น เข้าฉากต่อสู้)
+        if (SoundManager.Instance != null) SoundManager.Instance.StopLoopingSFX();
+
         if (rb != null)
         {
-            rb.linearVelocity = Vector2.zero; // Unity 6 ใช้ linearVelocity ถูกต้องแล้วครับ
+            rb.linearVelocity = Vector2.zero;
         }
     }
 }

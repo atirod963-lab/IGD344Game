@@ -11,14 +11,12 @@ public class BaseUnit : MonoBehaviour
     public LevelProgressionData levelTable;
 
     [Header("Progression")]
-    // 🔥 แก้ไข Range เป็น 0 - 25 ตามที่ขอครับ
     [Range(0, 25)] public int currentLevel = 1;
     public int currentExp = 0;
 
-    // ดึงค่า Exp ที่ต้องใช้จากตาราง (ถ้าไม่มีตารางใช้ 999)
     public int requiredExp => levelTable != null ? levelTable.GetExpForLevel(currentLevel) : 999;
 
-    [Header("Current Stats")]
+    [Header("Current Stats (Base)")]
     public float maxHp;
     public float hp;
     public float atk;
@@ -26,13 +24,16 @@ public class BaseUnit : MonoBehaviour
     public float spd;
     public int luck;
 
-    // --- 👇 ส่วน Cheat วาร์ปเลเวล (ติ๊กถูกเพื่อใช้งาน) 👇 ---
-    [Header("Debug / Cheats")]
-    [Range(1, 25)] public int targetLevelCheat = 10; // เป้าหมายที่จะวาร์ปไป
-    public bool testLvCheatNow = false;  // 🔥 ติ๊กถูกตรงนี้เพื่อโกงเลเวล
-
     [Header("Equipment")]
-    public WeaponData equippedWeapon; // ลาก WeaponData มาใส่ช่องนี้
+    public WeaponData equippedWeapon;
+
+    // 🔥 สร้างสเตตัสรวม (ตัวละคร + อาวุธ) เอาไว้ให้ระบบต่อสู้ดึงไปใช้
+    public float TotalAtk => equippedWeapon != null ? atk + equippedWeapon.bonusAtk : atk;
+    public int TotalLuck => equippedWeapon != null ? luck + equippedWeapon.bonusLuck : luck;
+
+    [Header("Debug / Cheats")]
+    [Range(1, 25)] public int targetLevelCheat = 10;
+    public bool testLvCheatNow = false;
 
     protected virtual void Start()
     {
@@ -45,11 +46,10 @@ public class BaseUnit : MonoBehaviour
 
     protected virtual void Update()
     {
-        // เช็คว่ามีการกดปุ่มโกงไหม
         if (testLvCheatNow)
         {
-            testLvCheatNow = false; // รีเซ็ตปุ่ม
-            DebugSetLevel();     // รันคำสั่ง
+            testLvCheatNow = false;
+            DebugSetLevel();
         }
     }
 
@@ -84,14 +84,12 @@ public class BaseUnit : MonoBehaviour
 
         if (currentFate != null)
         {
-            // คำนวณค่าที่จะได้เพิ่ม (Gain)
             int hpGain = StatCalculator.GetStatGain(currentLevel, currentFate.hp);
             int atkGain = StatCalculator.GetStatGain(currentLevel, currentFate.atk);
             int defGain = StatCalculator.GetStatGain(currentLevel, currentFate.def);
             int spdGain = StatCalculator.GetStatGain(currentLevel, currentFate.spd);
             int luckGain = StatCalculator.GetStatGain(currentLevel, currentFate.luck);
 
-            // บวกทบเข้าไปในสเตตัสถาวร
             maxHp += hpGain;
             atk += atkGain;
             def += defGain;
@@ -100,8 +98,6 @@ public class BaseUnit : MonoBehaviour
 
             Debug.Log($"🎉 LEVEL UP! ({currentLevel}) Stats Gained -> HP+{hpGain}, ATK+{atkGain}...");
         }
-
-        // รีเลือดเต็ม
         hp = maxHp;
     }
 
@@ -126,18 +122,16 @@ public class BaseUnit : MonoBehaviour
     protected virtual void Die()
     {
         Debug.Log($"{unitName} Died");
-
-        // ถ้าคนที่ตายคือ Player ให้โหลดเซฟกลับมา
         if (gameObject.CompareTag("Player"))
         {
             SaveSystem.Instance.LoadGame();
         }
         else
         {
-            Destroy(gameObject); // ถ้าศัตรูตายก็ลบทิ้งปกติ
+            Destroy(gameObject);
         }
     }
-    // --- ฟังก์ชันสูตรโกง ---
+
     public void DebugSetLevel()
     {
         if (targetLevelCheat <= currentLevel)
@@ -145,14 +139,11 @@ public class BaseUnit : MonoBehaviour
             Debug.LogWarning("⚠️ เลเวลเป้าหมายต้องมากกว่าเลเวลปัจจุบัน!");
             return;
         }
-
         Debug.Log($"🚀 กำลังวาร์ปจาก Lv.{currentLevel} ไปยัง Lv.{targetLevelCheat}...");
-
-        // วนลูปอัพเลเวลจนกว่าจะถึงเป้า
         while (currentLevel < targetLevelCheat)
         {
-            currentExp = requiredExp; // เติม EXP เต็มหลอด
-            LevelUp();                // สั่งอัพเลเวล
+            currentExp = requiredExp;
+            LevelUp();
         }
     }
 }

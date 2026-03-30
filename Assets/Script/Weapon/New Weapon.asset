@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: New Weapon
   m_EditorClassIdentifier: 
   weaponName: Daddy Sword
-  bonusAtk: 50
-  attackMinigame: 2
+  bonusAtk: 0
+  bonusLuck: 1000
+  attackMinigame: 0
   weaponIcon: {fileID: 0}

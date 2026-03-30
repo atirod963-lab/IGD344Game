@@ -121,8 +121,15 @@ public class DiceMinigameController : MonoBehaviour
         else
         {
             boxInteract.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
-            yield return new WaitForSeconds(0.8f);
+
+            // 🔥 1. สั่งเริ่มเสียงแบบลูป
+            if (SoundManager.Instance != null) SoundManager.Instance.PlayLoopingSFX("4Dice_Roll");
+
+            yield return new WaitForSeconds(0.8f); // รอเวลาเขย่า 0.8 วินาที
             boxInteract.transform.localScale = Vector3.one;
+
+            // 🔥 2. พอเขย่าเสร็จ สั่งหยุดเสียง
+            if (SoundManager.Instance != null) SoundManager.Instance.StopLoopingSFX();
         }
 
         t = 0;

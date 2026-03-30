@@ -24,6 +24,9 @@ public class BoxInteract : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
         // 🌟 สั่งให้ Animator เข้าสู่โหมด "สั่น"
         if (animator != null) animator.SetBool("isShaking", true);
 
+        // 🔥 เพิ่มคำสั่งนี้เข้าไปครับ! (คุณลืมใส่บรรทัดนี้ในรอบที่แล้ว)
+        if (SoundManager.Instance != null) SoundManager.Instance.PlayLoopingSFX("4Dice_Roll");
+
         transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
     }
 
@@ -38,11 +41,11 @@ public class BoxInteract : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public void OnPointerUp(PointerEventData eventData)
     {
         if (!isDragging) return;
-
         isDragging = false;
-
-        // 🌟 สั่งให้ Animator กลับสู่โหมด "อยู่นิ่งๆ"
         if (animator != null) animator.SetBool("isShaking", false);
+
+        // 🔥 เพิ่มคำสั่งหยุดเสียงตรงนี้
+        if (SoundManager.Instance != null) SoundManager.Instance.StopLoopingSFX();
 
         transform.localScale = Vector3.one;
         hasFinishedShaking = true;

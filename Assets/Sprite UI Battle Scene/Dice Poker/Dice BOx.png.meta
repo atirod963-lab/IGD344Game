@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 877fa24d76b45304380d9d3a168238ef
+guid: 02850e41d2161ca4dbf4f066d4d94068
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5707218116961789024
-    second: ui_0
-  - first:
-      213: 3556181715638617739
-    second: ui_1
+      213: -6800428251708150265
+    second: Dice BOx_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_0
+      name: Dice BOx_0
       rect:
         serializedVersion: 2
-        x: 58
-        y: 789
-        width: 233
-        height: 144
+        x: 68
+        y: 66
+        width: 378
+        height: 380
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0646e25a3ac143f40800000000000000
-      internalID: 5707218116961789024
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_1
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 355
-        width: 1047
-        height: 269
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b86016dcd681a5130800000000000000
-      internalID: 3556181715638617739
+      spriteID: 70ea768098600a1a0800000000000000
+      internalID: -6800428251708150265
       vertices: []
       indices: 
       edges: []
@@ -172,9 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ui_0: 5707218116961789024
-      ui_1: 3556181715638617739
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
