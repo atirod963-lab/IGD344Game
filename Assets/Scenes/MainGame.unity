@@ -27039,7 +27039,11 @@ PrefabInstance:
     - target: {fileID: 373372315849687995, guid: 905b4b64cfd031a479c3ae08e029044a, type: 3}
       propertyPath: equippedWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: e451d5e941fd6a040b88ec18fc908443, type: 2}
+      objectReference: {fileID: 0}
+    - target: {fileID: 373372315849687995, guid: 905b4b64cfd031a479c3ae08e029044a, type: 3}
+      propertyPath: testLvCheatNow
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 389791873450934669, guid: 905b4b64cfd031a479c3ae08e029044a, type: 3}
       propertyPath: mainCanvas
       value: 
