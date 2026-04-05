@@ -33,14 +33,14 @@ public class QuestNPCDialogue : MonoBehaviour
 
     private void ShowSimpleDialogue(string text)
     {
-        DialogueManager.Instance.dialoguePanel.SetActive(true);
-        DialogueManager.Instance.dialogueText.text = text;
+        DialogueManger.Instance.dialoguePanel.SetActive(true);
+        DialogueManger.Instance.dialogueText.text = text;
 
         // ปิดปุ่ม Accept และ Submit เพราะเป็นการคุยธรรมดา
-        DialogueManager.Instance.acceptButton.gameObject.SetActive(false);
-        DialogueManager.Instance.submitButton.gameObject.SetActive(false);
-        DialogueManager.Instance.cancelButton.gameObject.SetActive(true); 
-        // ปุ่ม Cancel ใน DialogueManager ของคุณทำหน้าที่เป็นปุ่ม "ปิด" ได้เลย
+        DialogueManger.Instance.acceptButton.gameObject.SetActive(false);
+        DialogueManger.Instance.submitButton.gameObject.SetActive(false);
+        DialogueManger.Instance.cancelButton.gameObject.SetActive(true); 
+        // ปุ่ม Cancel ใน DialogueManger ของคุณทำหน้าที่เป็นปุ่ม "ปิด" ได้เลย
     }
 
     private void HandleQuestDialogue()
@@ -58,11 +58,11 @@ public class QuestNPCDialogue : MonoBehaviour
 
     private void OpenDialogue(string text, bool showAccept, bool showSubmit)
     {
-        DialogueManager.Instance.dialoguePanel.SetActive(true);
-        DialogueManager.Instance.dialogueText.text = text;
-        DialogueManager.Instance.acceptButton.gameObject.SetActive(showAccept);
-        DialogueManager.Instance.submitButton.gameObject.SetActive(showSubmit);
-        DialogueManager.Instance.cancelButton.gameObject.SetActive(true);
+        DialogueManger.Instance.dialoguePanel.SetActive(true);
+        DialogueManger.Instance.dialogueText.text = text;
+        DialogueManger.Instance.acceptButton.gameObject.SetActive(showAccept);
+        DialogueManger.Instance.submitButton.gameObject.SetActive(showSubmit);
+        DialogueManger.Instance.cancelButton.gameObject.SetActive(true);
         
         // เก็บข้อมูลเควสเผื่อไว้ถ้ามีการกด Accept
         TempQuestHolder.Name = questName;

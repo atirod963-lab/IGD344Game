@@ -14,7 +14,7 @@ public class NPC : MonoBehaviour
         // 1. เช็คเงื่อนไขพื้นฐาน
         if (hasTalked) return;
         if (!other.CompareTag("Player")) return;
-        if (DialogueManager.Instance.IsDialogueActive()) return;
+        if (DialogueManger.Instance.IsDialogueActive()) return;
 
         // 2. ถ้าเป็น NPC เควส ให้ฝากข้อมูลเควสไว้ที่ TempQuestHolder ก่อน
         // ข้อมูลพวกนี้ดึงมาจากไฟล์ NPCDialogue ของคุณ
@@ -26,7 +26,7 @@ public class NPC : MonoBehaviour
         }
 
         // 3. เริ่มการสนทนาผ่าน Manager
-        DialogueManager.Instance.StartDialogue(dialogue);
+        DialogueManger.Instance.StartDialogue(dialogue);
         
         // hasTalked = true; // เปิดใช้ถ้าอยากให้คุยแค่ครั้งเดียวแล้วเงียบไปเลย
     }

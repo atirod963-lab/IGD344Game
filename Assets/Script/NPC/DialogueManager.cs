@@ -3,9 +3,9 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManger : MonoBehaviour
 {
-    public static DialogueManager Instance; 
+    public static DialogueManger Instance; 
    
 
     [Header("UI")]

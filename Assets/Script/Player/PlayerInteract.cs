@@ -8,8 +8,8 @@ public class PlayerInteract : MonoBehaviour
     void Update()
     {
         // 🔒 ถ้ากำลังคุย → ห้าม interact
-        if (DialogueManager.Instance != null &&
-            DialogueManager.Instance.IsDialogueActive())
+        if (DialogueManger.Instance != null &&
+            DialogueManger.Instance.IsDialogueActive())
             return;
 
         // 🖱️ กันคลิกโดน UI
