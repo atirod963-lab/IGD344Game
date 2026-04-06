@@ -18,8 +18,8 @@ public class CutsceneController : MonoBehaviour
 
     void Start()
     {
-        // ตอน Timeline จบ → คืนการควบคุมให้ผู้เล่น
         timeline.stopped += OnTimelineFinished;
+        FindPlayer(); // ← เพิ่มบรรทัดนี้
     }
 
     void OnDestroy()
@@ -72,5 +72,11 @@ public class CutsceneController : MonoBehaviour
             else if (binding is GameObject go)
                 go.SetActive(active);
         }
+    }
+
+    private void FindPlayer()
+    {
+        if (dialogueManager.playerMovement == null)
+            dialogueManager.playerMovement = Object.FindAnyObjectByType<ClickToMove2D>();
     }
 }

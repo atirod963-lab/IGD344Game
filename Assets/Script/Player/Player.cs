@@ -15,13 +15,13 @@ public class Player : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
             rb = GetComponent<Rigidbody2D>();
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
         else
         {
-            Destroy(gameObject);
+            // ส่งข้อมูลจากตัวเก่าไปให้ตัวใหม่
+            Instance.TransferTo(this);
         }
     }
 
@@ -44,5 +44,23 @@ public class Player : MonoBehaviour
             cam.Follow = transform;
             cam.LookAt = transform; // 2D ใส่หรือไม่ใส่ก็ได้
         }
+    }
+
+    public void TransferTo(Player newPlayer)
+    {
+        // ย้าย position
+        newPlayer.transform.position = transform.position;
+
+        // ย้าย Instance มาชี้ตัวใหม่
+        Instance = newPlayer;
+        DontDestroyOnLoad(newPlayer.gameObject);
+        newPlayer.rb = newPlayer.GetComponent<Rigidbody2D>();
+
+        // ย้าย event listener มาที่ตัวใหม่
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneLoaded += newPlayer.OnSceneLoaded;
+
+        // ลบตัวเก่าทิ้ง
+        Destroy(gameObject);
     }
 }

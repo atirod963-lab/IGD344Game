@@ -70,45 +70,40 @@ public class SaveSystem : MonoBehaviour
             return;
         }
 
-        // อ่านไฟล์ JSON กลับมาเป็นข้อมูล
         string json = File.ReadAllText(saveFilePath);
         GameSaveData data = JsonUtility.FromJson<GameSaveData>(json);
-
+        
         Debug.Log("🔄 กำลังโหลดเกม...");
 
-        // โหลดฉากที่เซฟไว้
-        SceneManager.LoadScene(data.sceneName);
-
-        // รอให้ฉากโหลดเสร็จก่อนค่อยยัดค่าใส่ตัวละคร
-        StartCoroutine(ApplySaveData(data));
+        StartCoroutine(LoadAndApply(data));
     }
 
-    private System.Collections.IEnumerator ApplySaveData(GameSaveData data)
+    private System.Collections.IEnumerator LoadAndApply(GameSaveData data)
     {
-        // รอ 1 เฟรมให้ฉากโหลดเสร็จสมบูรณ์
-        yield return null;
+        AsyncOperation op = SceneManager.LoadSceneAsync(data.sceneName);
+
+        while (!op.isDone)
+            yield return null;
+
+        yield return new WaitForSeconds(0.1f);
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+
         if (playerObj != null)
         {
-            // จับวางตำแหน่งเดิม
             playerObj.transform.position = new Vector3(data.px, data.py, data.pz);
 
-            // คืนค่าสเตตัส
             BaseUnit player = playerObj.GetComponent<BaseUnit>();
-            if (player != null)
-            {
-                player.currentLevel = data.level;
-                player.currentExp = data.exp;
-                player.maxHp = data.maxHp;
-                player.hp = data.maxHp; // เกิดใหม่เลือดเต็ม
-                player.atk = data.atk;
-                player.def = data.def;
-                player.spd = data.spd;
-                player.luck = data.luck;
+            player.currentLevel = data.level;
+            player.currentExp = data.exp;
+            player.maxHp = data.maxHp;
+            player.hp = data.maxHp;
+            player.atk = data.atk;
+            player.def = data.def;
+            player.spd = data.spd;
+            player.luck = data.luck;
 
-                Debug.Log("✨ คืนชีพที่จุดเซฟเรียบร้อย!");
-            }
+            Debug.Log("✅ โหลดสำเร็จ → ไปจุดเซฟล่าสุด");
         }
     }
 }

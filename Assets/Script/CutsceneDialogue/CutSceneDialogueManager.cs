@@ -31,6 +31,8 @@ public class cutsceneDialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         if (skipButton != null)
             skipButton.onClick.AddListener(SkipDialogue);
+
+        FindPlayer(); // ← เพิ่มบรรทัดนี้
     }
 
     void Update()
@@ -129,6 +131,12 @@ public class cutsceneDialogueManager : MonoBehaviour
 
         onDialogueEnd?.Invoke();
         Debug.Log("Dialogue จบแล้ว!");
+    }
+
+    private void FindPlayer()
+    {
+        if (playerMovement == null)
+            playerMovement = Object.FindAnyObjectByType<ClickToMove2D>();
     }
 
     [System.Serializable]

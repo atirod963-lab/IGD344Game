@@ -43,7 +43,7 @@ public class TeleportManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
 
-        WarpPoint[] points = FindObjectsOfType<WarpPoint>();
+        WarpPoint[] points = Object.FindObjectsByType<WarpPoint>(FindObjectsSortMode.None);
         foreach (var point in points)
         {
             if (point.warpID == targetWarpID)

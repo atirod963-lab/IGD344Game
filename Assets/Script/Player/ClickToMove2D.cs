@@ -15,11 +15,14 @@ public class ClickToMove2D : MonoBehaviour
 
     private Animator animator;
     private Vector2 moveinput;
+    public static ClickToMove2D Instance { get; private set; }
 
     void Awake()
     {
+        Instance = this; // เพิ่มแค่นี้
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        
     }
 
     void Update()

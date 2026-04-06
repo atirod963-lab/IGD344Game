@@ -20,7 +20,7 @@ public class SimpleInventoryUI : MonoBehaviour
         if (inventory == null)
         {
             inventory = GetComponent<FateInventory>();
-            if (inventory == null) inventory = FindObjectOfType<FateInventory>();
+            if (inventory == null) inventory = Object.FindAnyObjectByType<FateInventory>();
         }
 
         if (mainCanvas != null) mainCanvas.gameObject.SetActive(true);
