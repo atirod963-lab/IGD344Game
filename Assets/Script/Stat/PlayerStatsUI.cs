@@ -48,6 +48,15 @@ public class PlayerStatsUI : MonoBehaviour
         }
     }
 
+    // 🔥 ใหม่: ฟังก์ชันสำหรับปิดหน้าต่างโดยเฉพาะ
+    public void CloseStatsMenu()
+    {
+        if (statsMenuPanel != null)
+        {
+            statsMenuPanel.SetActive(false);
+        }
+    }
+
     // ==========================================
     // 📊 ฟังก์ชันดึงข้อมูลมาแสดงผล
     // ==========================================
@@ -86,8 +95,7 @@ public class PlayerStatsUI : MonoBehaviour
         // 4. อัปเดตเหรียญ Fate ที่ใส่อยู่
         if (playerUnit.currentFate != null)
         {
-            // หมายเหตุ: สมมติว่าใน FateCoinData ของคุณมีตัวแปรชื่อ coinIcon นะครับ ถ้าชื่ออื่นให้แก้ให้ตรง
-            // fateCoinIcon.sprite = playerUnit.currentFate.coinIcon; 
+            // fateCoinIcon.sprite = playerUnit.currentFate.coinIcon; // คอมเมนต์ไว้ก่อน เพราะไม่แน่ใจชื่อตัวแปรภาพเหรียญใน FateCoinData
             fateCoinNameText.text = playerUnit.currentFate.coinName;
             fateCoinIcon.color = Color.white;
         }
@@ -103,13 +111,11 @@ public class PlayerStatsUI : MonoBehaviour
     // ==========================================
     public void OpenFateInventory()
     {
-        // เปิดหน้ากระเป๋าเหรียญ (ถ้าคุณอยากให้หน้าสแต็ทปิดไปด้วย ให้เติม statsMenuPanel.SetActive(false);)
         if (fateInventoryPanel != null) fateInventoryPanel.SetActive(true);
     }
 
     public void OpenWeaponInventory()
     {
-        // เปิดหน้ากระเป๋าอาวุธ
         if (weaponInventoryPanel != null) weaponInventoryPanel.SetActive(true);
     }
 }
