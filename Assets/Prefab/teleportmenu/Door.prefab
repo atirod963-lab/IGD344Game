@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7223b895d3cc0b24798cd61aea48689b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: Scene1
+  targetScene: Map2
   spawnPoint: {fileID: 7293493344493931755, guid: ddc303ed807e89348a781276e4b1d68a, type: 3}
   transitionDuration: 1
   enterImage: {fileID: 7482667652216324306, guid: 2e64a960c9cfe8246872fa3c497b1a64, type: 3}
