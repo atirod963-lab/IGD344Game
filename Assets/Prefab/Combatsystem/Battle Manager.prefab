@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8379949920992935024}
   - component: {fileID: 4571402520070190718}
   - component: {fileID: 1078824626532009947}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Player KeptDie (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 2018760043481392392}
   - component: {fileID: 1290939233679930573}
   - component: {fileID: 1062684093256532215}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 3587456668912802830}
   - component: {fileID: 2584016969157943071}
   - component: {fileID: 6641235848091797622}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: NumberInputPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -277,7 +277,7 @@ GameObject:
   - component: {fileID: 3160699070267699091}
   - component: {fileID: 6621131536931245577}
   - component: {fileID: 3894095000561574304}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 3258381090156641672}
   - component: {fileID: 3790149798996874625}
   - component: {fileID: 6029546569530452456}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ActiveDie (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,7 +546,7 @@ GameObject:
   - component: {fileID: 1847068090544936520}
   - component: {fileID: 7489381085762118122}
   - component: {fileID: 5593247502908586645}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -678,7 +678,7 @@ GameObject:
   - component: {fileID: 6840799090803847146}
   - component: {fileID: 6998028294297263379}
   - component: {fileID: 3766727813111132512}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -815,7 +815,7 @@ GameObject:
   - component: {fileID: 6035306057407712112}
   - component: {fileID: 1151750164500970952}
   - component: {fileID: 9167976123784798825}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ActiveDie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,7 +946,7 @@ GameObject:
   - component: {fileID: 7505821887552651950}
   - component: {fileID: 5251028630143694920}
   - component: {fileID: 8486298161318160339}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: DicePokerPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1025,7 +1025,7 @@ GameObject:
   - component: {fileID: 7715847503496407972}
   - component: {fileID: 4936226873572865278}
   - component: {fileID: 8665461701649732326}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Status Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: 7505669362967980161}
   - component: {fileID: 2049115319176181227}
   - component: {fileID: 914270137944992751}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 1078037643933192272}
   - component: {fileID: 4660172181538215107}
   - component: {fileID: 3586724127332547951}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: StatusTurn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1401,7 +1401,7 @@ GameObject:
   - component: {fileID: 7241477599348927923}
   - component: {fileID: 3841702113329385490}
   - component: {fileID: 6240915816330742027}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1538,7 +1538,7 @@ GameObject:
   - component: {fileID: 257572164542888590}
   - component: {fileID: 4166897713890944128}
   - component: {fileID: 6410732558320411089}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Backspace Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1671,7 +1671,7 @@ GameObject:
   - component: {fileID: 6766061824898658112}
   - component: {fileID: 2175298163266781893}
   - component: {fileID: 869065601752884257}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ActiveDie (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1802,7 +1802,7 @@ GameObject:
   - component: {fileID: 2797853475750424439}
   - component: {fileID: 5588964775057118459}
   - component: {fileID: 6223672649447221607}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Player KeptDie (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1878,7 +1878,7 @@ GameObject:
   - component: {fileID: 6686724742029613805}
   - component: {fileID: 6909467227036065785}
   - component: {fileID: 8819493217528210697}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2011,7 +2011,7 @@ GameObject:
   - component: {fileID: 347707316551067306}
   - component: {fileID: 2710178645134368575}
   - component: {fileID: 4879392458332637884}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Role Dice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2143,7 +2143,7 @@ GameObject:
   - component: {fileID: 3643828919676187342}
   - component: {fileID: 7464490994975895833}
   - component: {fileID: 5896090072711120920}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TossCountText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2280,7 +2280,7 @@ GameObject:
   - component: {fileID: 4464402449599041968}
   - component: {fileID: 405545944439231292}
   - component: {fileID: 6807432632162807815}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2413,7 +2413,7 @@ GameObject:
   - component: {fileID: 8020847530649436063}
   - component: {fileID: 9126031471359453517}
   - component: {fileID: 7639922577549241987}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2514,7 +2514,7 @@ GameObject:
   - component: {fileID: 7924970675628381427}
   - component: {fileID: 8338006433469497431}
   - component: {fileID: 407088845328406894}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BG (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2590,7 +2590,7 @@ GameObject:
   - component: {fileID: 4633209882871717230}
   - component: {fileID: 5466352572438153708}
   - component: {fileID: 4785400967287735133}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2691,7 +2691,7 @@ GameObject:
   - component: {fileID: 2391191734808333456}
   - component: {fileID: 7207065924815289351}
   - component: {fileID: 8744194512162500707}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Enemy KeptDie (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2767,7 +2767,7 @@ GameObject:
   - component: {fileID: 3249395393848255794}
   - component: {fileID: 2029049917234736841}
   - component: {fileID: 5828974747076310717}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: KeptDie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2878,7 +2878,7 @@ GameObject:
   - component: {fileID: 7955808435531644234}
   - component: {fileID: 2862155205736834388}
   - component: {fileID: 7103651817348341125}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Coin 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3010,7 +3010,7 @@ GameObject:
   - component: {fileID: 2151591064921545183}
   - component: {fileID: 4686315438926945468}
   - component: {fileID: 4636454550083912813}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Enemy Numbers Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3149,7 +3149,7 @@ GameObject:
   - component: {fileID: 2997255048570336458}
   - component: {fileID: 6440401120879655707}
   - component: {fileID: 4026613887550366829}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3282,7 +3282,7 @@ GameObject:
   - component: {fileID: 2509715883564603647}
   - component: {fileID: 6971938984476655307}
   - component: {fileID: 5031405924903619746}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Coin 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3414,7 +3414,7 @@ GameObject:
   - component: {fileID: 6228314297544430288}
   - component: {fileID: 8998235838435878190}
   - component: {fileID: 3331650159519578350}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3551,7 +3551,7 @@ GameObject:
   - component: {fileID: 7728551300492689601}
   - component: {fileID: 8138585339473592850}
   - component: {fileID: 7243367284898385522}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3683,7 +3683,7 @@ GameObject:
   - component: {fileID: 1295175382185496906}
   - component: {fileID: 6534901375536344697}
   - component: {fileID: 2392689544594713115}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3820,7 +3820,7 @@ GameObject:
   - component: {fileID: 3650160045947812762}
   - component: {fileID: 170616083725157901}
   - component: {fileID: 1876668304408096017}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3922,7 +3922,7 @@ GameObject:
   - component: {fileID: 4905426829586851980}
   - component: {fileID: 3306560976677179005}
   - component: {fileID: 2582159663848904182}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Correct Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4024,7 +4024,7 @@ GameObject:
   - component: {fileID: 4508166627065298938}
   - component: {fileID: 6050104705543934890}
   - component: {fileID: 8953058245581113307}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4129,7 +4129,7 @@ GameObject:
   - component: {fileID: 1426023725442017618}
   - component: {fileID: 5235815931549835333}
   - component: {fileID: 2654950608184799474}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4262,7 +4262,7 @@ GameObject:
   - component: {fileID: 7503925352535393396}
   - component: {fileID: 548258732419470608}
   - component: {fileID: 9001993163329204955}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4364,7 +4364,7 @@ GameObject:
   - component: {fileID: 13171018790062944}
   - component: {fileID: 2875764122547821032}
   - component: {fileID: 5785435375957392240}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ActiveDie (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4496,7 +4496,7 @@ GameObject:
   - component: {fileID: 5106580253133072174}
   - component: {fileID: 6369080113393312961}
   - component: {fileID: 9152441699415766498}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4597,7 +4597,7 @@ GameObject:
   - component: {fileID: 4193168308814123995}
   - component: {fileID: 8837394610604322147}
   - component: {fileID: 6486683056694347535}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4673,7 +4673,7 @@ GameObject:
   - component: {fileID: 3006770938115486892}
   - component: {fileID: 6720362995608937150}
   - component: {fileID: 2459106195483288306}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Correct Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4806,7 +4806,7 @@ GameObject:
   - component: {fileID: 361265609031766979}
   - component: {fileID: 4300381666435809712}
   - component: {fileID: 4924327688276182003}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Coin 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4939,7 +4939,7 @@ GameObject:
   - component: {fileID: 5449097330169021013}
   - component: {fileID: 2703763842180962230}
   - component: {fileID: 1925519197603117866}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5041,7 +5041,7 @@ GameObject:
   - component: {fileID: 1235136237630448525}
   - component: {fileID: 4498827267537842766}
   - component: {fileID: 5968475683418470495}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5142,7 +5142,7 @@ GameObject:
   - component: {fileID: 1505294253050344371}
   - component: {fileID: 3058269419307850843}
   - component: {fileID: 6208761971008002115}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Enemy KeptDie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5217,7 +5217,7 @@ GameObject:
   - component: {fileID: 7705529973109874287}
   - component: {fileID: 4806692795731164688}
   - component: {fileID: 8057073264110233409}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Enemy KeptDie (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5292,7 +5292,7 @@ GameObject:
   - component: {fileID: 3697772093603986714}
   - component: {fileID: 5708439467179860227}
   - component: {fileID: 6771476369346764201}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: EnemyChoiceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5428,7 +5428,7 @@ GameObject:
   - component: {fileID: 3095029614527951516}
   - component: {fileID: 6268543442869718460}
   - component: {fileID: 2816418101611163515}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Enemy KeptDie (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5504,7 +5504,7 @@ GameObject:
   - component: {fileID: 5315291994687829753}
   - component: {fileID: 7668360922718573034}
   - component: {fileID: 4330217585835561783}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: RoleDie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5605,7 +5605,7 @@ GameObject:
   - component: {fileID: 1037634196897543373}
   - component: {fileID: 4170279049064800317}
   - component: {fileID: 598930691802587090}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Enemy KeptDie (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5681,7 +5681,7 @@ GameObject:
   - component: {fileID: 5158524234136618310}
   - component: {fileID: 5898274297194218596}
   - component: {fileID: 7016864929465179942}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Coin 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5814,7 +5814,7 @@ GameObject:
   - component: {fileID: 2206376322416073509}
   - component: {fileID: 3086950845075333132}
   - component: {fileID: 5027917559092876175}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ActiveDie (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5945,7 +5945,7 @@ GameObject:
   - component: {fileID: 2629228012195338878}
   - component: {fileID: 398085471136840806}
   - component: {fileID: 4198160567516220119}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: CoinTossPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6026,7 +6026,7 @@ GameObject:
   - component: {fileID: 5647976995470470595}
   - component: {fileID: 1816810758967760569}
   - component: {fileID: 3128398721158334676}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: textbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6101,7 +6101,7 @@ GameObject:
   - component: {fileID: 3680973889500824689}
   - component: {fileID: 5696687395461598115}
   - component: {fileID: 7094042749341714104}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6238,7 +6238,7 @@ GameObject:
   - component: {fileID: 7114801475083885206}
   - component: {fileID: 7848991368976054515}
   - component: {fileID: 8972842793216150934}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6338,7 +6338,7 @@ GameObject:
   - component: {fileID: 6442873565352500566}
   - component: {fileID: 6515148755419346414}
   - component: {fileID: 3287195438019027869}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6474,7 +6474,7 @@ GameObject:
   - component: {fileID: 3499568236594056696}
   - component: {fileID: 3361012056712168047}
   - component: {fileID: 5274759356877288291}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Show Input Numbers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6611,7 +6611,7 @@ GameObject:
   - component: {fileID: 6613414222273050135}
   - component: {fileID: 4113420102781262945}
   - component: {fileID: 4725146363059955966}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6744,7 +6744,7 @@ GameObject:
   - component: {fileID: 6988188066997761847}
   - component: {fileID: 8624349572428886520}
   - component: {fileID: 3740780109304995125}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Backspace Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6846,7 +6846,7 @@ GameObject:
   - component: {fileID: 8502810528973088571}
   - component: {fileID: 6030835165531827629}
   - component: {fileID: 3092286356958180823}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6948,7 +6948,7 @@ GameObject:
   - component: {fileID: 426828972123918743}
   - component: {fileID: 980301320136667473}
   - component: {fileID: 3542227295449476462}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7049,7 +7049,7 @@ GameObject:
   - component: {fileID: 393542060084800030}
   - component: {fileID: 7880826267214510911}
   - component: {fileID: 7278476794998540784}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7125,7 +7125,7 @@ GameObject:
   - component: {fileID: 2421054319703223241}
   - component: {fileID: 9155573156777016713}
   - component: {fileID: 8591020685270079814}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Show Input Numbers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7227,7 +7227,7 @@ GameObject:
   - component: {fileID: 696356309796473381}
   - component: {fileID: 7761603028017721823}
   - component: {fileID: 782130030614808578}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7364,7 +7364,7 @@ GameObject:
   - component: {fileID: 5117878181854379162}
   - component: {fileID: 5798317128519409715}
   - component: {fileID: 5898969258587700676}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7466,7 +7466,7 @@ GameObject:
   - component: {fileID: 1159326336445018386}
   - component: {fileID: 4888199973964387430}
   - component: {fileID: 1837755766478729442}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ActiveDie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7573,7 +7573,7 @@ GameObject:
   - component: {fileID: 7943324222396771905}
   - component: {fileID: 9011518890716068388}
   - component: {fileID: 1418788466442857862}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7675,7 +7675,7 @@ GameObject:
   - component: {fileID: 6580489905649114173}
   - component: {fileID: 506583051153249258}
   - component: {fileID: 1360553013203870228}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Player KeptDie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7750,7 +7750,7 @@ GameObject:
   - component: {fileID: 4249719205837752755}
   - component: {fileID: 1331395256183088004}
   - component: {fileID: 2177075674161288302}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Player KeptDie (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7826,7 +7826,7 @@ GameObject:
   - component: {fileID: 14432676322285337}
   - component: {fileID: 5479835946428416210}
   - component: {fileID: 2040868008450765800}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7928,7 +7928,7 @@ GameObject:
   - component: {fileID: 5123460484804838444}
   - component: {fileID: 499014951492457632}
   - component: {fileID: 5754725939276096371}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8029,7 +8029,7 @@ GameObject:
   - component: {fileID: 9001022970750180728}
   - component: {fileID: 3274966752796647567}
   - component: {fileID: 5988580651090061465}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8165,7 +8165,7 @@ GameObject:
   - component: {fileID: 8836249153508327051}
   - component: {fileID: 935335280696737522}
   - component: {fileID: 1207171549397322069}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Player KeptDie (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8240,7 +8240,7 @@ GameObject:
   - component: {fileID: 7602765891332675933}
   - component: {fileID: 7980319920817687504}
   - component: {fileID: 4660618439089435519}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8377,7 +8377,7 @@ GameObject:
   - component: {fileID: 634259290021955868}
   - component: {fileID: 2707755851800694354}
   - component: {fileID: 4000398654244495972}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ActiveDie (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8509,7 +8509,7 @@ GameObject:
   - component: {fileID: 1467774019712774531}
   - component: {fileID: 3496628918701680467}
   - component: {fileID: 2488688136453586839}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8641,7 +8641,7 @@ GameObject:
   - component: {fileID: 5416222425069782548}
   - component: {fileID: 4116739601102439296}
   - component: {fileID: 973171246601415445}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8778,7 +8778,7 @@ GameObject:
   - component: {fileID: 8785541360958196514}
   - component: {fileID: 6255438646671506288}
   - component: {fileID: 7850064463812849134}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8910,7 +8910,7 @@ GameObject:
   - component: {fileID: 2681036556177480996}
   - component: {fileID: 895615294577116906}
   - component: {fileID: 161895222405080326}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9046,7 +9046,7 @@ GameObject:
   - component: {fileID: 5459828768261751742}
   - component: {fileID: 2056365729138872219}
   - component: {fileID: 3391752559038293012}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PlayerChoiceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9182,7 +9182,7 @@ GameObject:
   - component: {fileID: 7516322633976285673}
   - component: {fileID: 1127701553350512297}
   - component: {fileID: 1656297724464768246}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9318,7 +9318,7 @@ GameObject:
   - component: {fileID: 4061451864892536915}
   - component: {fileID: 8748960263475517239}
   - component: {fileID: 2530133755711370734}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9505,7 +9505,7 @@ GameObject:
   - component: {fileID: 3420266799894261763}
   - component: {fileID: 1765344346739059349}
   - component: {fileID: 1411284555720608714}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9606,7 +9606,7 @@ GameObject:
   - component: {fileID: 2815655337894206444}
   - component: {fileID: 5337024583745655928}
   - component: {fileID: 4160953076271006374}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9743,7 +9743,7 @@ GameObject:
   - component: {fileID: 6708449820733153530}
   - component: {fileID: 4379745206179706767}
   - component: {fileID: 8151098631945664813}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: 8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9875,7 +9875,7 @@ GameObject:
   - component: {fileID: 4606088652529206071}
   - component: {fileID: 4481684454370667866}
   - component: {fileID: 8502155025161908929}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10011,7 +10011,7 @@ GameObject:
   - component: {fileID: 332962759529587766}
   - component: {fileID: 6388703279698845495}
   - component: {fileID: 5359648404788156157}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10152,6 +10152,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnSelect_NormalGuard
       objectReference: {fileID: 0}
+    - target: {fileID: 169135578319654212, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 201509695082068561, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 214173349418815895, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 281281615152619283, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10159,6 +10171,22 @@ PrefabInstance:
     - target: {fileID: 281281615152619283, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 282952920621204765, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 298456731910302239, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 619325357477364362, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 680945184321082554, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 732813846174067600, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10184,6 +10212,26 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 967816890156520590, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1074431273635278194, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1163189495620865485, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256176920708210626, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304673322741146732, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1371101444082577596, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
@@ -10196,9 +10244,41 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1523808722872640126, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550028496051959435, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586737782479315503, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1592093701474521857, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690974410656400726, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1722222043620518976, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1819384030359692953, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1819384030359692953, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1847787823440861070, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1878731004750109483, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10216,6 +10296,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2008169348761817452, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2039321442880549191, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10224,12 +10308,36 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2041317719338258551, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2098340751801561694, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 2098340751801561694, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2098340751801561694, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2199127327318842075, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312255203491838361, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2401646749468386311, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411189607624752232, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2418762350605314041, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
@@ -10240,6 +10348,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BackToMainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 2550612066393230160, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566118313693156272, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671106641633629991, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852959615156045787, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3206585302600118284, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10247,6 +10371,14 @@ PrefabInstance:
     - target: {fileID: 3206585302600118284, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219906342157193784, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3247939724469393225, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3298721828298764648, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
@@ -10256,6 +10388,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3323791828023460742, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3345360428320562702, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10263,6 +10399,14 @@ PrefabInstance:
     - target: {fileID: 3345360428320562702, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3513512254703867381, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3634207528794340923, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3661564519302830264, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
@@ -10272,6 +10416,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3703784465942177576, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752179910410949691, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3794253122210239292, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10279,6 +10431,14 @@ PrefabInstance:
     - target: {fileID: 3794253122210239292, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847400028662432874, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3952747423895722533, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3984358904998184982, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
@@ -10295,6 +10455,22 @@ PrefabInstance:
     - target: {fileID: 4235567123521092735, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4306387766415191189, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4336646405730715222, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4352334378566572697, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4447197584586466530, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4582088466505780261, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_Pivot.x
@@ -10376,6 +10552,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4619474190244822621, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4631538815200416895, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644861491431219149, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4663675156892142561, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10383,6 +10571,26 @@ PrefabInstance:
     - target: {fileID: 4663675156892142561, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClick_PlayerRunConfirm
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687657624643767908, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805140684045375301, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4844303577570091223, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856484959802386144, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873739200747636168, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4875420420711406085, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
@@ -10400,6 +10608,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClick_DefenceMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 5009845368597439028, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5100061033358728645, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5137981032650539102, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243570279072444674, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5350925772191670766, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10407,6 +10631,18 @@ PrefabInstance:
     - target: {fileID: 5350925772191670766, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357290002115450283, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5532925720462216627, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5563939422919478780, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5677538998848611634, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10423,6 +10659,22 @@ PrefabInstance:
     - target: {fileID: 5714442375110774797, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5778411338366447746, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811333070019745436, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820632660850296830, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5946255880756884025, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5991668987620784526, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
@@ -10440,6 +10692,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnSelect_FateBetting
       objectReference: {fileID: 0}
+    - target: {fileID: 6219217398543142392, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6266195947316213308, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10447,6 +10703,10 @@ PrefabInstance:
     - target: {fileID: 6266195947316213308, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6269940063704494008, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6370562001463481958, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
@@ -10464,6 +10724,18 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6551762741270183044, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639667399247164638, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6639677068854504259, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6804091370140319928, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10472,6 +10744,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7031533286300833883, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7032273844359327681, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10479,6 +10755,18 @@ PrefabInstance:
     - target: {fileID: 7032273844359327681, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125610397139412640, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7208912515592298403, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7247580964779973570, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7340738027688240051, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
@@ -10496,6 +10784,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BackToMainMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 7503463353366536261, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7591801055032536130, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7598723358106288608, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619709572104264817, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7690859625635029667, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7737604796319913288, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819991466949729428, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7821487249293495563, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10503,6 +10819,42 @@ PrefabInstance:
     - target: {fileID: 7821487249293495563, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838300381665986454, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7943775739064943212, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960517936769190388, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7974809172848244326, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8010136980031049130, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8013255262530067918, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039053184278662347, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094517076273955171, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245902290634926074, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8355302783617642412, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
@@ -10519,6 +10871,30 @@ PrefabInstance:
     - target: {fileID: 8398712675430662243, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513128009231092737, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8681800685978798140, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8717918511681246324, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8721527831055408285, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739855798057193920, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8752398890313232182, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8762372248681547307, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -10536,6 +10912,14 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8905834863037705583, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8910565584911724864, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8924819917339519030, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10544,6 +10928,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8931947380206286092, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8945730616318430498, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10551,6 +10939,26 @@ PrefabInstance:
     - target: {fileID: 8945730616318430498, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnSelect_RunYes
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997949067974550930, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9020357399988545748, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094730981020837236, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209685855118484536, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9214886593619751118, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10614,6 +11022,10 @@ PrefabInstance:
     - target: {fileID: 8099816500808723917, guid: a3cb5261dbe68964d91dc480ef6d3d28, type: 3}
       propertyPath: m_Name
       value: Save System
+      objectReference: {fileID: 0}
+    - target: {fileID: 8099816500808723917, guid: a3cb5261dbe68964d91dc480ef6d3d28, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8099816500808723917, guid: a3cb5261dbe68964d91dc480ef6d3d28, type: 3}
       propertyPath: m_IsActive

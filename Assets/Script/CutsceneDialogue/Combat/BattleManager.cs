@@ -93,6 +93,7 @@ public class BattleManager : MonoBehaviour
 
         enemy = enemyUnit;
         if (battleUIParent) battleUIParent.SetActive(true);
+        Debug.Log("🔥 สั่งเปิด Battle UI แล้ว! ชื่อวัตถุคือ: " + battleUIParent.name);
         state = BattleState.START;
         StartCoroutine(SetupBattle());
     }
@@ -352,7 +353,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         StartPlayerTurn();
     }
-
+        
     IEnumerator TransitionToEnemyTurn()
     {
         if (CheckWinCondition()) yield break;
