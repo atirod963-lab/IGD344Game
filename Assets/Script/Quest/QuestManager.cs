@@ -34,7 +34,7 @@ public class QuestManager : MonoBehaviour
         return currentStatus == QuestStatus.InProgress || currentStatus == QuestStatus.Completed;
     }
 
-    // แก้ไขให้รับ QuestData ตามที่ DialogueManager ส่งมา
+    // แก้ไขให้รับ QuestData ตามที่ DialogueManger ส่งมา
     public void AddQuest(QuestData data)
     {
         if (HasActiveQuest()) return;
@@ -71,7 +71,7 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    // เรียกใช้เมื่อกดปุ่ม Submit จาก DialogueManager
+    // เรียกใช้เมื่อกดปุ่ม Submit จาก DialogueManger
     public bool TrySubmitQuest()
     {
         if (currentStatus == QuestStatus.Completed)

@@ -79,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 294312943
-  m_SortingLayer: 1
+  m_SortingLayerID: 1516756739
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: -7226038537544600886, guid: 6f802933de76b76488fd7ff94247c696, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -129,6 +129,7 @@ MonoBehaviour:
   def: 6
   spd: 4
   luck: 4
+  equippedWeapon: {fileID: 0}
   targetLevelCheat: 1
   testLvCheatNow: 0
   expDrop: 0
@@ -161,6 +162,23 @@ MonoBehaviour:
   numberInputPanel: {fileID: 0}
   numberDisplayText: {fileID: 0}
   enemyNumberDisplayText: {fileID: 0}
+  coinTossPanel: {fileID: 0}
+  tossCountText: {fileID: 0}
+  playerChoiceText: {fileID: 0}
+  enemyChoiceText: {fileID: 0}
+  coinButtons:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  coinImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  defaultCoinSprite: {fileID: 0}
+  sunSprite: {fileID: 0}
+  starSprite: {fileID: 0}
 --- !u!60 &7302910241301773610
 PolygonCollider2D:
   m_ObjectHideFlags: 0

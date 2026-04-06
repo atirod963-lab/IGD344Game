@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dc696e419039254419a43ba8fc901061
+guid: c7e1840f04740c942b78a0c632958e05
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Noto Sans Thai
+  - Kanit
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
