@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 603845862153243807, guid: afb791f7cc059ee4abef08c3e2946ca4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1078652011948616969, guid: afb791f7cc059ee4abef08c3e2946ca4, type: 3}
       propertyPath: m_Type
@@ -24852,7 +24852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8343916084609825130, guid: 0b0afdd3abff2b54cb2d3cfbeb5f6aa6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27005,6 +27005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'TeleportManager '
       objectReference: {fileID: 0}
+    - target: {fileID: 2510145424779868887, guid: c8ade011b60a8904e85fadaaddc37163, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7063540680810854370, guid: c8ade011b60a8904e85fadaaddc37163, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.91
@@ -27621,6 +27625,10 @@ PrefabInstance:
     - target: {fileID: 3320217302130392191, guid: f08e9263ba95ecd43a470e20c97f428f, type: 3}
       propertyPath: m_Name
       value: IngameMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320217302130392191, guid: f08e9263ba95ecd43a470e20c97f428f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

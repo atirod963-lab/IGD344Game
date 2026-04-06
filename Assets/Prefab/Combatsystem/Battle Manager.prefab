@@ -10332,6 +10332,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2373544269184130266, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 373372315849687995, guid: 905b4b64cfd031a479c3ae08e029044a, type: 3}
+    - target: {fileID: 2386520714428011197, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 373372315849687995, guid: 905b4b64cfd031a479c3ae08e029044a, type: 3}
     - target: {fileID: 2401646749468386311, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -10448,6 +10456,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4042805318307411154, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 373372315849687995, guid: 905b4b64cfd031a479c3ae08e029044a, type: 3}
     - target: {fileID: 4235567123521092735, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -10600,6 +10612,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4900349793283198205, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 373372315849687995, guid: 905b4b64cfd031a479c3ae08e029044a, type: 3}
     - target: {fileID: 4983553424842636943, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -10692,6 +10708,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnSelect_FateBetting
       objectReference: {fileID: 0}
+    - target: {fileID: 6049048494296202816, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
+      propertyPath: unit
+      value: 
+      objectReference: {fileID: 373372315849687995, guid: 905b4b64cfd031a479c3ae08e029044a, type: 3}
     - target: {fileID: 6219217398543142392, guid: 6a65f5bf8964d634098327a65c7533cc, type: 3}
       propertyPath: m_Layer
       value: 0
