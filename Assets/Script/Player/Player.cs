@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.Cinemachine;
+using System.Collections;
 
 public class Player : MonoBehaviour
 {
     public static Player Instance;
     public static Vector3 NextSpawnPosition;
+    public static bool HasSpawnPosition = false;
+    public static string NextSpawnTag;
 
     private Rigidbody2D rb;
 
@@ -27,22 +30,31 @@ public class Player : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // ย้ายตำแหน่งเกิด
-        if (NextSpawnPosition != Vector3.zero)
+        StartCoroutine(SetupAfterLoad());
+    }
+
+    IEnumerator SetupAfterLoad()
+    {
+        yield return null; // 🔥 รอ 1 frame
+
+        if (!string.IsNullOrEmpty(NextSpawnTag))
         {
-            Vector3 spawnPos = NextSpawnPosition;
-            spawnPos.z = 0f;
-            rb.position = spawnPos;
+            GameObject spawn = GameObject.FindWithTag(NextSpawnTag);
+
+            if (spawn != null)
+            {
+                transform.position = spawn.transform.position;
+            }
+
+            NextSpawnTag = null;
         }
 
-        // ✅ Cinemachine 3
-        CinemachineCamera cam =
-            FindAnyObjectByType<CinemachineCamera>();
+        CinemachineCamera cam = FindAnyObjectByType<CinemachineCamera>();
 
         if (cam != null)
         {
             cam.Follow = transform;
-            cam.LookAt = transform; // 2D ใส่หรือไม่ใส่ก็ได้
+            cam.LookAt = transform;
         }
     }
 

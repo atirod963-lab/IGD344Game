@@ -33,9 +33,11 @@ public class BattleManager : MonoBehaviour
     public GameObject itemSubPanel;
     public GameObject runConfirmPanel;
 
+    private BaseUnit _playerCache;
+
     void Awake()
     {
-        if (instance != null && instance != this)
+        if (instance == null && instance == this)
         {
             Destroy(gameObject);
             return;
@@ -62,38 +64,59 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator RecoverPlayerAfterLoad()
     {
+        yield return null;
+        yield return null;
         yield return new WaitForSeconds(0.1f);
 
         state = BattleState.IDLE;
         enemy = null;
+        player = null; // ล้าง reference เก่า
+        _playerCache = null;
 
         if (battleUIParent) battleUIParent.SetActive(false);
         CloseAllPanels();
 
-        GameObject pObj = GameObject.FindWithTag("Player");
-        if (pObj != null)
-        {
-            player = pObj.GetComponent<BaseUnit>();
+        // 🔥 เปลี่ยนจากเดิมที่ FindWithTag ตรงๆ มาใช้ SafePlayer แทน
+        player = SafePlayer;
+        _playerCache = player; // sync cache
 
-            ClickToMove2D playerMove = pObj.GetComponent<ClickToMove2D>();
+        if (player != null)
+        {
+            ClickToMove2D playerMove = player.GetComponent<ClickToMove2D>();
             if (playerMove != null)
             {
                 playerMove.enabled = true;
                 playerMove.StopMovementImmediately();
             }
-            Debug.Log("🔄 [BattleManager] โหลดฉากเสร็จสมบูรณ์ -> เจอตัว Player และเปิดระบบเดินแล้ว!");
+            Debug.Log($"✅ [BattleManager] โหลดซีนเสร็จ -> Player: {player.unitName}");
         }
-        else Debug.LogError("❌ [BattleManager] หาตัวละครไม่เจอ! (เช็คว่าตัวละครมี Tag 'Player' ไหม?)");
+        else
+        {
+            Debug.LogError("❌ [BattleManager] หาตัวละครไม่เจอ!");
+        }
     }
 
     public void StartBattle(BaseUnit enemyUnit)
     {
         if (state != BattleState.IDLE) return;
-        if (player != null && player.hp <= 0) return;
+
+        // 🔥 ถ้า player หลุด ให้หาใหม่ก่อน
+        if (player == null)
+        {
+            GameObject pObj = GameObject.FindWithTag("Player");
+            if (pObj != null) player = pObj.GetComponent<BaseUnit>();
+        }
+
+        if (player == null)
+        {
+            Debug.LogError("❌ [BattleManager] StartBattle: ไม่พบ Player!");
+            return;
+        }
+
+        if (player.hp <= 0) return;
 
         enemy = enemyUnit;
         if (battleUIParent) battleUIParent.SetActive(true);
-        Debug.Log("🔥 สั่งเปิด Battle UI แล้ว! ชื่อวัตถุคือ: " + battleUIParent.name);
         state = BattleState.START;
         StartCoroutine(SetupBattle());
     }
@@ -367,5 +390,18 @@ public class BattleManager : MonoBehaviour
         if (enemy != null && enemy.hp <= 0) { EndBattle(true); return true; }
         if (player.hp <= 0) { EndBattle(false); return true; }
         return false;
+    }
+
+    public BaseUnit SafePlayer
+    {
+        get
+        {
+            if (_playerCache == null)
+            {
+                GameObject pObj = GameObject.FindWithTag("Player");
+                if (pObj != null) _playerCache = pObj.GetComponent<BaseUnit>();
+            }
+            return _playerCache;
+        }
     }
 }

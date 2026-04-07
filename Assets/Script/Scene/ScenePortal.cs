@@ -4,7 +4,7 @@ public class ScenePortal : MonoBehaviour
 {
     [Header("Scene")]
     public string targetScene;
-    public Transform spawnPoint;
+    public string spawnTag = "SpawnPoint";
 
     [Header("Transition")]
     public float transitionDuration = 1f;
@@ -15,7 +15,7 @@ public class ScenePortal : MonoBehaviour
     {
         if (!other.CompareTag("Player")) return;
 
-        Player.NextSpawnPosition = spawnPoint.position;
+        Player.NextSpawnTag = spawnTag;
 
         SceneTransitionManager.Instance.LoadScene(
             targetScene,
