@@ -2,6 +2,8 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 
 public class CoinSyncBattleController : MonoBehaviour
@@ -14,6 +16,8 @@ public class CoinSyncBattleController : MonoBehaviour
     public GameObject numberInputPanel;
     public TextMeshProUGUI numberDisplayText;
     public TextMeshProUGUI enemyNumberDisplayText;
+    // 🔥 ใหม่: สร้าง Text Component นี้ใน Unity และลากมาใส่ เพื่อโชว์ข้อความแจ้งเตือนข้อผิดพลาด
+    public TextMeshProUGUI inputErrorText;
 
     [Header("Manual Coin Toss UI")]
     public GameObject coinTossPanel; // ลาก Panel ทอยเหรียญมาใส่
@@ -152,6 +156,8 @@ public class CoinSyncBattleController : MonoBehaviour
         currentInputString = "";
         UpdateNumberDisplayText();
 
+        if (inputErrorText != null) inputErrorText.text = ""; // 🔥 ใหม่: ล้างข้อความแจ้งเตือนข้อผิดพลาดเก่า
+
         if (enemyNumberDisplayText != null)
         {
             enemyNumberDisplayText.gameObject.SetActive(true);
@@ -161,6 +167,8 @@ public class CoinSyncBattleController : MonoBehaviour
         if (numberInputPanel != null) numberInputPanel.SetActive(true);
 
         yield return new WaitUntil(() => playerChosenNumber != -1);
+
+        if (inputErrorText != null) inputErrorText.text = ""; // 🔥 ใหม่: ล้างข้อความแจ้งเตือนข้อผิดพลาดเมื่อสำเร็จ
 
         enemyChosenNumber = DecideEnemyNumber(playerChosenNumber);
 
@@ -297,12 +305,18 @@ public class CoinSyncBattleController : MonoBehaviour
 
     public void OnClick_Number(int number)
     {
+        // 🔥 ใหม่: ล้างข้อความแจ้งเตือนข้อผิดพลาดเมื่อผู้เล่นเริ่มใส่ตัวเลขใหม่
+        if (inputErrorText != null) inputErrorText.text = "";
+
         currentInputString += number.ToString();
         UpdateNumberDisplayText();
     }
 
     public void OnClick_Delete()
     {
+        // 🔥 ใหม่: ล้างข้อความแจ้งเตือนข้อผิดพลาดเมื่อผู้เล่นลบตัวเลข
+        if (inputErrorText != null) inputErrorText.text = "";
+
         if (currentInputString.Length > 0)
         {
             currentInputString = currentInputString.Substring(0, currentInputString.Length - 1);
@@ -310,13 +324,26 @@ public class CoinSyncBattleController : MonoBehaviour
         }
     }
 
+    // 🔥 ใหม่: ปรับปรุงฟังก์ชันนี้เพื่อจัดการอินพุตที่ไม่ถูกต้องและบอกผู้เล่น
     public void OnClick_Confirm()
     {
+        // 1. ตรวจสอบว่าช่องป้อนข้อมูลว่างหรือไม่
+        if (string.IsNullOrEmpty(currentInputString))
+        {
+            if (inputErrorText != null) inputErrorText.text = "🚫 กรุณาป้อนตัวเลข!";
+            return;
+        }
+
+        // 2. ตรวจสอบการแปลค่าและเงื่อนไข > 0
         if (int.TryParse(currentInputString, out int result) && result > 0)
         {
             playerChosenNumber = result;
         }
-        else Debug.LogWarning("กรุณาใส่ตัวเลขที่มากกว่า 0");
+        else
+        {
+            // แจ้งเตือนข้อผิดพลาดบน UI แทน Debug.Log
+            if (inputErrorText != null) inputErrorText.text = "🚫 ป้อนตัวเลขที่ถูกต้อง ( > 0)!";
+        }
     }
 
     private void UpdateNumberDisplayText()
@@ -373,6 +400,7 @@ public class CoinSyncBattleController : MonoBehaviour
 
     private void OnDestroy()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
         if (Time.timeScale == 0) Time.timeScale = 1f;
     }
 }

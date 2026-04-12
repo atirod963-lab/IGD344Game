@@ -9507,6 +9507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552aa0e31a2d03b499f1956bb839f190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetTag: Enemy
   numberInputPanel: {fileID: 467544234507970786}
   numberDisplayText: {fileID: 5274759356877288291}
   enemyNumberDisplayText: {fileID: 4636454550083912813}
@@ -9538,8 +9539,8 @@ MonoBehaviour:
   - {fileID: 4725146363059955966}
   - {fileID: 8151098631945664813}
   - {fileID: 8819493217528210697}
-  deleteButton: {fileID: 2459106195483288306}
-  confirmButton: {fileID: 6410732558320411089}
+  deleteButton: {fileID: 6410732558320411089}
+  confirmButton: {fileID: 2459106195483288306}
 --- !u!1 &8767637756133820876
 GameObject:
   m_ObjectHideFlags: 0
