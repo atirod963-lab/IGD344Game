@@ -9393,6 +9393,7 @@ GameObject:
   - component: {fileID: 3445286030359099335}
   - component: {fileID: 5311615363380219365}
   - component: {fileID: 5394493241386521814}
+  - component: {fileID: 5715121762058752525}
   m_Layer: 0
   m_Name: Battle Manager
   m_TagString: Untagged
@@ -9437,6 +9438,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   diceMinigame: {fileID: 6316080530874692649}
   dicePokerController: {fileID: 5394493241386521814}
+  coinBattleUIRefs: {fileID: 0}
   battleUIParent: {fileID: 3245626769205530050}
   playerMainPanel: {fileID: 6461153560616641517}
   enemyMainPanel: {fileID: 8097992718040637521}
@@ -9493,6 +9495,51 @@ MonoBehaviour:
   - {fileID: 949096002324284834, guid: b5275ca6d9415e74495d0792ea0813be, type: 3}
   - {fileID: 6518085332512261468, guid: 00de0469b4ebcc84484e4bdeb79acc95, type: 3}
   emptySlotSprite: {fileID: 6194292677614276231, guid: ab8e8dd9ba4c341429de9e2b5df7564c, type: 3}
+--- !u!114 &5715121762058752525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8725347033841027381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552aa0e31a2d03b499f1956bb839f190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberInputPanel: {fileID: 467544234507970786}
+  numberDisplayText: {fileID: 5274759356877288291}
+  enemyNumberDisplayText: {fileID: 4636454550083912813}
+  coinTossPanel: {fileID: 5297641921337033826}
+  tossCountText: {fileID: 5896090072711120920}
+  playerChoiceText: {fileID: 3391752559038293012}
+  enemyChoiceText: {fileID: 6771476369346764201}
+  coinButtons:
+  - {fileID: 5031405924903619746}
+  - {fileID: 7103651817348341125}
+  - {fileID: 7016864929465179942}
+  - {fileID: 4924327688276182003}
+  coinImages:
+  - {fileID: 6971938984476655307}
+  - {fileID: 2862155205736834388}
+  - {fileID: 5898274297194218596}
+  - {fileID: 4300381666435809712}
+  defaultCoinSprite: {fileID: 6607627581213699559, guid: 6cb2c095bdef47e4e9891a70bbf49c1e, type: 3}
+  sunSprite: {fileID: 630685275569993666, guid: 6cb2c095bdef47e4e9891a70bbf49c1e, type: 3}
+  starSprite: {fileID: 5607189560910270428, guid: 6cb2c095bdef47e4e9891a70bbf49c1e, type: 3}
+  digitButtons:
+  - {fileID: 7850064463812849134}
+  - {fileID: 2488688136453586839}
+  - {fileID: 2654950608184799474}
+  - {fileID: 7243367284898385522}
+  - {fileID: 5593247502908586645}
+  - {fileID: 4026613887550366829}
+  - {fileID: 6807432632162807815}
+  - {fileID: 4725146363059955966}
+  - {fileID: 8151098631945664813}
+  - {fileID: 8819493217528210697}
+  deleteButton: {fileID: 2459106195483288306}
+  confirmButton: {fileID: 6410732558320411089}
 --- !u!1 &8767637756133820876
 GameObject:
   m_ObjectHideFlags: 0
