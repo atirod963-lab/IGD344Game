@@ -14,25 +14,35 @@ public class cutsceneDialogueManager : MonoBehaviour
 
     [Header("References")]
     public ClickToMove2D playerMovement;
+    public CutsceneController cutsceneController; // 👈 เพิ่ม
 
     [Header("Typing Effect")]
     public float typingSpeed = 0.05f;
+
+    [Header("Character Portraits")]
+    public Image leftPortrait;
+    public Image rightPortrait;
+    public Color activeColor = Color.white;
+    public Color inactiveColor = new Color(0.5f, 0.5f, 0.5f, 1.0f);
+
+    public enum DialogueSide { Left, Right, None }
 
     private Queue<DialogueLine> lines = new Queue<DialogueLine>();
     private bool isTyping = false;
     private bool isDialogueActive = false;
     private string currentLine = "";
+   
 
-    // Callback ที่จะเรียกตอน Dialogue จบ (ให้ Timeline เดินต่อ)
     private System.Action onDialogueEnd;
 
     void Start()
     {
         dialoguePanel.SetActive(false);
+
         if (skipButton != null)
             skipButton.onClick.AddListener(SkipDialogue);
 
-        FindPlayer(); // ← เพิ่มบรรทัดนี้
+        FindPlayer();
     }
 
     void Update()
@@ -41,9 +51,12 @@ public class cutsceneDialogueManager : MonoBehaviour
             OnNextButtonPressed();
     }
 
-    // CutsceneController จะเรียก Function นี้ พร้อมส่ง callback มาด้วย
     public void StartDialogue(DialogueLine[] dialogue, System.Action onEnd)
     {
+        // 🔥 กัน dialogue โผล่ตอน skip
+        if (cutsceneController != null && cutsceneController.IsSkipping())
+            return;
+
         onDialogueEnd = onEnd;
 
         dialoguePanel.SetActive(true);
@@ -76,10 +89,18 @@ public class cutsceneDialogueManager : MonoBehaviour
         }
     }
 
+    // 🔥 Skip ใหม่ (ข้ามทั้ง Cutscene)
     public void SkipDialogue()
     {
         StopAllCoroutines();
         lines.Clear();
+
+        if (cutsceneController != null)
+        {
+            cutsceneController.SkipCutscene(); // 👈 ข้ามทั้งระบบ
+            return;
+        }
+
         EndDialogue();
     }
 
@@ -94,6 +115,8 @@ public class cutsceneDialogueManager : MonoBehaviour
         DialogueLine line = lines.Dequeue();
         characterNameText.text = line.characterName;
         currentLine = line.text;
+
+        HandlePortraits(line);
 
         StopAllCoroutines();
         StartCoroutine(TypeLine(line.text));
@@ -121,16 +144,10 @@ public class cutsceneDialogueManager : MonoBehaviour
         if (playerMovement != null)
         {
             playerMovement.enabled = true;
-            Debug.Log("enabled = " + playerMovement.enabled);
-            Debug.Log("GameObject active = " + playerMovement.gameObject.activeSelf);
-        }
-        else
-        {
-            Debug.LogWarning("playerMovement เป็น null!");
+            playerMovement.StopMovementImmediately();
         }
 
         onDialogueEnd?.Invoke();
-        Debug.Log("Dialogue จบแล้ว!");
     }
 
     private void FindPlayer()
@@ -145,5 +162,67 @@ public class cutsceneDialogueManager : MonoBehaviour
         public string characterName;
         [TextArea(2, 5)]
         public string text;
+        public Sprite characterSprite;
+        public DialogueSide side;
+
+        public bool hasOtherCharacter; // 👈 ใช้ควบคุม ซ่อน/เทา
+    }
+
+    private void HandlePortraits(DialogueLine line)
+    {
+        // ซ่อนก่อนทุกครั้ง
+        if (leftPortrait != null)
+            leftPortrait.gameObject.SetActive(false);
+
+        if (rightPortrait != null)
+            rightPortrait.gameObject.SetActive(false);
+
+        if (line.characterSprite == null)
+            return;
+
+        // 🟢 มี 2 ตัว → ใช้ระบบเทา
+        if (line.hasOtherCharacter)
+        {
+            if (leftPortrait != null)
+                leftPortrait.gameObject.SetActive(true);
+
+            if (rightPortrait != null)
+                rightPortrait.gameObject.SetActive(true);
+
+            if (line.side == DialogueSide.Left)
+            {
+                leftPortrait.sprite = line.characterSprite;
+                leftPortrait.color = activeColor;
+                rightPortrait.color = inactiveColor;
+            }
+            else if (line.side == DialogueSide.Right)
+            {
+                rightPortrait.sprite = line.characterSprite;
+                rightPortrait.color = activeColor;
+                leftPortrait.color = inactiveColor;
+            }
+        }
+        // 🔴 มีคนเดียว → อีกฝั่งหาย
+        else
+        {
+            if (line.side == DialogueSide.Left && leftPortrait != null)
+            {
+                leftPortrait.sprite = line.characterSprite;
+                leftPortrait.color = activeColor;
+                leftPortrait.gameObject.SetActive(true);
+            }
+            else if (line.side == DialogueSide.Right && rightPortrait != null)
+            {
+                rightPortrait.sprite = line.characterSprite;
+                rightPortrait.color = activeColor;
+                rightPortrait.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    public void ForceEndDialogue()
+    {
+        isDialogueActive = false;
+        dialoguePanel.SetActive(false);
     }
 }

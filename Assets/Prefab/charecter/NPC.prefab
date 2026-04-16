@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 964838216345859963}
   - component: {fileID: 3111913560128453483}
   - component: {fileID: 4101487475573500789}
-  - component: {fileID: 7489655636487110267}
   - component: {fileID: -3899490182444019072}
+  - component: {fileID: 9192097358391339900}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -133,8 +133,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 11400000, guid: 903673384f4fc254c8f6ada0dd371ca7, type: 2}
   isQuestGiver: 1
---- !u!60 &7489655636487110267
-PolygonCollider2D:
+--- !u!95 &-3899490182444019072
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4698895820291170305}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd1d65eefaf2ae34487464b46ac86780, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &9192097358391339900
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -177,37 +199,8 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.085, y: 0.125}
-      - {x: -0.085, y: -0.085}
-      - {x: -0.044999998, y: -0.114999995}
-      - {x: 0.085, y: -0.114999995}
-      - {x: 0.085, y: 0.114999995}
-      - {x: 0.074999996, y: 0.125}
-  m_UseDelaunayMesh: 0
---- !u!95 &-3899490182444019072
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4698895820291170305}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fd1d65eefaf2ae34487464b46ac86780, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_Size: {x: 0.17, y: 0.25}
+  m_EdgeRadius: 0
 --- !u!1 &7179572690298374889
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,5 +277,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0

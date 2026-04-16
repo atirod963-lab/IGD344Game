@@ -6,6 +6,9 @@ public class CutsceneController : MonoBehaviour
 {
     public cutsceneDialogueManager dialogueManager;
     public PlayableDirector timeline;
+    public GameObject skipCutsceneButton;
+
+    private bool isSkipping = false; // 🔥 flag
 
     [System.Serializable]
     public class DialogueSet
@@ -19,7 +22,9 @@ public class CutsceneController : MonoBehaviour
     void Start()
     {
         timeline.stopped += OnTimelineFinished;
-        FindPlayer(); // ← เพิ่มบรรทัดนี้
+
+        if (skipCutsceneButton != null)
+            skipCutsceneButton.SetActive(true);
     }
 
     void OnDestroy()
@@ -27,56 +32,76 @@ public class CutsceneController : MonoBehaviour
         timeline.stopped -= OnTimelineFinished;
     }
 
-    // เรียกตอน Timeline เล่นจบ
     private void OnTimelineFinished(PlayableDirector director)
     {
-        Debug.Log("Timeline หยุดแล้ว!");
+        if (skipCutsceneButton != null)
+            skipCutsceneButton.SetActive(false);
+
+        if (isSkipping) return;
+
         if (dialogueManager.playerMovement != null)
-        {
             dialogueManager.playerMovement.enabled = true;
-            Debug.Log("OnTimelineFinished: enable playerMovement แล้ว");
-        }
     }
 
+    // 🔥 Timeline เรียก Dialogue
     public void TriggerDialogue(int setIndex)
     {
+        if (isSkipping) return; // 🔥 กัน dialogue ตอน skip
+
         if (setIndex >= dialogueSets.Length) return;
 
         double currentTime = timeline.time;
         timeline.Pause();
 
-        // ปิด Timeline binding ชั่วคราวเพื่อไม่ให้มัน override ตำแหน่งตัวละคร
-        timeline.playableGraph.IsValid();
-        SetTimelineBindingsActive(false);
-
         dialogueManager.StartDialogue(
             dialogueSets[setIndex].lines,
             onEnd: () =>
             {
-                // เปิด binding กลับก่อน Play ต่อ
-                SetTimelineBindingsActive(true);
+                if (isSkipping) return;
+
                 timeline.time = currentTime;
                 timeline.Play();
             }
         );
     }
 
-    private void SetTimelineBindingsActive(bool active)
+    // 🔥 SKIP ทั้งหมด (ตัวสำคัญสุด)
+    public void SkipCutscene()
     {
-        foreach (var output in timeline.playableAsset.outputs)
+        if (isSkipping) return;
+        isSkipping = true;
+
+        Debug.Log("⏭️ Skip ไปท้าย Timeline");
+
+        // ⭐ ไปท้าย timeline
+        timeline.time = timeline.duration;
+        timeline.Evaluate();
+        timeline.Stop();
+
+        // ❌ ปิด dialogue ทันที
+        if (dialogueManager != null)
         {
-            var binding = timeline.GetGenericBinding(output.sourceObject);
-            Debug.Log($"Binding: {binding} → active: {active}"); // ← เพิ่มบรรทัดนี้
-            if (binding is Behaviour behaviour)
-                behaviour.enabled = active;
-            else if (binding is GameObject go)
-                go.SetActive(active);
+            dialogueManager.StopAllCoroutines();
+            dialogueManager.ForceEndDialogue(); // 👈 สำคัญ
         }
+
+        // 🎮 คืน control player
+        if (dialogueManager.playerMovement != null)
+        {
+            dialogueManager.playerMovement.enabled = true;
+            dialogueManager.playerMovement.StopMovementImmediately();
+        }
+
+        // ❌ ปิดปุ่ม skip
+        if (skipCutsceneButton != null)
+            skipCutsceneButton.SetActive(false);
     }
 
-    private void FindPlayer()
+    // 🔥 ให้ DialogueManager เช็คได้
+    public bool IsSkipping()
     {
-        if (dialogueManager.playerMovement == null)
-            dialogueManager.playerMovement = Object.FindAnyObjectByType<ClickToMove2D>();
+        return isSkipping;
     }
+
+
 }

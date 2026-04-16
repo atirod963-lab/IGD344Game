@@ -37,7 +37,12 @@ public class QuestManager : MonoBehaviour
     // แก้ไขให้รับ QuestData ตามที่ DialogueManger ส่งมา
     public void AddQuest(QuestData data)
     {
-        if (HasActiveQuest()) return;
+        Debug.Log("กำลังพยายามเพิ่มเควส: " + data.questName); // เช็คว่าฟังก์ชันถูกเรียกไหม
+        if (HasActiveQuest())
+        {
+            Debug.Log("มีเควสเดิมอยู่แล้ว เลยเพิ่มไม่ได้");
+            return;
+        }
 
         currentQuestName = data.questName;
         currentGoalType = data.goalType;
@@ -47,6 +52,7 @@ public class QuestManager : MonoBehaviour
         currentStatus = QuestStatus.InProgress;
 
         UpdateQuestLog();
+        Debug.Log("อัปเดต Quest Log เรียบร้อย");
     }
 
     // ฟังก์ชันสำหรับ Item หรือ Monster เรียกใช้เพื่อนับจำนวน
