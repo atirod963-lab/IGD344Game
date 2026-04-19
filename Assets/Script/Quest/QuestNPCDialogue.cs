@@ -3,6 +3,7 @@
 public class QuestNPCDialogue : MonoBehaviour
 {
     public bool isQuestGiver = true; // ถ้าติ๊กออก จะกลายเป็น NPC คุยธรรมดา
+    private bool questCompleted = false; // เก็บสถานะว่าเควสนี้เคยส่งแล้วหรือไม่
 
     [Header("General Dialogue")]
     [TextArea(3, 10)]
@@ -20,6 +21,12 @@ public class QuestNPCDialogue : MonoBehaviour
 
     public void Interact()
     {
+        // ป้องกันการโต้ตอบทันทีหลังจากปิดไดอะล็อก
+        if (DialogueManger.Instance.JustClosedDialogue())
+        {
+            return;
+        }
+
         // 1. ถ้าไม่ใช่ NPC ให้เควส ให้แสดงบทสนทนาทั่วไปแล้วจบเลย
         if (!isQuestGiver)
         {
@@ -48,12 +55,24 @@ public class QuestNPCDialogue : MonoBehaviour
         QuestStatus status = QuestManager.Instance.currentStatus;
         bool isMyQuest = (QuestManager.Instance.currentQuestName == questName);
 
+        // ถ้าเควสนี้เคยส่งแล้ว ให้แสดงบทสนทนาทั่วไปเสมอ
+        if (questCompleted)
+        {
+            ShowSimpleDialogue("ขอบคุณมากสำหรับการช่วยเหลือ!");
+            return;
+        }
+
         if (status == QuestStatus.None)
             OpenDialogue(dialogueBeforeQuest, true, false);
         else if (isMyQuest && status == QuestStatus.InProgress)
             OpenDialogue(dialogueDuringQuest, false, false);
         else if (isMyQuest && status == QuestStatus.Completed)
             OpenDialogue(dialogueQuestComplete, false, true);
+        else if (status == QuestStatus.None && string.IsNullOrEmpty(QuestManager.Instance.currentQuestName))
+        {
+            // กรณีที่เพิ่งส่งเควสไปหมายถึงเควสนี้เสร็จแล้ว ให้แสดงบทสนทนาทั่วไป
+            ShowSimpleDialogue("ขอบคุณมากสำหรับการช่วยเหลือ!");
+        }
     }
 
     private void OpenDialogue(string text, bool showAccept, bool showSubmit)
@@ -68,6 +87,11 @@ public class QuestNPCDialogue : MonoBehaviour
         TempQuestHolder.Name = questName;
         TempQuestHolder.Type = goalType;
         TempQuestHolder.Amount = requiredAmount;
+    }
+
+    public void MarkQuestCompleted()
+    {
+        questCompleted = true;
     }
     
 }

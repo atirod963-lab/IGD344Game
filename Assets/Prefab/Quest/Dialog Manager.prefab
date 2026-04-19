@@ -314,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0704cccac221c204eadffc678fa7ed14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 5725823024688148795}
+  dialoguePanel: {fileID: 6816059501377020763}
   dialogueText: {fileID: 6204874483983286024}
   npcNameText: {fileID: 0}
   npcPortraitImage: {fileID: 0}
@@ -1059,8 +1059,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 643, y: 546.23303}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 819.2958, y: 212.23584}
+  m_SizeDelta: {x: 88.7855, y: 192.5224}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3106134852406035399
 CanvasRenderer:
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8477058418565459158, guid: f7297dbeb4fac554fa8e3e5659cc53e0, type: 3}
+  m_Sprite: {fileID: -5315959608521518188, guid: 4ff5e7ee7196062468c61ef772799d14, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1292,7 +1292,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -448.1, y: 424}
+  m_AnchoredPosition: {x: -448.10007, y: 424}
   m_SizeDelta: {x: 896.21, y: 110.4473}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6144074146031435750

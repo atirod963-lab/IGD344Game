@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public static Player Instance;
     public static Vector3 NextSpawnPosition;
     public static bool HasSpawnPosition = false;
-    public static string NextSpawnTag;
+    public static string NextSpawnPointName;
 
     private Rigidbody2D rb;
 
@@ -37,16 +37,21 @@ public class Player : MonoBehaviour
     {
         yield return null; // 🔥 รอ 1 frame
 
-        if (!string.IsNullOrEmpty(NextSpawnTag))
+        if (!string.IsNullOrEmpty(NextSpawnPointName))
         {
-            GameObject spawn = GameObject.FindWithTag(NextSpawnTag);
+            SpawnPoint[] points = FindObjectsByType<SpawnPoint>(FindObjectsSortMode.None);
 
-            if (spawn != null)
+            foreach (var point in points)
             {
-                transform.position = spawn.transform.position;
+                if (point.spawnName == NextSpawnPointName)
+                {
+                    transform.position = point.transform.position;
+                    Debug.Log("Spawn ที่: " + point.spawnName);
+                    break;
+                }
             }
 
-            NextSpawnTag = null;
+            NextSpawnPointName = null;
         }
 
         CinemachineCamera cam = FindAnyObjectByType<CinemachineCamera>();

@@ -4,15 +4,22 @@ using UnityEngine.EventSystems;
 public class PlayerInteract : MonoBehaviour
 {
     public float interactDistance = 2f;
+    float lastClickTime;
+    public float clickCooldown = 0.2f;
+    bool ignoreClickThisFrame = false;
 
     void Update()
     {
-        // 🔒 ถ้ากำลังคุย → ห้าม interact
+        if (ignoreClickThisFrame)
+        {
+            ignoreClickThisFrame = false;
+            return;
+        }
+
         if (DialogueManger.Instance != null &&
-            DialogueManger.Instance.IsDialogueActive())
+    (DialogueManger.Instance.IsDialogueActive() || DialogueManger.Instance.JustClosedDialogue()))
             return;
 
-        // 🖱️ กันคลิกโดน UI
         if (EventSystem.current != null &&
             EventSystem.current.IsPointerOverGameObject())
             return;
@@ -20,20 +27,16 @@ public class PlayerInteract : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            // เปลี่ยนมาใช้ OverlapPointAll เพื่อกวาดหาทุก Collider ตรงที่เมาส์คลิก
             Collider2D[] hits = Physics2D.OverlapPointAll(mousePos);
 
             foreach (Collider2D hit in hits)
             {
                 IInteract interact = hit.GetComponent<IInteract>();
 
-                // ถ้าเจอ Object ที่มีระบบ Interact
                 if (interact != null)
                 {
                     float distance = Vector2.Distance(transform.position, hit.transform.position);
 
-                    // ถ้าระยะถึง ก็เก็บเลย แล้วหยุดการค้นหา
                     if (distance <= interactDistance)
                     {
                         interact.Interact();
@@ -41,14 +44,18 @@ public class PlayerInteract : MonoBehaviour
                     }
                 }
             }
-
         }
-
     }
+
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, interactDistance);
+    }
+
+    public void IgnoreClickThisFrame()
+    {
+        ignoreClickThisFrame = true;
     }
 }

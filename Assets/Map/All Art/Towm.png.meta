@@ -1,0 +1,624 @@
+fileFormatVersion: 2
+guid: 01296d65d2658874c9e7cfc1181b0885
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6397314348242057441
+    second: Towm_0
+  - first:
+      213: -5584709096542791530
+    second: Towm_1
+  - first:
+      213: 1966083235635404900
+    second: Towm_2
+  - first:
+      213: -3015645322775994707
+    second: Towm_3
+  - first:
+      213: -2256835573265775840
+    second: Towm_4
+  - first:
+      213: 8523071642633560345
+    second: Towm_5
+  - first:
+      213: -3937696867229283360
+    second: Towm_6
+  - first:
+      213: 1485321654138213419
+    second: Towm_7
+  - first:
+      213: 7785457554513675192
+    second: Towm_8
+  - first:
+      213: 2970420613784529519
+    second: Towm_9
+  - first:
+      213: -7489519500121103632
+    second: Towm_10
+  - first:
+      213: -2823239980445273856
+    second: Towm_11
+  - first:
+      213: -4934888291617843803
+    second: Towm_12
+  - first:
+      213: 3312630598406797914
+    second: Towm_13
+  - first:
+      213: 105223391578962406
+    second: Towm_14
+  - first:
+      213: 4862282620129124685
+    second: Towm_15
+  - first:
+      213: -6080999564231371396
+    second: Towm_16
+  - first:
+      213: 5949711646057610905
+    second: Towm_17
+  - first:
+      213: 5915090214988849285
+    second: Towm_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Towm_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1007
+        width: 61
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f17c584ae7c2837a0800000000000000
+      internalID: -6397314348242057441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_1
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1019
+        width: 43
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6989cae6aa02f72b0800000000000000
+      internalID: -5584709096542791530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_2
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 1019
+        width: 55
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46026ea394ee84b10800000000000000
+      internalID: 1966083235635404900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_3
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 887
+        width: 115
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae5e577e864626d0800000000000000
+      internalID: -3015645322775994707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_4
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 899
+        width: 117
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 023470bd00c1ea0e0800000000000000
+      internalID: -2256835573265775840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_5
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 991
+        width: 75
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 911e0667088084670800000000000000
+      internalID: 8523071642633560345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_6
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 942
+        width: 118
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eb41a3ef8d7a59c0800000000000000
+      internalID: -3937696867229283360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_7
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 944
+        width: 160
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b249a14cc2cec9410800000000000000
+      internalID: 1485321654138213419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_8
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 933
+        width: 51
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b34bae85608b0c60800000000000000
+      internalID: 7785457554513675192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_9
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 935
+        width: 39
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6aef1e6fcd093920800000000000000
+      internalID: 2970420613784529519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_10
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 782
+        width: 180
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f2abe022b1ef0890800000000000000
+      internalID: -7489519500121103632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 663
+        width: 235
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001f0e92236d1d8d0800000000000000
+      internalID: -2823239980445273856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_12
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 712
+        width: 40
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a552e3be31c38bb0800000000000000
+      internalID: -4934888291617843803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_13
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 421
+        width: 209
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5a702a6af3d8fd20800000000000000
+      internalID: 3312630598406797914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_14
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 424
+        width: 364
+        height: 429
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e9302dfd14d57100800000000000000
+      internalID: 105223391578962406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 419
+        width: 288
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d412a52184c4a7340800000000000000
+      internalID: 4862282620129124685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_16
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 277
+        width: 307
+        height: 131
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c751fa66d13fb9ba0800000000000000
+      internalID: -6080999564231371396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_17
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 129
+        width: 254
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99eb44b183f919250800000000000000
+      internalID: 5949711646057610905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Towm_18
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 99
+        width: 321
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580acc6063f961250800000000000000
+      internalID: 5915090214988849285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Towm_0: -6397314348242057441
+      Towm_1: -5584709096542791530
+      Towm_10: -7489519500121103632
+      Towm_11: -2823239980445273856
+      Towm_12: -4934888291617843803
+      Towm_13: 3312630598406797914
+      Towm_14: 105223391578962406
+      Towm_15: 4862282620129124685
+      Towm_16: -6080999564231371396
+      Towm_17: 5949711646057610905
+      Towm_18: 5915090214988849285
+      Towm_2: 1966083235635404900
+      Towm_3: -3015645322775994707
+      Towm_4: -2256835573265775840
+      Towm_5: 8523071642633560345
+      Towm_6: -3937696867229283360
+      Towm_7: 1485321654138213419
+      Towm_8: 7785457554513675192
+      Towm_9: 2970420613784529519
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -80,6 +80,8 @@ public class QuestManager : MonoBehaviour
     // เรียกใช้เมื่อกดปุ่ม Submit จาก DialogueManger
     public bool TrySubmitQuest()
     {
+        Debug.Log($"TrySubmitQuest() - currentStatus: {currentStatus}, currentQuestName: {currentQuestName}, currentAmount: {currentAmount}/{targetAmount}");
+        
         if (currentStatus == QuestStatus.Completed)
         {
             currentStatus = QuestStatus.None;
@@ -88,9 +90,11 @@ public class QuestManager : MonoBehaviour
             targetAmount = 0;
             
             questLogText.text = "ไม่มีเควสปัจจุบัน";
+            Debug.Log("Quest submitted successfully!");
             return true;
         }
 
+        Debug.Log("Quest not completed yet");
         return false;
     }
 
@@ -98,13 +102,23 @@ public class QuestManager : MonoBehaviour
     {
         string statusColor = (currentStatus == QuestStatus.Completed) ? "#00FF00" : "#FFFFFF";
         
-        questLogText.text = $"<b>เควสปัจจุบัน:</b>\n" +
-                           $"- {currentQuestName}\n" +
-                           $"<color={statusColor}>ความคืบหน้า: {currentAmount}/{targetAmount}</color>";
-
-        if (currentStatus == QuestStatus.Completed)
+        // เช็คว่า questLogText ยังคงอยู่หรือไม่
+        if (questLogText != null)
         {
-            questLogText.text += "\n\n<color=yellow>✔ เงื่อนไขครบ! ไปส่งเควสได้</color>";
+            questLogText.text = $"<b>เควสปัจจุบัน:</b>\n" +
+                               $"- {currentQuestName}\n" +
+                               $"<color={statusColor}>ความคืบหน้า: {currentAmount}/{targetAmount}</color>";
+
+            if (currentStatus == QuestStatus.Completed)
+            {
+                questLogText.text += "\n\n<color=yellow>✔ เงื่อนไขครบ! ไปส่งเควสได้</color>";
+            }
+            
+            Debug.Log("Quest Log updated - questLogText.gameObject.active: " + questLogText.gameObject.activeInHierarchy);
+        }
+        else
+        {
+            Debug.LogWarning("questLogText is null!");
         }
     }
 }

@@ -6,8 +6,10 @@ using UnityEngine.EventSystems;
 
 public class DialogueManger : MonoBehaviour
 {
-    public static DialogueManger Instance; 
-   
+    public static DialogueManger Instance;
+    private bool justClosedDialogue = false;
+    private bool isProcessingSubmit = false;
+
 
     [Header("UI")]
     public GameObject dialoguePanel;
@@ -125,6 +127,9 @@ public class DialogueManger : MonoBehaviour
         if (typingCoroutine != null)
             StopCoroutine(typingCoroutine);
 
+        // เช็คว่า currentDialogue และ dialogLines ไม่เป็น null
+        if (currentDialogue == null || currentDialogue.dialogueLines == null) return;
+        
         typingCoroutine = StartCoroutine(TypeText(currentDialogue.dialogueLines[currentLineIndex]));
     }
 
@@ -136,7 +141,7 @@ public class DialogueManger : MonoBehaviour
         foreach (char c in text)
         {
             // เช็คว่า Object ยังไม่ถูกทำลาย หรือ Panel ยังเปิดอยู่
-            if (dialogueText == null) yield break;
+            if (dialogueText == null || currentDialogue == null) yield break;
 
             dialogueText.text += c;
             yield return new WaitForSecondsRealtime(typingSpeed);
@@ -144,7 +149,9 @@ public class DialogueManger : MonoBehaviour
 
         isTyping = false;
 
-        if (currentLineIndex >= currentDialogue.dialogueLines.Length - 1)
+        // เพิ่มการตรวจสอบก่อนเข้าถึง dialogLines
+        if (currentDialogue != null && currentDialogue.dialogueLines != null && 
+            currentLineIndex >= currentDialogue.dialogueLines.Length - 1)
         {
             ShowButtons();
         }
@@ -152,6 +159,9 @@ public class DialogueManger : MonoBehaviour
 
     public void NextDialogue()
     {
+        // เช็คว่า currentDialogue และ dialogLines ไม่เป็น null
+        if (currentDialogue == null || currentDialogue.dialogueLines == null) return;
+        
         // เช็คว่าถ้าเป็นบรรทัดสุดท้ายแล้ว ไม่ต้องสั่ง EndDialogue
         if (currentLineIndex < currentDialogue.dialogueLines.Length - 1)
         {
@@ -183,6 +193,7 @@ public class DialogueManger : MonoBehaviour
             goalType = TempQuestHolder.Type,
             requiredAmount = TempQuestHolder.Amount
         };
+        FindFirstObjectByType<PlayerInteract>()?.IgnoreClickThisFrame();
 
         QuestManager.Instance.AddQuest(newData);
 
@@ -193,21 +204,62 @@ public class DialogueManger : MonoBehaviour
 
     public void SubmitQuest()
     {
+        // ตรวจสอบว่าปุ่มถูกปิดอยู่แล้วหรือไม่
+        if (!submitButton.interactable)
+        {
+            Debug.Log("Submit button is disabled, ignoring click");
+            return;
+        }
+
+        // ปิดปุ่ม Submit ทันทีเพื่อป้องกันการกดซ้ำ
+        submitButton.interactable = false;
+        
+        // ป้องกันการคลิกซ้ำทันทีก่อนทำงานอะไร
+        FindFirstObjectByType<PlayerInteract>()?.IgnoreClickThisFrame();
+
+        // ใช้ coroutine เพื่อให้แน่ใจว่า event ถูกประมวลผลเรียบร้อย
+        StartCoroutine(SubmitQuestCoroutine());
+    }
+
+    IEnumerator SubmitQuestCoroutine()
+    {
+        // รอสักครู่เพื่อให้แน่ใจว่า UI event จบการทำงาน
+        yield return new WaitForEndOfFrame();
+
+        // เก็บชื่อเควสไว้ก่อนที่จะรีเซ็ต
+        string questName = QuestManager.Instance.currentQuestName;
+        
         bool success = QuestManager.Instance.TrySubmitQuest();
 
         if (!success)
         {
             ShowMessage("เควสยังไม่สำเร็จ");
-            return;
+            submitButton.interactable = true; // เปิดปุ่มกลับถ้าเควสยังไม่สำเร็จ
+            yield break;
+        }
+
+        // ตั้งค่า questCompleted = true ให้ NPC ที่เกี่ยวข้อง (ใช้ชื่อที่เก็บไว้)
+        QuestNPCDialogue[] questNPCs = FindObjectsByType<QuestNPCDialogue>(FindObjectsSortMode.None);
+        foreach (QuestNPCDialogue npc in questNPCs)
+        {
+            if (npc.questName == questName)
+            {
+                npc.MarkQuestCompleted();
+                break;
+            }
         }
 
         // รีเซ็ตการเดินก่อนจบไดอะล็อก
         ResetPlayerMovement();
         EndDialogue();
+        
+        // เปิดปุ่มกลับหลังจากปิดไดอะล็อก (ถ้าจำเป็น)
+        submitButton.interactable = true;
     }
 
     public void CancelDialogue()
     {
+        FindFirstObjectByType<PlayerInteract>()?.IgnoreClickThisFrame();
         // รีเซ็ตการเดินก่อนจบไดอะล็อก
         ResetPlayerMovement();
         EndDialogue();
@@ -215,6 +267,7 @@ public class DialogueManger : MonoBehaviour
 
     public void ShowMessage(string message)
     {
+        Debug.Log("ShowMessage() called - opening panel with: " + message);
         dialoguePanel.SetActive(true);
 
         HideButtons();
@@ -227,6 +280,7 @@ public class DialogueManger : MonoBehaviour
 
     void EndDialogue()
     {
+        Debug.Log("EndDialogue() called - closing panel");
         isDialogueActive = false;
         currentDialogue = null;
 
@@ -237,7 +291,17 @@ public class DialogueManger : MonoBehaviour
         }
 
         dialoguePanel.SetActive(false);
+
         ResumeGame();
+
+        StartCoroutine(DialogueCloseCooldown());
+    }
+
+    IEnumerator DialogueCloseCooldown()
+    {
+        justClosedDialogue = true;
+        yield return new WaitForSeconds(0.2f);
+        justClosedDialogue = false;
     }
 
     void PauseGame()
@@ -265,5 +329,10 @@ public class DialogueManger : MonoBehaviour
             // เพื่อป้องกันไม่ให้ Script ClickToMove ทำงานค้างจากค่าเก่า
             playerMovement.transform.position = playerMovement.transform.position;
         }
+    }
+
+    public bool JustClosedDialogue()
+    {
+        return justClosedDialogue;
     }
 }
