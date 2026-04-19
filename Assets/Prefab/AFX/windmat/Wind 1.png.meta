@@ -231,6 +231,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1259,7 +1272,53 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Wind 1_0: -7293804625014771020
+      Wind 1_1: 1943838495677606788
+      Wind 1_10: -7095377723300987721
+      Wind 1_11: 2105904524033473776
+      Wind 1_12: -7209626368125815587
+      Wind 1_13: -5935138120426117722
+      Wind 1_14: -6581091341987014779
+      Wind 1_15: -6305751467002415734
+      Wind 1_16: -3778569175094648125
+      Wind 1_17: 7905579582807338823
+      Wind 1_18: -2536940076228054814
+      Wind 1_19: -7787539668380577886
+      Wind 1_2: 1841161161316608280
+      Wind 1_20: -5850774587063368546
+      Wind 1_21: 1336674773411840876
+      Wind 1_22: 6814533804004416800
+      Wind 1_23: -8528320677844553971
+      Wind 1_24: -505883610944446692
+      Wind 1_25: 3177536870459971818
+      Wind 1_26: 4108905159085508628
+      Wind 1_27: -1288760875383924446
+      Wind 1_28: 6101575821761699883
+      Wind 1_29: -213221006174535259
+      Wind 1_3: 6333134082986461047
+      Wind 1_30: 7490851154921582572
+      Wind 1_31: -9069508184208783582
+      Wind 1_32: -224073605628130164
+      Wind 1_33: 6535415825448917943
+      Wind 1_34: -1700717979306691808
+      Wind 1_35: -663735341182059742
+      Wind 1_36: 5707274364457133183
+      Wind 1_37: 3432125632777065098
+      Wind 1_38: -6973599382455055175
+      Wind 1_39: 8337154497150711777
+      Wind 1_4: 7982661569247116135
+      Wind 1_40: 3155177802162778927
+      Wind 1_41: -6666685627573723020
+      Wind 1_42: -3785381229368871048
+      Wind 1_43: 617514737224197333
+      Wind 1_44: -6278449073050264469
+      Wind 1_45: -8244105662886685320
+      Wind 1_5: -6167528887446570971
+      Wind 1_6: 5234758643045351112
+      Wind 1_7: 6364478329880800205
+      Wind 1_8: 7512550268869721202
+      Wind 1_9: 5945770336506753380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
