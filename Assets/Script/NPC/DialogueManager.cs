@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class DialogueManger : MonoBehaviour
 {
@@ -62,16 +63,38 @@ public class DialogueManger : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (isTyping)
+            // เช็คว่าเมาส์กำลังชี้อยู่บน "ปุ่ม" หรือไม่
+            bool isOverButton = false;
+            if (EventSystem.current.currentSelectedGameObject != null)
             {
-                StopCoroutine(typingCoroutine);
-                dialogueText.text = currentDialogue.dialogueLines[currentLineIndex];
-                isTyping = false;
-                ShowButtons();
+                // ถ้าสิ่งที่เลือกอยู่มีคอมโพเนนต์ Button แสดงว่าเป็นปุ่ม
+                if (EventSystem.current.currentSelectedGameObject.GetComponent<Button>() != null)
+                {
+                    isOverButton = true;
+                }
             }
-            else
+
+            // ถ้าไม่ได้กดโดนปุ่ม (คือจิ้มที่ว่าง หรือจิ้มบน Panel) ให้ทำงานต่อได้
+            if (!isOverButton)
             {
-                NextDialogue();
+                if (isTyping)
+                {
+                    StopCoroutine(typingCoroutine);
+                    dialogueText.text = currentDialogue.dialogueLines[currentLineIndex];
+                    isTyping = false;
+
+                    if (currentLineIndex >= currentDialogue.dialogueLines.Length - 1)
+                    {
+                        ShowButtons();
+                    }
+                }
+                else
+                {
+                    if (currentLineIndex < currentDialogue.dialogueLines.Length - 1)
+                    {
+                        NextDialogue();
+                    }
+                }
             }
         }
     }
@@ -108,11 +131,13 @@ public class DialogueManger : MonoBehaviour
     IEnumerator TypeText(string text)
     {
         isTyping = true;
-
         dialogueText.text = "";
 
         foreach (char c in text)
         {
+            // เช็คว่า Object ยังไม่ถูกทำลาย หรือ Panel ยังเปิดอยู่
+            if (dialogueText == null) yield break;
+
             dialogueText.text += c;
             yield return new WaitForSecondsRealtime(typingSpeed);
         }
@@ -127,16 +152,13 @@ public class DialogueManger : MonoBehaviour
 
     public void NextDialogue()
     {
-        currentLineIndex++;
-
-        if (currentLineIndex < currentDialogue.dialogueLines.Length)
+        // เช็คว่าถ้าเป็นบรรทัดสุดท้ายแล้ว ไม่ต้องสั่ง EndDialogue
+        if (currentLineIndex < currentDialogue.dialogueLines.Length - 1)
         {
+            currentLineIndex++;
             ShowCurrentLine();
         }
-        else
-        {
-            EndDialogue();
-        }
+        // ลบ else { EndDialogue(); } ออกไปเลยครับ
     }
 
     void HideButtons()
@@ -163,6 +185,9 @@ public class DialogueManger : MonoBehaviour
         };
 
         QuestManager.Instance.AddQuest(newData);
+
+        // รีเซ็ตการเดินก่อนจบไดอะล็อก
+        ResetPlayerMovement();
         EndDialogue();
     }
 
@@ -176,11 +201,15 @@ public class DialogueManger : MonoBehaviour
             return;
         }
 
+        // รีเซ็ตการเดินก่อนจบไดอะล็อก
+        ResetPlayerMovement();
         EndDialogue();
     }
 
     public void CancelDialogue()
     {
+        // รีเซ็ตการเดินก่อนจบไดอะล็อก
+        ResetPlayerMovement();
         EndDialogue();
     }
 
@@ -201,8 +230,13 @@ public class DialogueManger : MonoBehaviour
         isDialogueActive = false;
         currentDialogue = null;
 
-        dialoguePanel.SetActive(false);
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
 
+        dialoguePanel.SetActive(false);
         ResumeGame();
     }
 
@@ -219,5 +253,17 @@ public class DialogueManger : MonoBehaviour
     public bool IsDialogueActive()
     {
         return isDialogueActive;
+    }
+
+    void ResetPlayerMovement()
+    {
+        if (playerMovement != null)
+        {
+            playerMovement.StopMovementImmediately();
+
+            // แถม: ให้ตำแหน่งเป้าหมายของ Player กลายเป็นจุดที่ยืนอยู่ปัจจุบันทันที
+            // เพื่อป้องกันไม่ให้ Script ClickToMove ทำงานค้างจากค่าเก่า
+            playerMovement.transform.position = playerMovement.transform.position;
+        }
     }
 }
