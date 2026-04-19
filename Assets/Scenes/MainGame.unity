@@ -26949,6 +26949,7 @@ MonoBehaviour:
   numberInputPanel: {fileID: 1208965323}
   numberDisplayText: {fileID: 1595583447}
   enemyNumberDisplayText: {fileID: 612204233}
+  inputErrorText: {fileID: 0}
   coinTossPanel: {fileID: 1850131865}
   tossCountText: {fileID: 401074484}
   playerChoiceText: {fileID: 1702356101}
@@ -26966,6 +26967,63 @@ MonoBehaviour:
   defaultCoinSprite: {fileID: 6607627581213699559, guid: 6cb2c095bdef47e4e9891a70bbf49c1e, type: 3}
   sunSprite: {fileID: 630685275569993666, guid: 6cb2c095bdef47e4e9891a70bbf49c1e, type: 3}
   starSprite: {fileID: 5607189560910270428, guid: 6cb2c095bdef47e4e9891a70bbf49c1e, type: 3}
+--- !u!1001 &2166343167706964221
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4246677652838411704, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
+      propertyPath: m_Name
+      value: Wind_FX
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811240903165033838, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811240903165033838, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811240903165033838, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811240903165033838, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.53932726
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811240903165033838, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.53932714
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811240903165033838, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.45730323
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811240903165033838, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.45730323
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811240903165033838, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -9.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811240903165033838, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5811240903165033838, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 37221d0e0dab6234bb39a3427b15f6d8, type: 3}
 --- !u!1001 &2277062479515391607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27276,6 +27334,58 @@ PrefabInstance:
     - target: {fileID: 1824774504540207884, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
       propertyPath: m_Name
       value: Sound Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: sfxSounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: bgmSounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4dfe8050e2fa5eb48b378b6adc51d4e5, type: 3}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: bgmSounds.Array.data[0].name
+      value: BGM
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: sfxSounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3fd143fe0125ff44581491a76d5b42ea, type: 3}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: sfxSounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 833e510048637fc4982154c5d0a4cf56, type: 3}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: sfxSounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4189ad9dfd18e6f4dbd2cc0593bbcdbf, type: 3}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: sfxSounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: eb1b65629c3dcb742a59e775aaafab68, type: 3}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: sfxSounds.Array.data[4].name
+      value: CoinFilp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: sfxSounds.Array.data[5].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e4bc9c512b8f2c40a4c08021a6ce4a2, type: 3}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: sfxSounds.Array.data[5].name
+      value: BookStat
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: bgmSounds.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: sfxSounds.Array.data[4].volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450592132499898152, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
+      propertyPath: sfxSounds.Array.data[5].volume
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6841452227384283850, guid: d630f58edadf6dc46b3b86d7577f96db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -28310,3 +28420,4 @@ SceneRoots:
   - {fileID: 1428581431}
   - {fileID: 80681889}
   - {fileID: 643180225}
+  - {fileID: 2166343167706964221}

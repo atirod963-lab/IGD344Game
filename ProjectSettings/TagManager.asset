@@ -10,6 +10,7 @@ TagManager:
   - NPC
   - Enemy
   - SpawnPoint
+  - SFX
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Water
   - UI
   - NPC
-  - 
+  - SFX
   - 
   - 
   - 
@@ -67,6 +68,9 @@ TagManager:
     locked: 0
   - name: Decor
     uniqueID: 2904609515
+    locked: 0
+  - name: ForeGround
+    uniqueID: 2228846529
     locked: 0
   m_RenderingLayers:
   - Default
