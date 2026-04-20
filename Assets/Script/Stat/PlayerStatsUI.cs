@@ -4,6 +4,8 @@ using TMPro;
 
 public class PlayerStatsUI : MonoBehaviour
 {
+    public static PlayerStatsUI Instance;
+
     [Header("Main Panels")]
     public GameObject statsMenuPanel; // หน้าต่างสแต็ทหลัก
     public GameObject fateInventoryPanel; // หน้าต่างเลือกเหรียญ Fate
@@ -32,6 +34,19 @@ public class PlayerStatsUI : MonoBehaviour
     public TextMeshProUGUI fateCoinNameText;
 
     public Sprite emptySlotSprite; // รูปสี่เหลี่ยมว่างๆ ตอนที่ยังไม่ได้ใส่อะไร
+
+    void Awake()
+    {
+        // ตรวจสอบว่ามี PlayerStatsUI ตัวอื่นอยู่แล้วหรือไม่
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // ถ้ามีตัวเก่าอยู่แล้ว ให้ทำลายตัวที่เพิ่งสร้างใหม่ทิ้ง
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject); // 🔥 สั่งไม่ให้ถูกทำลายตอนโหลดซีนใหม่
+    }
 
     // ==========================================
     // ⚙️ ฟังก์ชันเปิด/ปิดหน้าต่าง

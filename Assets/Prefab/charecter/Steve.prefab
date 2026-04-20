@@ -162,6 +162,7 @@ MonoBehaviour:
   numberInputPanel: {fileID: 0}
   numberDisplayText: {fileID: 0}
   enemyNumberDisplayText: {fileID: 0}
+  inputErrorText: {fileID: 0}
   coinTossPanel: {fileID: 0}
   tossCountText: {fileID: 0}
   playerChoiceText: {fileID: 0}

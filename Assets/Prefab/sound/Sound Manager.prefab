@@ -49,9 +49,9 @@ MonoBehaviour:
   bgmSource: {fileID: 4653759924585898426}
   sfxSource: {fileID: 8035267338884238080}
   bgmSounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
+  - name: BG Music
+    clip: {fileID: 8300000, guid: 4dfe8050e2fa5eb48b378b6adc51d4e5, type: 3}
+    volume: 0.153
   sfxSounds:
   - name: 4Dice_Roll
     clip: {fileID: 8300000, guid: e3b04bd5964517d4fb672264390c2790, type: 3}
@@ -64,6 +64,9 @@ MonoBehaviour:
     volume: 0.2
   - name: Dice_Select
     clip: {fileID: 8300000, guid: 4a52f04228ce6d84ca4aad884c0af451, type: 3}
+    volume: 0.2
+  - name: Coin_Toss
+    clip: {fileID: 8300000, guid: eb1b65629c3dcb742a59e775aaafab68, type: 3}
     volume: 0.2
 --- !u!1 &7029868570677829377
 GameObject:

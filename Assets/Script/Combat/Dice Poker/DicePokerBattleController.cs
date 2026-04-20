@@ -377,8 +377,8 @@ public class DicePokerBattleController : MonoBehaviour
     {
         switch (rank)
         {
-            case PokerHandRank.FiveOfAKind: return 2.5f;
-            case PokerHandRank.FourOfAKind: return 2f;
+            case PokerHandRank.FiveOfAKind: return 2f;
+            case PokerHandRank.FourOfAKind: return 1.4f;
             case PokerHandRank.FullHouse: return 1.3f;
             case PokerHandRank.Straight: return 1.2f;
             default: return 1.0f;
@@ -389,8 +389,8 @@ public class DicePokerBattleController : MonoBehaviour
     {
         switch (rank)
         {
-            case PokerHandRank.FiveOfAKind: return 2.5f;
-            case PokerHandRank.FourOfAKind: return 2f;
+            case PokerHandRank.FiveOfAKind: return 2f;
+            case PokerHandRank.FourOfAKind: return 1.4f;
             case PokerHandRank.FullHouse: return 1.3f;
             case PokerHandRank.Straight: return 1.2f;
             default: return 1.0f;

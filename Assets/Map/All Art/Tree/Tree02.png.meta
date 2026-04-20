@@ -115,7 +115,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -129,7 +129,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 40
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -153,7 +153,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -797,7 +797,34 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tree02_0: 3495419571864158429
+      Tree02_1: 6743683495209365208
+      Tree02_10: -4172899117175678445
+      Tree02_11: 2284124142556204811
+      Tree02_12: 7925911991204154049
+      Tree02_13: -6072263496601791224
+      Tree02_14: 6764867951838471429
+      Tree02_15: -7375432686398366078
+      Tree02_16: -4337385206499833481
+      Tree02_17: 6018814235259412242
+      Tree02_18: 4033843983600545704
+      Tree02_19: 8380818300698230338
+      Tree02_2: 1444393793579803510
+      Tree02_20: 7851923566324776335
+      Tree02_21: -4414055973699753640
+      Tree02_22: -8913399729357679031
+      Tree02_23: -4183230527155220069
+      Tree02_24: 9210681967082921831
+      Tree02_25: 2965507066729544269
+      Tree02_26: 6420335297082023053
+      Tree02_3: 8330665850833550337
+      Tree02_4: -4723529390967716589
+      Tree02_5: 1016478744499600570
+      Tree02_6: 8987360407744576531
+      Tree02_7: 3606623260156068531
+      Tree02_8: -5457926644956997521
+      Tree02_9: 1689649870552402584
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
