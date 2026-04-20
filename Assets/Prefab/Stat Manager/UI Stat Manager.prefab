@@ -259,7 +259,7 @@ MonoBehaviour:
   statsMenuPanel: {fileID: 4942474465154889510}
   fateInventoryPanel: {fileID: 6252140912420985761}
   weaponInventoryPanel: {fileID: 0}
-  playerUnit: {fileID: 0}
+  playerUnit: {fileID: 373372315849687995, guid: 905b4b64cfd031a479c3ae08e029044a, type: 3}
   levelText: {fileID: 5504151273783214533}
   expText: {fileID: 7479170120838580929}
   hpText: {fileID: 682325184544221832}
