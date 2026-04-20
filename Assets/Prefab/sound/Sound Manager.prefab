@@ -54,16 +54,19 @@ MonoBehaviour:
     volume: 0
   sfxSounds:
   - name: 4Dice_Roll
-    clip: {fileID: 8300000, guid: e3b04bd5964517d4fb672264390c2790, type: 3}
+    clip: {fileID: 8300000, guid: 3fd143fe0125ff44581491a76d5b42ea, type: 3}
     volume: 1
   - name: Player_Walk
     clip: {fileID: 8300000, guid: f48732a04353b484db507bbb149ef41a, type: 3}
     volume: 0.25
   - name: Dice_Roll
-    clip: {fileID: 8300000, guid: b0f929d71e1dfc14ea45c3896b3f5226, type: 3}
+    clip: {fileID: 8300000, guid: 4a52f04228ce6d84ca4aad884c0af451, type: 3}
     volume: 0.2
   - name: Dice_Select
     clip: {fileID: 8300000, guid: 4a52f04228ce6d84ca4aad884c0af451, type: 3}
+    volume: 0.2
+  - name: Coin_Toss
+    clip: {fileID: 8300000, guid: eb1b65629c3dcb742a59e775aaafab68, type: 3}
     volume: 0.2
 --- !u!1 &7029868570677829377
 GameObject:

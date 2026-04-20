@@ -156,7 +156,7 @@ public class CoinSyncBattleController : MonoBehaviour
         currentInputString = "";
         UpdateNumberDisplayText();
 
-        if (inputErrorText != null) inputErrorText.text = ""; // 🔥 ใหม่: ล้างข้อความแจ้งเตือนข้อผิดพลาดเก่า
+        if (inputErrorText != null) inputErrorText.text = ""; // ล้างข้อความแจ้งเตือนข้อผิดพลาดเก่า
 
         if (enemyNumberDisplayText != null)
         {
@@ -168,7 +168,7 @@ public class CoinSyncBattleController : MonoBehaviour
 
         yield return new WaitUntil(() => playerChosenNumber != -1);
 
-        if (inputErrorText != null) inputErrorText.text = ""; // 🔥 ใหม่: ล้างข้อความแจ้งเตือนข้อผิดพลาดเมื่อสำเร็จ
+        if (inputErrorText != null) inputErrorText.text = ""; // ล้างข้อความแจ้งเตือนข้อผิดพลาดเมื่อสำเร็จ
 
         enemyChosenNumber = DecideEnemyNumber(playerChosenNumber);
 
@@ -232,6 +232,9 @@ public class CoinSyncBattleController : MonoBehaviour
     {
         if (isCoinLocked[coinIndex]) return; // ถ้าเหรียญล็อคแล้ว ให้กดไม่ได้
 
+        // 🔥 เล่นเสียงตอนกดทอยเหรียญ (แก้ชื่อ "Coin_Toss" ให้ตรงกับใน SoundManager ของคุณด้วยนะครับ)
+        if (SoundManager.Instance != null) SoundManager.Instance.PlaySFX("Coin_Toss");
+
         if (!isFirstCoinTossed)
         {
             // บังคับว่าต้องทอยเหรียญแรก (Index 0) ก่อนเสมอ
@@ -257,7 +260,7 @@ public class CoinSyncBattleController : MonoBehaviour
         {
             actualTries++; // เริ่มนับจำนวนครั้งการทอย
 
-            // 🔥 ดึงค่า TotalLuck ที่รวมโบนัสจากอาวุธแล้วมาใช้
+            // ดึงค่า TotalLuck ที่รวมโบนัสจากอาวุธแล้วมาใช้
             int pLuck = gameObject.CompareTag("Player") ? myStats.TotalLuck : currentTarget.TotalLuck;
             int eLuck = gameObject.CompareTag("Enemy") ? myStats.TotalLuck : currentTarget.TotalLuck;
 
@@ -305,7 +308,6 @@ public class CoinSyncBattleController : MonoBehaviour
 
     public void OnClick_Number(int number)
     {
-        // 🔥 ใหม่: ล้างข้อความแจ้งเตือนข้อผิดพลาดเมื่อผู้เล่นเริ่มใส่ตัวเลขใหม่
         if (inputErrorText != null) inputErrorText.text = "";
 
         currentInputString += number.ToString();
@@ -314,7 +316,6 @@ public class CoinSyncBattleController : MonoBehaviour
 
     public void OnClick_Delete()
     {
-        // 🔥 ใหม่: ล้างข้อความแจ้งเตือนข้อผิดพลาดเมื่อผู้เล่นลบตัวเลข
         if (inputErrorText != null) inputErrorText.text = "";
 
         if (currentInputString.Length > 0)
@@ -324,7 +325,6 @@ public class CoinSyncBattleController : MonoBehaviour
         }
     }
 
-    // 🔥 ใหม่: ปรับปรุงฟังก์ชันนี้เพื่อจัดการอินพุตที่ไม่ถูกต้องและบอกผู้เล่น
     public void OnClick_Confirm()
     {
         // 1. ตรวจสอบว่าช่องป้อนข้อมูลว่างหรือไม่
@@ -380,13 +380,13 @@ public class CoinSyncBattleController : MonoBehaviour
                 }
                 target.TakeDamage(99999f, false);
             }
-            // 🔥 หากฝ่ายศัตรูชนะ ให้โจมตีด้วย TotalAtk (รวมโบนัสอาวุธ)
+            // หากฝ่ายศัตรูชนะ ให้โจมตีด้วย TotalAtk (รวมโบนัสอาวุธ)
             else target.TakeDamage(myStats.TotalAtk, false);
         }
         else
         {
             Debug.Log($"<color=red>💀 [LOSER] {myStats.unitName} แพ้การเดิมพัน!</color>");
-            // 🔥 หากเราแพ้ ให้รับดาเมจจากเป้าหมายด้วย TotalAtk ของเป้าหมาย
+            // หากเราแพ้ ให้รับดาเมจจากเป้าหมายด้วย TotalAtk ของเป้าหมาย
             myStats.TakeDamage(target.TotalAtk, true);
         }
     }
