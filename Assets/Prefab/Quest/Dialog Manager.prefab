@@ -314,10 +314,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0704cccac221c204eadffc678fa7ed14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialoguePanel: {fileID: 6816059501377020763}
+  dialoguePanel: {fileID: 5725823024688148795}
   dialogueText: {fileID: 6204874483983286024}
-  npcNameText: {fileID: 0}
-  npcPortraitImage: {fileID: 0}
+  npcNameText: {fileID: 8925536191280303734}
+  npcPortraitImage: {fileID: 8066538704992783198}
   playerMovement: {fileID: 0}
   acceptButton: {fileID: 5314462300444511234}
   submitButton: {fileID: 3640098998622485013}
