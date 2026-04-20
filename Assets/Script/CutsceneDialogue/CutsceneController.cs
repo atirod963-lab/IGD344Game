@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Playables;
+using System.Collections;
 using static cutsceneDialogueManager;
 
 public class CutsceneController : MonoBehaviour
@@ -9,6 +10,7 @@ public class CutsceneController : MonoBehaviour
     public GameObject skipCutsceneButton;
 
     private bool isSkipping = false; // 🔥 flag
+    private Vector3 timelineEndPosition; // Store timeline end position
 
     [System.Serializable]
     public class DialogueSet
@@ -27,6 +29,12 @@ public class CutsceneController : MonoBehaviour
             skipCutsceneButton.SetActive(true);
     }
 
+    // Start cutscene
+    public void StartCutscene()
+    {
+        timeline.Play();
+    }
+
     void OnDestroy()
     {
         timeline.stopped -= OnTimelineFinished;
@@ -39,19 +47,36 @@ public class CutsceneController : MonoBehaviour
 
         if (isSkipping) return;
 
+        // ลบ coroutine RestoreTimelineEndPosition ออกได้เลย ไม่จำเป็นแล้ว
         if (dialogueManager.playerMovement != null)
+        {
             dialogueManager.playerMovement.enabled = true;
+            dialogueManager.playerMovement.StopMovementImmediately();
+        }
+    }
+
+    private IEnumerator RestoreTimelineEndPosition()
+    {
+        yield return new WaitForEndOfFrame(); // Wait for timeline to fully stop
+        
+        if (dialogueManager.playerMovement != null)
+        {
+            dialogueManager.playerMovement.transform.position = timelineEndPosition;
+            dialogueManager.playerMovement.enabled = true;
+            dialogueManager.playerMovement.StopMovementImmediately();
+        }
     }
 
     // 🔥 Timeline เรียก Dialogue
     public void TriggerDialogue(int setIndex)
     {
-        if (isSkipping) return; // 🔥 กัน dialogue ตอน skip
-
+        if (isSkipping) return;
         if (setIndex >= dialogueSets.Length) return;
 
-        double currentTime = timeline.time;
-        timeline.Pause();
+        double pausedTime = timeline.time;
+
+        // ✅ แทน timeline.Pause() — ให้ set speed = 0 แทน
+        timeline.playableGraph.GetRootPlayable(0).SetSpeed(0);
 
         dialogueManager.StartDialogue(
             dialogueSets[setIndex].lines,
@@ -59,8 +84,8 @@ public class CutsceneController : MonoBehaviour
             {
                 if (isSkipping) return;
 
-                timeline.time = currentTime;
-                timeline.Play();
+                // ✅ Resume โดย set speed กลับเป็น 1
+                timeline.playableGraph.GetRootPlayable(0).SetSpeed(1);
             }
         );
     }
@@ -85,11 +110,11 @@ public class CutsceneController : MonoBehaviour
             dialogueManager.ForceEndDialogue(); // 👈 สำคัญ
         }
 
-        // 🎮 คืน control player
+        // Capture timeline end position and restore it
         if (dialogueManager.playerMovement != null)
         {
-            dialogueManager.playerMovement.enabled = true;
-            dialogueManager.playerMovement.StopMovementImmediately();
+            timelineEndPosition = dialogueManager.playerMovement.transform.position;
+            StartCoroutine(RestoreTimelineEndPosition());
         }
 
         // ❌ ปิดปุ่ม skip
