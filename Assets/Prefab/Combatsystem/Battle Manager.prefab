@@ -9439,7 +9439,7 @@ MonoBehaviour:
   enemy: {fileID: 0}
   diceMinigame: {fileID: 6316080530874692649}
   dicePokerController: {fileID: 5394493241386521814}
-  coinBattleUIRefs: {fileID: 0}
+  coinBattleUIRefs: {fileID: 5715121762058752525}
   battleUIParent: {fileID: 3245626769205530050}
   playerMainPanel: {fileID: 6461153560616641517}
   enemyMainPanel: {fileID: 8097992718040637521}
